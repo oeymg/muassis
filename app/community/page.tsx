@@ -4,21 +4,6 @@ export const metadata: Metadata = {
   title: 'Community'
 };
 
-const metrics = [
-  {
-    value: '72h',
-    label: 'Average time to actionable feedback on a founder challenge.'
-  },
-  {
-    value: '3×',
-    label: 'Increase in warm intros to investors and operators through the network.'
-  },
-  {
-    value: '0%',
-    label: 'Equity or membership fees — we build on contribution, not paywalls.'
-  }
-];
-
 const timeline = [
   {
     title: 'Signal',
@@ -34,21 +19,6 @@ const timeline = [
     title: 'Support',
     description:
       'Unlock resources, pilots, and backers — from capital to first customers — with coordinated follow-through.'
-  }
-];
-
-const testimonials = [
-  {
-    quote:
-      'Within two weeks we uncovered partners and customers we had been chasing for months. The network moves with ihsan.',
-    name: 'Amina Rahman',
-    role: 'Founder, Noor Health Lab'
-  },
-  {
-    quote:
-      'It is rare to find a space where strategy, faith, and execution align this tightly. Mu’assis gives us that alignment.',
-    name: 'Bilal Osman',
-    role: 'Co-founder, Crescent Supply'
   }
 ];
 
@@ -98,30 +68,6 @@ export default function CommunityPage() {
             strengthen the Australian Muslim ecosystem.
           </p>
         </article>
-      </div>
-
-      <div className="community-metrics" role="list">
-        {metrics.map((metric) => (
-          <div key={metric.label} className="metric-card" role="listitem">
-            <span className="metric-value">{metric.value}</span>
-            <span className="metric-label">{metric.label}</span>
-          </div>
-        ))}
-      </div>
-
-      <div className="community-spotlight">
-        <h2>Founder reflections</h2>
-        <div className="testimonial-grid" role="list">
-          {testimonials.map((testimonial) => (
-            <blockquote key={testimonial.name} className="testimonial" role="listitem">
-              <p>{testimonial.quote}</p>
-              <cite>
-                <span>{testimonial.name}</span>
-                <span>{testimonial.role}</span>
-              </cite>
-            </blockquote>
-          ))}
-        </div>
       </div>
 
       <div className="community-timeline">

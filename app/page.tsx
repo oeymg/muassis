@@ -18,30 +18,6 @@ const pillars = [
   }
 ];
 
-const impactStats = [
-  { value: '45+', label: 'Active founders exchanging playbooks weekly.' },
-  { value: '$8M', label: 'Capital collectively deployed into purposeful ventures.' },
-  { value: '12', label: 'Industry tracks spanning tech, finance, health, and social impact.' }
-];
-
-const focusTracks = [
-  {
-    title: 'Impact Tech',
-    copy:
-      'Build digital products that empower Muslims across education, finance, and wellbeing in Australia.'
-  },
-  {
-    title: 'Real Economy',
-    copy:
-      'Launch halal ventures in property, hospitality, and manufacturing with community-backed resilience.'
-  },
-  {
-    title: 'Capital & Philanthropy',
-    copy:
-      'Design funding vehicles and waqf-inspired models that sustain founders and reinvest into the Ummah.'
-  }
-];
-
 const founderJourney = [
   {
     title: 'Connect',
@@ -97,6 +73,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="section">
+        <h2>Who we are</h2>
+        <p>Entrepreneurs, innovators, and professionals building ventures with purpose.</p>
+      </section>
+
+      <section className="section">
+        <h2>Why we’re here</h2>
+        <p>To unite Muslims, share knowledge, and shape the future together.</p>
+      </section>
+
       <section className="section pillars">
         <h2>Our Pillars</h2>
         <div className="pillars-grid" role="list">
@@ -107,40 +93,6 @@ export default function HomePage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="section impact">
-        <h2>Momentum by the numbers</h2>
-        <div className="impact-grid" role="list">
-          {impactStats.map((stat) => (
-            <article key={stat.label} className="stat-card" role="listitem">
-              <span className="stat-value">{stat.value}</span>
-              <span className="stat-label">{stat.label}</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <h2>Who we are</h2>
-        <p>Entrepreneurs, innovators, and professionals building ventures with purpose.</p>
-      </section>
-
-      <section className="section focus">
-        <h2>Tracks we activate</h2>
-        <div className="focus-grid" role="list">
-          {focusTracks.map((track) => (
-            <article key={track.title} className="focus-card" role="listitem">
-              <h3>{track.title}</h3>
-              <p>{track.copy}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section">
-        <h2>Why we’re here</h2>
-        <p>To unite Muslims, share knowledge, and shape the future together.</p>
       </section>
 
       <section className="section journey">

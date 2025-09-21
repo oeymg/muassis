@@ -415,161 +415,6 @@ button:focus-visible {
   opacity: 0.95;
 }
 
-.community-metrics {
-  display: grid;
-  gap: 1.2rem;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-}
-
-.metric-card {
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 1.4rem 1.6rem;
-  background: rgba(255, 255, 255, 0.02);
-  display: grid;
-  gap: 0.6rem;
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
-}
-
-.metric-value {
-  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.metric-label {
-  color: var(--muted);
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
-}
-
-.community-timeline {
-  display: grid;
-  gap: 1.4rem;
-}
-
-.community-timeline h2 {
-  font-size: clamp(1.5rem, 3vw, 2.1rem);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.community-timeline ol {
-  list-style: none;
-  counter-reset: steps;
-  display: grid;
-  gap: 1rem;
-  padding-left: 0;
-}
-
-.community-timeline li {
-  position: relative;
-  padding-left: 3.2rem;
-  border-left: 1px solid var(--border);
-  padding-bottom: 1.4rem;
-}
-
-.community-timeline li:last-child {
-  padding-bottom: 0;
-}
-
-.community-timeline li::before {
-  counter-increment: steps;
-  content: counter(steps);
-  position: absolute;
-  left: -0.05rem;
-  top: -0.2rem;
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  width: 2.2rem;
-  height: 2.2rem;
-  display: grid;
-  place-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  font-size: 0.9rem;
-  letter-spacing: 0.12em;
-}
-
-.timeline-step {
-  text-transform: uppercase;
-  letter-spacing: 0.24em;
-  font-size: 0.9rem;
-}
-
-.community-timeline p {
-  color: var(--muted);
-  margin-top: 0.4rem;
-}
-
-.join-section {
-  display: grid;
-  gap: clamp(2rem, 5vw, 3rem);
-}
-
-.join-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: clamp(2rem, 4vw, 3rem);
-  align-items: start;
-}
-
-.join-copy {
-  display: grid;
-  gap: 1rem;
-  color: var(--muted);
-}
-
-.join-copy p {
-  color: var(--muted);
-}
-
-.join-benefits {
-  list-style: none;
-  display: grid;
-  gap: 0.8rem;
-  padding-left: 0;
-}
-
-.join-benefits li {
-  position: relative;
-  padding-left: 1.6rem;
-  color: var(--muted);
-}
-
-.join-benefits li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-size: 1rem;
-}
-
-.join-note {
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-
-@media (max-width: 768px) {
-  .cta-section {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .cta-button {
-    width: 100%;
-  }
-
-  .pillars-grid,
-  .community-grid,
-  .community-metrics,
-  .community-timeline ol,
-  .join-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
 .hero-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -629,65 +474,6 @@ button:focus-visible {
   font-size: 0.95rem;
 }
 
-.impact {
-  display: grid;
-  gap: 2rem;
-}
-
-.impact-grid {
-  display: grid;
-  gap: 1.4rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-}
-
-.stat-card {
-  border: 1px solid var(--border);
-  border-radius: 1.1rem;
-  padding: 1.8rem 1.6rem;
-  background: rgba(255, 255, 255, 0.02);
-  display: grid;
-  gap: 0.6rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-.stat-value {
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-}
-
-.stat-label {
-  color: var(--muted);
-  letter-spacing: 0.04em;
-}
-
-.focus {
-  display: grid;
-  gap: 2.4rem;
-}
-
-.focus-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-}
-
-.focus-card {
-  border: 1px solid var(--border);
-  border-radius: 1.2rem;
-  padding: 1.8rem;
-  background: rgba(255, 255, 255, 0.03);
-  display: grid;
-  gap: 0.8rem;
-  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.32);
-}
-
-.focus-card h3 {
-  text-transform: uppercase;
-  letter-spacing: 0.22em;
-  font-size: 0.95rem;
-}
-
 .journey {
   display: grid;
   gap: 1.6rem;
@@ -735,39 +521,8 @@ button:focus-visible {
   font-size: 0.9rem;
 }
 
-.focus-card p,
 .journey p {
   color: var(--muted);
-}
-
-.testimonial-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-
-.testimonial {
-  border: 1px solid var(--border);
-  border-radius: 1.3rem;
-  padding: 1.8rem;
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.32);
-  display: grid;
-  gap: 1.2rem;
-}
-
-.testimonial p {
-  color: var(--muted);
-  font-style: italic;
-}
-
-.testimonial cite {
-  display: grid;
-  gap: 0.2rem;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-size: 0.75rem;
-  color: var(--accent);
 }
 
 .collaboration-grid {
@@ -796,23 +551,157 @@ button:focus-visible {
   color: var(--muted);
 }
 
-.form-guidance {
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-  padding: 1.4rem 1.6rem;
-  background: rgba(255, 255, 255, 0.02);
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.26);
+.community-timeline {
   display: grid;
-  gap: 0.8rem;
+  gap: 1.4rem;
 }
 
-.form-guidance h2 {
+.community-timeline h2 {
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.community-timeline ol {
+  list-style: none;
+  counter-reset: steps;
+  display: grid;
+  gap: 1rem;
+  padding-left: 0;
+}
+
+.community-timeline li {
+  position: relative;
+  padding-left: 3.2rem;
+  border-left: 1px solid var(--border);
+  padding-bottom: 1.4rem;
+}
+
+.community-timeline li:last-child {
+  padding-bottom: 0;
+}
+
+.community-timeline li::before {
+  counter-increment: steps;
+  content: counter(steps);
+  position: absolute;
+  left: -0.05rem;
+  top: -0.2rem;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 2.2rem;
+  height: 2.2rem;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+}
+
+.community-timeline p {
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+
+.join-section {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3rem);
+}
+
+.join-overview {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.slack-banner {
+  border: 1px solid var(--border);
+  border-radius: 1.4rem;
+  padding: clamp(2rem, 5vw, 3rem);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.34);
+  display: grid;
+  gap: 1.75rem;
+}
+
+.slack-copy {
+  display: grid;
+  gap: 1rem;
+}
+
+.slack-copy h2 {
   text-transform: uppercase;
   letter-spacing: 0.18em;
-  font-size: 0.85rem;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
 }
 
-.form-guidance ol {
+.slack-copy p {
+  color: var(--muted);
+}
+
+.slack-highlights {
+  list-style: none;
+  display: grid;
+  gap: 0.7rem;
+  padding-left: 0;
+}
+
+.slack-highlights li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--muted);
+}
+
+.slack-highlights li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 1.2rem;
+}
+
+.slack-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--foreground);
+  background: var(--foreground);
+  color: #030303;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+.slack-button:hover,
+.slack-button:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 28px 56px rgba(245, 245, 245, 0.28);
+  opacity: 0.95;
+}
+
+.join-guidance {
+  border: 1px solid var(--border);
+  border-radius: 1.2rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  background: rgba(255, 255, 255, 0.02);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.32);
+  display: grid;
+  gap: 1rem;
+}
+
+.join-guidance h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 1rem;
+}
+
+.join-guidance p {
+  color: var(--muted);
+}
+
+.join-guidance ol {
   list-style: decimal-leading-zero;
   padding-left: 1.2rem;
   display: grid;
@@ -820,35 +709,32 @@ button:focus-visible {
   color: var(--muted);
 }
 
-.form-title {
-  text-transform: uppercase;
-  letter-spacing: 0.18em;
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-}
-
-select {
-  width: 100%;
-  padding: 1rem 1.1rem;
+.join-welcome {
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--foreground);
-  font-family: inherit;
-  font-weight: inherit;
-  letter-spacing: 0.03em;
-  border-radius: 0.9rem;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  border-radius: 1.4rem;
+  padding: clamp(2.2rem, 5vw, 3.2rem);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+  box-shadow: 0 26px 52px rgba(0, 0, 0, 0.38);
+  text-align: center;
+  display: grid;
+  gap: 1rem;
 }
 
-select:focus {
-  outline: none;
-  border-color: rgba(245, 245, 245, 0.35);
-  background: rgba(255, 255, 255, 0.05);
+.join-welcome h2 {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: clamp(1.8rem, 4.5vw, 2.6rem);
 }
 
-.form-status {
-  font-size: 0.75rem;
-  letter-spacing: 0.16em;
+.join-welcome p {
+  color: var(--muted);
+  max-width: 48ch;
+  margin: 0 auto;
+}
+
+.join-note {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
 }
@@ -863,11 +749,19 @@ select:focus {
     grid-template-columns: 1fr;
   }
 
-  .impact-grid,
-  .focus-grid,
-  .testimonial-grid,
-  .collaboration-grid {
+  .pillars-grid,
+  .community-grid,
+  .collaboration-grid,
+  .community-timeline ol {
     grid-template-columns: 1fr;
+  }
+
+  .join-welcome {
+    padding: 2rem;
+  }
+
+  .slack-banner {
+    padding: 1.75rem;
   }
 
   .journey li {

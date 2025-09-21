@@ -1,100 +1,64 @@
+import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Join'
 };
 
-const benefits = [
-  'Access curated founder circles and themed working sessions.',
-  'Get matched with mentors, service partners, and values-aligned investors.',
-  'Share your challenges and receive structured feedback within 72 hours.',
-  'Co-build ventures with founders who share your vision and principles.'
+const slackHighlights = [
+  'Join real-time channels for venture updates, intros, and resource swaps.',
+  'Drop questions and receive direction from fellow founders and operators.',
+  'Gather for async stand-ups and keep momentum between live sessions.'
 ];
-
-const prepSteps = [
-  'Have a concise description of your venture or idea (under 200 words).',
-  'Share the traction or validation you have so far — pilot, prototype, or community signal.',
-  'Let us know what support you are seeking in the next 90 days.'
-];
-
-const stages = ['Idea', 'MVP', 'In Market', 'Scale'];
 
 export default function JoinPage() {
   return (
     <section className="section join-section">
       <h1>Join the Muslim Founders Club</h1>
-      <div className="join-layout">
-        <div className="join-copy">
+
+      <div className="slack-banner">
+        <div className="slack-copy">
+          <h2>Step inside our Slack community</h2>
           <p>
-            Tell us about the venture or idea you are nurturing. We review each submission, connect
-            you with the right circles, and invite you into forums that amplify your next move.
+            Mu’assis members gather on Slack to exchange insights, open doors, and stand shoulder to
+            shoulder as they build.
           </p>
-          <ul className="join-benefits">
-            {benefits.map((benefit) => (
-              <li key={benefit}>{benefit}</li>
+          <ul className="slack-highlights">
+            {slackHighlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
             ))}
           </ul>
-          <div className="form-guidance">
-            <h2>What to prepare</h2>
-            <ol>
-              {prepSteps.map((step) => (
-                <li key={step}>{step}</li>
-              ))}
-            </ol>
-          </div>
-          <p className="join-note">Submissions are reviewed weekly. Expect a reply within 5 business days.</p>
+        </div>
+        <Link
+          className="slack-button"
+          href="https://join.slack.com/t/muassismuslim-2ea1047/shared_invite/zt-3dwd96j79-eERof5OJlSwL02mjbkGhYQ"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Enter the Slack Community
+        </Link>
+      </div>
+
+      <div className="join-overview">
+        <div className="join-guidance">
+          <h2>How to introduce yourself</h2>
+          <p>
+            When you arrive in Slack, share a short intro in the <code>#introductions</code> channel:
+          </p>
+          <ol>
+            <li>Your name, venture, and where you are based.</li>
+            <li>The problem you are solving and who you serve.</li>
+            <li>The kind of support or collaborators you hope to find.</li>
+          </ol>
         </div>
 
-        <form aria-labelledby="join-form-heading">
-          <h2 id="join-form-heading" className="form-title">
-            Share your details
-          </h2>
-          <label htmlFor="name">Name</label>
-          <input id="name" name="name" type="text" placeholder="Your name" required />
-
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="you@example.com"
-            required
-          />
-
-          <label htmlFor="stage">Stage</label>
-          <select id="stage" name="stage" defaultValue="" required>
-            <option value="" disabled>
-              Select your current stage
-            </option>
-            {stages.map((stage) => (
-              <option key={stage} value={stage}>
-                {stage}
-              </option>
-            ))}
-          </select>
-
-          <label htmlFor="venture">Tell us about your venture/idea.</label>
-          <textarea
-            id="venture"
-            name="venture"
-            placeholder="Share your vision"
-            required
-          />
-
-          <label htmlFor="support">What support do you need next?</label>
-          <textarea
-            id="support"
-            name="support"
-            placeholder="Workshopping strategy, hiring, capital, product, etc."
-            required
-          />
-
-          <div className="form-status" aria-live="polite">
-            We’ll send a confirmation email once we receive your submission.
-          </div>
-
-          <button type="submit">Join Now</button>
-        </form>
+        <div className="join-welcome">
+          <h2>Welcome to Mu’assis</h2>
+          <p>
+            Build boldly, anchor your vision in faith, and walk with founders who are shaping futures
+            together.
+          </p>
+        </div>
       </div>
     </section>
   );
