@@ -72,14 +72,17 @@ export default function CommunityPage() {
 
       <div className="community-timeline">
         <h2>From idea to impact</h2>
-        <ol>
-          {timeline.map((item) => (
-            <li key={item.title}>
-              <span className="timeline-step">{item.title}</span>
-              <p>{item.description}</p>
-            </li>
+        <div className="timeline-track">
+          {timeline.map((item, index) => (
+            <article key={item.title} className="timeline-node">
+              <span className="timeline-index">{index + 1}</span>
+              <div className="timeline-content">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            </article>
           ))}
-        </ol>
+        </div>
       </div>
 
       <div className="community-next">

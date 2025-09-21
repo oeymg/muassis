@@ -97,27 +97,50 @@ export default function HomePage() {
 
       <section className="section journey">
         <h2>The founder journey</h2>
-        <ol>
-          {founderJourney.map((stage) => (
-            <li key={stage.title}>
-              <span className="journey-step">{stage.title}</span>
-              <p>{stage.description}</p>
-            </li>
+        <div className="journey-track">
+          {founderJourney.map((stage, index) => (
+            <article key={stage.title} className="journey-node">
+              <span className="journey-index">{index + 1}</span>
+              <div className="journey-content">
+                <h3>{stage.title}</h3>
+                <p>{stage.description}</p>
+              </div>
+            </article>
           ))}
-        </ol>
+        </div>
       </section>
 
       <section className="section cta-section">
-        <div className="cta-copy">
+        <div className="cta-hero">
+          <span className="cta-kicker">Collective Blueprint</span>
           <h2>Build with the Ummah</h2>
           <p>
-            Join a founders club that pairs conviction with execution. Share your vision, find
-            collaborators, and accelerate the impact of ventures rooted in faith.
+            Partner with Muslim founders who turn conviction into momentum. We share systems, talent,
+            and belief so ventures launch sharper and scale with integrity.
           </p>
+          <div className="cta-actions">
+            <Link className="cta-button" href="/join">
+              Join the network
+            </Link>
+            <Link className="link-ghost" href="/community">
+              Explore the community
+            </Link>
+          </div>
         </div>
-        <Link className="cta-button" href="/join">
-          Join the network
-        </Link>
+        <div className="cta-grid" role="list">
+          <article className="cta-card" role="listitem">
+            <h3>Founder Studio</h3>
+            <p>Build alongside venture squads who pair product craft with sharia-aligned governance.</p>
+          </article>
+          <article className="cta-card" role="listitem">
+            <h3>Shared Playbooks</h3>
+            <p>Tap into operating rhythms, hiring pipelines, and capital bridges sourced by the network.</p>
+          </article>
+          <article className="cta-card" role="listitem">
+            <h3>Reciprocal Support</h3>
+            <p>Trade time, intros, and dua — every win feeds back into the Ummah’s next wave of builders.</p>
+          </article>
+        </div>
       </section>
     </>
   );
