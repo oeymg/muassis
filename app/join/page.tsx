@@ -2,7 +2,12 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Join'
+  title: 'Join the Mu’assis Muslim Founders Club',
+  description:
+    'Apply to Mu’assis to connect with Muslim founders across Australia, access curated circles, and collaborate through our community Slack.',
+  alternates: {
+    canonical: '/join'
+  }
 };
 
 const slackHighlights = [

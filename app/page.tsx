@@ -1,4 +1,14 @@
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Mu’assis: Muslim Founders Network in Australia',
+  description:
+    'Discover Mu’assis, a Muslim founders network in Australia empowering entrepreneurs, innovators, and professionals building ventures with purpose.',
+  alternates: {
+    canonical: '/'
+  }
+};
 
 const pillars = [
   {

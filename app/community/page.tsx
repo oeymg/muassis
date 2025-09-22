@@ -1,7 +1,18 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Community'
+  title: 'Community | Mu’assis: Muslim Founders Australia',
+  description:
+    'Explore how Mu’assis activates Muslim founders through shared intelligence, collective resources, and collaborative builds across Australia.',
+  alternates: {
+    canonical: '/community'
+  },
+  openGraph: {
+    title: 'Community | Mu’assis',
+    description:
+      'See how Muslim founders in Australia collaborate via Mu’assis to surface needs, share solutions, and co-build ventures.',
+    url: 'https://muassis.org/community'
+  }
 };
 
 const timeline = [
