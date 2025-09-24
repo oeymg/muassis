@@ -1,35 +1,40 @@
-import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Community | Mu’assis: Muslim Founders Australia',
-  description:
-    'Explore how Mu’assis activates Muslim founders through shared intelligence, collective resources, and collaborative builds across Australia.',
-  alternates: {
-    canonical: '/community'
-  },
-  openGraph: {
-    title: 'Community | Mu’assis',
+export const metadata = createPageMetadata('community');
+
+const futures = [
+  {
+    title: 'Business',
     description:
-      'See how Muslim founders in Australia collaborate via Mu’assis to surface needs, share solutions, and co-build ventures.',
-    url: 'https://muassis.org/community'
+      'Founders, startups, and operators building ventures that honour faith and deliver sustainable growth.'
+  },
+  {
+    title: 'Ummah',
+    description:
+      'Community-first collaborations that strengthen collective resilience, shared resources, and belonging.'
+  },
+  {
+    title: 'Next Generation',
+    description:
+      'Mentorship pipelines, visible role models, and clear pathways for Muslim youth to build and lead.'
   }
-};
+];
 
 const timeline = [
   {
     title: 'Signal',
     description:
-      'Share the problem you are tackling with the community pulse. We map demand and surface shared needs.'
+      'Founder circles surface the most urgent needs facing our businesses, families, and neighbourhoods.'
   },
   {
     title: 'Shape',
     description:
-      'Co-design solutions through challenge sprints, pairing founders with domain experts and mentors.'
+      'Challenge sprints pair problem owners with domain experts to co-design solutions the whole ummah can trust.'
   },
   {
     title: 'Support',
     description:
-      'Unlock resources, pilots, and backers — from capital to first customers — with coordinated follow-through.'
+      'Coordinated follow-through delivers resources, pilots, capital, and dua so every build sustains momentum.'
   }
 ];
 
@@ -51,38 +56,23 @@ const collaborations = [
 export default function CommunityPage() {
   return (
     <section className="section community">
-      <h1>What the Ummah Needs</h1>
-      <p>
-        We are creating a collaborative engine where Muslim founders surface challenges, test
-        solutions, and back each other with capital, time, and dua.
+      <h1>The Futures We’re Building</h1>
+      <p className="community-lede">
+        Each layer of Mu’assis is designed to compound impact — from the ventures we launch, to the
+        community we fortify, to the young Muslims who will inherit every blueprint we draft today.
       </p>
 
       <div className="community-grid" role="list">
-        <article className="community-card" role="listitem">
-          <h3>Shared Intelligence</h3>
-          <p>
-            Map unmet needs across sectors, validate insights with the community, and publish
-            actionable briefs that help ventures launch with clarity.
-          </p>
-        </article>
-        <article className="community-card" role="listitem">
-          <h3>Collective Resources</h3>
-          <p>
-            Pool mentorship, professional services, and aligned investors so founders can access the
-            right expertise at the right moment in their journey.
-          </p>
-        </article>
-        <article className="community-card" role="listitem">
-          <h3>Collaborative Builds</h3>
-          <p>
-            Form venture squads that prototype, test, and iterate together to deliver products that
-            strengthen the Australian Muslim ecosystem.
-          </p>
-        </article>
+        {futures.map((future) => (
+          <article key={future.title} className="community-card" role="listitem">
+            <h3>{future.title}</h3>
+            <p>{future.description}</p>
+          </article>
+        ))}
       </div>
 
       <div className="community-timeline">
-        <h2>From idea to impact</h2>
+        <h2>How each future comes to life</h2>
         <div className="timeline-track">
           {timeline.map((item, index) => (
             <article key={item.title} className="timeline-node">
@@ -97,11 +87,11 @@ export default function CommunityPage() {
       </div>
 
       <div className="community-next">
-        <h2>How we move forward</h2>
+        <h2>How we keep building</h2>
         <ul>
-          <li>Monthly founder circles to surface pressing needs and share playbooks.</li>
-          <li>Challenge sprints pairing domain experts with problem owners.</li>
-          <li>Digital knowledge hub curating research, tools, and case studies.</li>
+          <li>Monthly founder circles to exchange intelligence across business, ummah, and youth needs.</li>
+          <li>Challenge sprints activating mentors, operators, and partners around focused problem statements.</li>
+          <li>Digital knowledge hubs archiving playbooks so the next generation can pick up and accelerate.</li>
         </ul>
       </div>
 

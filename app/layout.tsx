@@ -2,46 +2,9 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
+import { createRootMetadata, organizationSchema, websiteSchema } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://muassis.org'),
-  title: {
-    default: 'Mu’assis: Muslim Founders Australia',
-    template: '%s | Mu’assis'
-  },
-  description:
-    'Mu’assis is a Muslim founders network in Australia uniting entrepreneurs, innovators, and professionals building ventures with purpose.',
-  keywords: [
-    'Mu’assis',
-    'Muslim founders',
-    'Muslim entrepreneurs Australia',
-    'Islamic startups',
-    'Muslim venture network'
-  ],
-  alternates: {
-    canonical: '/'
-  },
-  openGraph: {
-    title: 'Mu’assis: Muslim Founders Australia',
-    description:
-      'A Muslim founders network in Australia uniting entrepreneurs, innovators, and professionals building ventures with purpose.',
-    url: 'https://muassis.org',
-    siteName: 'Mu’assis',
-    locale: 'en_AU',
-    type: 'website'
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Mu’assis: Muslim Founders Australia',
-    description:
-      'A Muslim founders network in Australia uniting entrepreneurs, innovators, and professionals building ventures with purpose.',
-    creator: '@muassis_org'
-  },
-  robots: {
-    index: true,
-    follow: true
-  }
-};
+export const metadata: Metadata = createRootMetadata();
 
 export default function RootLayout({
   children
@@ -56,15 +19,7 @@ export default function RootLayout({
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'Mu’assis: Muslim Founders Australia',
-              url: 'https://muassis.org',
-              logo: 'https://muassis.org/favicon.ico',
-              missionStatement:
-                'A Muslim founders network in Australia uniting entrepreneurs, innovators, and professionals building ventures with purpose.'
-            })
+            __html: JSON.stringify(organizationSchema)
           }}
         />
         <Script
@@ -72,22 +27,20 @@ export default function RootLayout({
           type="application/ld+json"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: 'Mu’assis',
-              url: 'https://muassis.org'
-            })
+            __html: JSON.stringify(websiteSchema)
           }}
         />
         <header className="site-header">
           <div className="navbar">
-            <div className="brand">Mu’assis</div>
+            <div className="brand-name">Mu’assis</div>
             <Navigation />
           </div>
         </header>
         <main>{children}</main>
-        <footer>Mu’assis: Muslim Founders Australia — Uniting Muslims to Shape Futures.</footer>
+        <footer>
+          Mu’assis: Muslim Founders Australia — Uniting Muslims to Shape Futures — in business, in
+          community, and for the next generation.
+        </footer>
       </body>
     </html>
   );

@@ -1,14 +1,7 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Join the Mu’assis Muslim Founders Club',
-  description:
-    'Apply to Mu’assis to connect with Muslim founders across Australia, access curated circles, and collaborate through our community Slack.',
-  alternates: {
-    canonical: '/join'
-  }
-};
+export const metadata = createPageMetadata('join');
 
 const slackHighlights = [
   'Join real-time channels for venture updates, intros, and resource swaps.',

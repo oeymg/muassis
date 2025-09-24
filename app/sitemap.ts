@@ -1,18 +1,11 @@
 import type { MetadataRoute } from 'next';
-
-const baseUrl = 'https://muassis.org';
+import { SITE_URL, seoPages } from '@/lib/seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = [
-    '',
-    '/community',
-    '/join'
-  ];
-
   const lastModified = new Date();
 
-  return routes.map((route) => ({
-    url: `${baseUrl}${route}`,
+  return Object.values(seoPages).map(({ path }) => ({
+    url: `${SITE_URL}${path === '/' ? '' : path}`,
     lastModified
   }));
 }

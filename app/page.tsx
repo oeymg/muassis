@@ -1,14 +1,25 @@
 import Link from 'next/link';
-import type { Metadata } from 'next';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Mu’assis: Muslim Founders Network in Australia',
-  description:
-    'Discover Mu’assis, a Muslim founders network in Australia empowering entrepreneurs, innovators, and professionals building ventures with purpose.',
-  alternates: {
-    canonical: '/'
+export const metadata = createPageMetadata('home');
+
+const heroFutures = [
+  {
+    title: 'Business',
+    copy:
+      'Accountability circles, shared playbooks, and faith-centred governance so every venture compounds value.'
+  },
+  {
+    title: 'Ummah',
+    copy:
+      'Collaborative builds that channel capital, talent, and dua into solutions our communities urgently need.'
+  },
+  {
+    title: 'Next Generation',
+    copy:
+      'Role models, mentorship, and pathways that invite young Muslims to found, lead, and inherit with confidence.'
   }
-};
+];
 
 const pillars = [
   {
@@ -48,16 +59,14 @@ export default function HomePage() {
     <>
       <section className="section hero hero-grid">
         <div className="hero-intro">
-          <span className="eyebrow">What we are</span>
-          <h1>Mu’assis</h1>
-          <p>A Muslim founders network in Australia.</p>
-          <p className="muted-line">
-            Mu’assis (مؤسس) translates to “the establisher” — a founder who lays enduring foundations
-            for purposeful ventures.
+          <h1>Uniting Muslims to Shape Futures.</h1>
+          <p className="hero-subhead">
+            Not just futures in business — but the future of our ummah, and the next generation who will
+            inherit it.
           </p>
           <div className="hero-actions">
             <Link className="cta-button" href="/join">
-              Join the network
+              Join Mu’assis →
             </Link>
             <Link className="link-ghost" href="/community">
               Explore the community
@@ -65,32 +74,25 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="hero-panels">
-          <div className="hero-panel">
-            <h2>Founders in motion</h2>
-            <p>
-              Weekly circles, operating playbooks, and shared accountability so every builder stays on
-              track.
-            </p>
-          </div>
-          <div className="hero-panel">
-            <h2>Backed by purpose</h2>
-            <p>
-              We design ventures that honour faith, strengthen community, and deliver sustainable
-              impact.
-            </p>
-          </div>
+        <div className="hero-panels" role="list">
+          {heroFutures.map((future) => (
+            <article key={future.title} className="hero-panel" role="listitem">
+              <h2>{future.title}</h2>
+              <p>{future.copy}</p>
+            </article>
+          ))}
         </div>
       </section>
 
-      <section className="section">
-        <h2>Who we are</h2>
-        <p>Entrepreneurs, innovators, and professionals building ventures with purpose.</p>
-      </section>
-
-      <section className="section">
-        <h2>Why we’re here</h2>
-        <p>To unite Muslims, share knowledge, and shape the future together.</p>
+      <section className="section vision">
+        <h2>Our Vision</h2>
+        <p className="vision-lede">
+          At Mu’assis, we believe that building businesses is only the beginning. Mu’assis (مؤسس)
+          translates to “the establisher” — a reminder that every Muslim carries the qualities needed to
+          lay enduring foundations for our ummah. Every venture, every idea, every founder contributes to
+          shaping something bigger — the prosperity of our ummah and the future we leave for the next
+          generation.
+        </p>
       </section>
 
       <section className="section pillars">
@@ -130,7 +132,7 @@ export default function HomePage() {
           </p>
           <div className="cta-actions">
             <Link className="cta-button" href="/join">
-              Join the network
+              Join Mu’assis →
             </Link>
             <Link className="link-ghost" href="/community">
               Explore the community

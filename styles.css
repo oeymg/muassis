@@ -44,7 +44,7 @@ header {
   gap: 1.5rem;
 }
 
-.brand {
+.brand-name {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 1rem;
@@ -82,6 +82,76 @@ main {
 .section p {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   letter-spacing: 0.02em;
+}
+
+.hero {
+  display: grid;
+  gap: 1.75rem;
+}
+
+.hero-subhead {
+  font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+  letter-spacing: 0.04em;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.cta-button,
+.link-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid var(--foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.88rem;
+}
+
+.cta-button {
+  background: var(--foreground);
+  color: var(--background);
+  transition: opacity 0.2s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  opacity: 0.85;
+}
+
+.link-ghost {
+  background: transparent;
+  color: var(--foreground);
+}
+
+.vision {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.vision-lede,
+.community-lede {
+  max-width: none;
+  width: 100%;
+}
+
+.pillars {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.pillars article {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.pillars h2 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
 }
 
 footer {
@@ -161,5 +231,14 @@ button:focus {
 
   .section {
     margin-bottom: 3rem;
+  }
+
+  .hero {
+    gap: 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
   }
 }
