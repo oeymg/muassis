@@ -753,16 +753,16 @@ main {
 .newsletter-form input {
   flex: 1;
   padding: 0.85rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(5, 5, 5, 0.4);
   border-radius: 999px;
   font-size: 0.95rem;
   font-weight: 500;
-  color: #ffffff;
-  background: transparent;
+  color: #050505;
+  background: rgba(5, 5, 5, 0.04);
 }
 
 .newsletter-form input::placeholder {
-  color: rgba(255, 255, 255, 0.65);
+  color: rgba(5, 5, 5, 0.45);
 }
 
 .newsletter-form button {
