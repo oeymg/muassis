@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
+import { HomeNewsletterModal } from '@/components/HomeNewsletterModal';
 
 export const metadata = createPageMetadata('home');
 
@@ -21,24 +22,6 @@ const heroFutures = [
   }
 ];
 
-const pillars = [
-  {
-    title: 'Faith-Driven Strategy',
-    copy:
-      'Navigate growth with Islamic principles at the core of every decision, from governance to go-to-market.'
-  },
-  {
-    title: 'Community Intelligence',
-    copy:
-      'Surface real needs across the Australian Muslim community and build ventures that answer them directly.'
-  },
-  {
-    title: 'Mutual Support',
-    copy:
-      'Surround every founder with mentors, operators, and investors committed to collective success.'
-  }
-];
-
 const founderJourney = [
   {
     title: 'Connect',
@@ -51,6 +34,21 @@ const founderJourney = [
   {
     title: 'Compound',
     description: 'Scale with shared customers, talent pipelines, and reinvested returns.'
+  }
+];
+
+const visionHighlights = [
+  {
+    title: 'Faith-Led Foundations',
+    copy: 'We blueprint every venture with prophetic principles so momentum never asks us to compromise our deen.'
+  },
+  {
+    title: 'Collective Intelligence',
+    copy: 'We listen to founders, families, and investors across the Ummah, focusing our builds where impact compounds.'
+  },
+  {
+    title: 'Generational Continuity',
+    copy: 'We design systems the next generation can inherit — ventures with governance and culture that endure beyond us.'
   }
 ];
 
@@ -85,23 +83,20 @@ export default function HomePage() {
       </section>
 
       <section className="section vision">
-        <h2>Our Vision</h2>
-        <p className="vision-lede">
-          At Mu’assis, we believe that building businesses is only the beginning. Mu’assis (مؤسس)
-          translates to “the establisher” — a reminder that every Muslim carries the qualities needed to
-          lay enduring foundations for our ummah. Every venture, every idea, every founder contributes to
-          shaping something bigger — the prosperity of our ummah and the future we leave for the next
-          generation.
-        </p>
-      </section>
-
-      <section className="section pillars">
-        <h2>Our Pillars</h2>
-        <div className="pillars-grid" role="list">
-          {pillars.map((pillar) => (
-            <article key={pillar.title} className="pillar-card" role="listitem">
-              <h3>{pillar.title}</h3>
-              <p>{pillar.copy}</p>
+        <div className="vision-header">
+          <span className="vision-kicker">Why we build</span>
+          <h2>Our Vision</h2>
+          <p className="vision-lede">
+            Mu’assis (مؤسس) means “the establisher”. We believe every Muslim founder carries that calling —
+            to lay enduring foundations for our ummah, to activate collective resources, and to leave a
+            blueprint the next generation can advance.
+          </p>
+        </div>
+        <div className="vision-grid" role="list">
+          {visionHighlights.map((highlight) => (
+            <article key={highlight.title} className="vision-card" role="listitem">
+              <h3>{highlight.title}</h3>
+              <p>{highlight.copy}</p>
             </article>
           ))}
         </div>
@@ -154,6 +149,8 @@ export default function HomePage() {
           </article>
         </div>
       </section>
+
+      <HomeNewsletterModal />
     </>
   );
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
+import { NewsletterForm } from '@/components/NewsletterForm';
 
 export const metadata = createPageMetadata('join');
 
@@ -49,15 +50,16 @@ export default function JoinPage() {
             <li>The kind of support or collaborators you hope to find.</li>
           </ol>
         </div>
-
-        <div className="join-welcome">
-          <h2>Welcome to Mu’assis</h2>
-          <p>
-            Build boldly, anchor your vision in faith, and walk with founders who are shaping futures
-            together.
-          </p>
-        </div>
       </div>
+
+      <section className="join-newsletter" aria-labelledby="join-newsletter-heading">
+        <h2 id="join-newsletter-heading">Subscribe to the Mu’assis Newsletter</h2>
+        <p>
+          Stay close to the founders, stories, and tools we are crafting together. Get occasional updates
+          on upcoming builds, community happenings, and ways to contribute.
+        </p>
+        <NewsletterForm className="newsletter-form" />
+      </section>
     </section>
   );
 }
