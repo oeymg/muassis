@@ -665,6 +665,12 @@ main {
   color: var(--muted);
 }
 
+.slack-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+}
+
 .slack-highlights {
   list-style: none;
   display: grid;
