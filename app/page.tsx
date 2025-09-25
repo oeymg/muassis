@@ -120,32 +120,26 @@ export default function HomePage() {
       <section className="section cta-section">
         <div className="cta-hero">
           <span className="cta-kicker">Collective Blueprint</span>
-          <h2>Build with the Ummah</h2>
-          <p>
-            Partner with Muslim founders who turn conviction into momentum. We share systems, talent,
-            and belief so ventures launch sharper and scale with integrity.
-          </p>
-          <div className="cta-actions">
-            <Link className="cta-button" href="/join">
-              Join Mu’assis →
-            </Link>
-            <Link className="link-ghost" href="/community">
-              Explore the community
-            </Link>
+          <div className="cta-heading-row">
+            <h2>Build with the Ummah</h2>
+            <div className="cta-actions">
+              <Link className="cta-button" href="/join">
+                Join Mu’assis →
+              </Link>
+              <Link className="link-ghost" href="/community">
+                Explore the community
+              </Link>
+            </div>
           </div>
         </div>
         <div className="cta-grid" role="list">
-          <article className="cta-card" role="listitem">
-            <h3>Founder Studio</h3>
-            <p>Build alongside venture squads who pair product craft with sharia-aligned governance.</p>
-          </article>
-          <article className="cta-card" role="listitem">
-            <h3>Shared Playbooks</h3>
-            <p>Tap into operating rhythms, hiring pipelines, and capital bridges sourced by the network.</p>
-          </article>
-          <article className="cta-card" role="listitem">
-            <h3>Reciprocal Support</h3>
-            <p>Trade time, intros, and dua — every win feeds back into the Ummah’s next wave of builders.</p>
+          <article className="cta-card accelerator-card" role="listitem">
+            <h3>Muslim founders don’t build alone.</h3>
+            <p>
+              The Mu’assis Accelerator will connect mentors, playbooks, and peers who share intros, talent, and dua —
+              so every win multiplies across the ummah.
+            </p>
+            <p className="accelerator-note">→ Launching soon.</p>
           </article>
         </div>
       </section>

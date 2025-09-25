@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
 :root {
   --background: #050505;
   --surface-100: rgba(255, 255, 255, 0.02);
@@ -41,6 +43,12 @@ a {
 a:hover,
 a:focus-visible {
   text-decoration: underline;
+}
+
+.site-header,
+.site-header * {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
 }
 
 .site-header {
@@ -279,15 +287,29 @@ main {
 
 .cta-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: clamp(2.4rem, 6vw, 3.6rem);
-  align-items: stretch;
+  align-items: start;
 }
 
 .cta-hero {
   display: grid;
   gap: clamp(1.4rem, 3vw, 2rem);
   align-content: start;
+}
+
+.cta-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-heading-row .cta-actions {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .cta-kicker {
@@ -329,6 +351,28 @@ main {
   transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
+.accelerator-card {
+  display: grid;
+  gap: 1.2rem;
+  padding: clamp(1.8rem, 3.5vw, 2.4rem);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: clamp(1.2rem, 3vw, 1.5rem);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.38);
+  text-align: center;
+  align-items: center;
+  width: 100%;
+}
+
+.accelerator-card h3,
+.accelerator-card p {
+  max-width: 100%;
+}
+
+.accelerator-note {
+  color: rgba(245, 245, 245, 0.72);
+}
+
 .cta-card:hover {
   transform: translateY(-5px);
   border-color: rgba(255, 255, 255, 0.22);
@@ -343,6 +387,17 @@ main {
 
 .cta-card p {
   color: var(--muted);
+}
+
+.accelerator-card h3 {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: rgba(245, 245, 245, 0.9);
+}
+
+.accelerator-card p {
+  color: rgba(245, 245, 245, 0.75);
 }
 
 .cta-button,
@@ -794,6 +849,16 @@ main {
   text-align: center;
 }
 
+.join-newsletter .newsletter-form input {
+  border-color: #ffffff;
+  color: #ffffff;
+  background: transparent;
+}
+
+.join-newsletter .newsletter-form input::placeholder {
+  color: rgba(255, 255, 255, 0.8);
+}
+
 .join-newsletter h2 {
   text-transform: uppercase;
   letter-spacing: 0.2em;
@@ -804,6 +869,12 @@ main {
   margin: 0 auto;
   color: var(--muted);
   max-width: 48ch;
+}
+
+footer,
+footer * {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
 }
 
 footer {
