@@ -36,6 +36,17 @@ export default function JoinPage() {
         >
           Enter the Slack Community
         </Link>
+        <p>
+          We are building a community on Slack and WhatsApp.{' '}
+          <Link
+            href="https://chat.whatsapp.com/GCckr3Gcgvo8C0WkwU66hc"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Join the WhatsApp group
+          </Link>
+          .
+        </p>
       </div>
 
       <div className="join-overview">
