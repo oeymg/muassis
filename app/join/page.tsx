@@ -19,8 +19,8 @@ export default function JoinPage() {
         <div className="slack-copy">
           <h2>Step inside our Slack community</h2>
           <p>
-            Mu’assis members gather on Slack to exchange insights, open doors, and stand shoulder to
-            shoulder as they build.
+            We are building a community on Slack and WhatsApp where Mu’assis members exchange insights,
+            open doors, and stand shoulder to shoulder as they build.
           </p>
           <ul className="slack-highlights">
             {slackHighlights.map((highlight) => (
@@ -28,25 +28,24 @@ export default function JoinPage() {
             ))}
           </ul>
         </div>
-        <Link
-          className="slack-button"
-          href="https://join.slack.com/t/muassismuslim-2ea1047/shared_invite/zt-3dwd96j79-eERof5OJlSwL02mjbkGhYQ"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Enter the Slack Community
-        </Link>
-        <p>
-          We are building a community on Slack and WhatsApp.{' '}
+        <div className="slack-cta-buttons">
           <Link
+            className="slack-button"
+            href="https://join.slack.com/t/muassismuslim-2ea1047/shared_invite/zt-3dwd96j79-eERof5OJlSwL02mjbkGhYQ"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Enter the Slack Community
+          </Link>
+          <Link
+            className="slack-button slack-button--whatsapp"
             href="https://chat.whatsapp.com/GCckr3Gcgvo8C0WkwU66hc"
             target="_blank"
             rel="noreferrer"
           >
-            Join the WhatsApp group
+            Join the WhatsApp Group
           </Link>
-          .
-        </p>
+        </div>
       </div>
 
       <div className="join-overview">
