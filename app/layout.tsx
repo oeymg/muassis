@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
 import { createRootMetadata, organizationSchema, websiteSchema } from '@/lib/seo';
@@ -41,6 +42,7 @@ export default function RootLayout({
           Mu’assis: Muslim Founders Australia — Uniting Muslims to Shape Futures — in business, in
           community, and for the next generation.
         </footer>
+        <Analytics />
       </body>
     </html>
   );
