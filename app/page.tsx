@@ -1,6 +1,8 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 import { HomeNewsletterModal } from '@/components/HomeNewsletterModal';
+import { getSpotlightSummaries } from '@/lib/spotlight';
 
 export const metadata = createPageMetadata('home');
 
@@ -22,21 +24,6 @@ const heroFutures = [
   }
 ];
 
-const founderJourney = [
-  {
-    title: 'Connect',
-    description: 'Pair with founders tackling similar missions and surface opportunities to collaborate.'
-  },
-  {
-    title: 'Co-Create',
-    description: 'Prototype ventures together, validate hypotheses, and share growth infrastructure.'
-  },
-  {
-    title: 'Compound',
-    description: 'Scale with shared customers, talent pipelines, and reinvested returns.'
-  }
-];
-
 const visionHighlights = [
   {
     title: 'Faith-Led Foundations',
@@ -52,7 +39,10 @@ const visionHighlights = [
   }
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const spotlights = await getSpotlightSummaries();
+  const featuredSpotlights = spotlights.slice(0, 4);
+
   return (
     <>
       <section className="section hero hero-grid">
@@ -102,20 +92,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="section journey">
-        <h2>The founder journey</h2>
-        <div className="journey-track">
-          {founderJourney.map((stage, index) => (
-            <article key={stage.title} className="journey-node">
-              <span className="journey-index">{index + 1}</span>
-              <div className="journey-content">
-                <h3>{stage.title}</h3>
-                <p>{stage.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      {featuredSpotlights.length > 0 ? (
+        <section className="section spotlight-teaser">
+          <div className="spotlight-teaser-header">
+            <span className="spotlight-kicker">Founder Spotlight</span>
+            <h2>Discover Mu’assis Journeys</h2>
+            <p>Find the journeys of Muslim Mu’assis across Australia.</p>
+          </div>
+          <div className="spotlight-teaser-grid" role="list">
+            {featuredSpotlights.map((spotlight) => (
+              <Link
+                key={spotlight.slug}
+                href={spotlight.href}
+                className="spotlight-teaser-item"
+                role="listitem"
+              >
+                <span className="spotlight-teaser-avatar">
+                  <Image
+                    src={spotlight.heroImage.src}
+                    alt={spotlight.heroImage.alt}
+                    width={80}
+                    height={80}
+                    sizes="80px"
+                    className="spotlight-teaser-image"
+                  />
+                </span>
+                <span className="spotlight-teaser-copy">
+                  <strong>{spotlight.founder}</strong>
+                  <span>{spotlight.company}</span>
+                </span>
+              </Link>
+            ))}
+          </div>
+          <Link className="spotlight-teaser-link" href="/Spotlight">
+            Explore all spotlights →
+          </Link>
+        </section>
+      ) : null}
 
       <section className="section cta-section">
         <div className="cta-hero">

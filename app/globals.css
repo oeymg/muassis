@@ -16,6 +16,18 @@
   padding: 0;
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 ::selection {
   background: rgba(255, 255, 255, 0.2);
   color: var(--foreground);
@@ -113,16 +125,16 @@ a:focus-visible {
 main {
   width: min(1120px, 100% - 0.6rem);
   margin: 0 auto;
-  padding: clamp(3rem, 8vw, 5rem) 0;
+  padding: clamp(2.4rem, 7vw, 4.2rem) 0;
   display: grid;
-  gap: clamp(2.4rem, 6vw, 4rem);
+  gap: clamp(1.8rem, 5vw, 3.2rem);
 }
 
 .section {
   background: var(--surface-100);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: clamp(1.5rem, 4vw, 2.2rem);
-  padding: clamp(2.4rem, 5vw, 3.4rem);
+  padding: clamp(1.8rem, 4vw, 2.8rem);
   position: relative;
   overflow: hidden;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
@@ -893,6 +905,459 @@ footer {
   color: rgba(245, 245, 245, 0.6);
 }
 
+/* Spotlight */
+.spotlight-index {
+  display: grid;
+  gap: clamp(2.4rem, 6vw, 3.6rem);
+}
+
+.spotlight-header {
+  display: grid;
+  gap: clamp(0.9rem, 2.6vw, 1.4rem);
+  max-width: 640px;
+}
+
+.spotlight-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.42em;
+  font-size: 0.78rem;
+  color: rgba(245, 245, 245, 0.58);
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: clamp(1.1rem, 3vw, 1.8rem);
+}
+
+.spotlight-card {
+  display: grid;
+  background: var(--surface-100);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.6rem;
+  padding: clamp(1.1rem, 3vw, 1.6rem);
+  gap: clamp(0.9rem, 2.4vw, 1.3rem);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.42);
+}
+
+.spotlight-card:hover,
+.spotlight-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(255, 255, 255, 0.18);
+  box-shadow: 0 34px 80px rgba(0, 0, 0, 0.5);
+}
+
+.spotlight-card-media {
+  position: relative;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  background: var(--surface-200);
+  height: clamp(120px, 18vw, 160px);
+}
+
+.spotlight-card-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spotlight-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 100%;
+}
+
+.spotlight-card h2,
+.spotlight-card h3 {
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spotlight-card-tagline {
+  font-size: 0.92rem;
+  letter-spacing: 0.05em;
+  color: rgba(245, 245, 245, 0.7);
+}
+
+.spotlight-card-summary {
+  font-size: 0.9rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+.spotlight-card-link {
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.76rem;
+  color: rgba(245, 245, 245, 0.75);
+  margin-top: auto;
+}
+
+.spotlight-teaser {
+  display: grid;
+  gap: clamp(1.4rem, 3.5vw, 2rem);
+  align-items: start;
+}
+
+.spotlight-teaser-header {
+  display: grid;
+  gap: 0.6rem;
+  max-width: 520px;
+}
+
+.spotlight-teaser-header h2 {
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.spotlight-teaser-header p {
+  margin: 0;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.spotlight-teaser-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: clamp(0.9rem, 3vw, 1.4rem);
+}
+
+.spotlight-teaser-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.04);
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.spotlight-teaser-item:hover,
+.spotlight-teaser-item:focus-visible {
+  transform: translateY(-4px);
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.spotlight-teaser-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.12);
+  display: inline-flex;
+}
+
+.spotlight-teaser-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spotlight-teaser-copy {
+  display: grid;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.spotlight-teaser-copy strong {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+}
+
+.spotlight-teaser-copy span {
+  color: rgba(245, 245, 245, 0.72);
+}
+
+.spotlight-teaser-link {
+  justify-self: flex-start;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  font-size: 0.74rem;
+  color: rgba(245, 245, 245, 0.78);
+}
+
+@media (min-width: 720px) {
+  .spotlight-card {
+    grid-template-columns: minmax(0, 150px) 1fr;
+    align-items: start;
+  }
+
+  .spotlight-card-media {
+    height: 100%;
+    min-height: 140px;
+  }
+}
+
+.community-spotlights .spotlight-card h3 {
+  font-size: clamp(1.35rem, 3.4vw, 1.9rem);
+}
+
+.spotlight-empty {
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.spotlight-article {
+  display: grid;
+  gap: clamp(1.9rem, 5vw, 3rem);
+  padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1rem, 3.5vw, 2rem);
+}
+
+.spotlight-article-header {
+  display: grid;
+  gap: clamp(0.6rem, 1.8vw, 1rem);
+  align-items: start;
+}
+
+.spotlight-article-title {
+  font-size: clamp(1.8rem, 4.8vw, 2.6rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.spotlight-article h1 {
+  font-size: clamp(2.1rem, 5vw, 3rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.spotlight-article-tagline {
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  color: rgba(245, 245, 245, 0.72);
+}
+
+.spotlight-backlink {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.72rem;
+  color: rgba(245, 245, 245, 0.6);
+}
+
+.spotlight-carousel {
+  position: relative;
+  display: grid;
+  gap: clamp(0.8rem, 2vw, 1.1rem);
+}
+
+.spotlight-carousel-track {
+  display: flex;
+  align-items: stretch;
+  gap: clamp(0.75rem, 2vw, 1.2rem);
+  overflow-x: auto;
+  padding: 0.45rem;
+  margin: 0 -0.6rem;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 50%;
+  scrollbar-width: thin;
+}
+
+.spotlight-carousel-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.spotlight-carousel-track::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+
+.spotlight-carousel-slide {
+  position: relative;
+  flex: 0 0 clamp(220px, 55vw, 360px);
+  scroll-snap-align: center;
+  border-radius: clamp(1rem, 3vw, 1.6rem);
+  overflow: hidden;
+  background: var(--surface-100);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  transition: transform 0.35s ease, opacity 0.35s ease, box-shadow 0.35s ease;
+  transform: scale(0.82);
+  opacity: 0.45;
+  cursor: pointer;
+}
+
+.spotlight-carousel-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.spotlight-carousel-slide.is-prev,
+.spotlight-carousel-slide.is-next {
+  transform: scale(0.9);
+  opacity: 0.75;
+}
+
+.spotlight-carousel-slide.is-active {
+  transform: scale(1.04);
+  opacity: 1;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.54);
+}
+
+.spotlight-carousel-slide:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.35);
+  outline-offset: 4px;
+}
+
+.spotlight-carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.spotlight-carousel-button {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--foreground);
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.spotlight-carousel-button:hover,
+.spotlight-carousel-button:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.spotlight-carousel-status {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(245, 245, 245, 0.62);
+  display: inline-flex;
+  gap: 0.2rem;
+}
+
+.spotlight-article-body {
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.6rem);
+}
+
+.spotlight-paragraph {
+  font-size: clamp(1.05rem, 2.6vw, 1.22rem);
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  margin: 0;
+  width: 100%;
+  max-width: none;
+}
+
+.spotlight-heading {
+  font-size: clamp(1.35rem, 3.5vw, 1.8rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: clamp(0.9rem, 2.4vw, 1.4rem) 0 clamp(0.45rem, 1.6vw, 0.8rem);
+  width: 100%;
+}
+
+.spotlight-subheading {
+  font-size: clamp(1.05rem, 2.8vw, 1.4rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: clamp(0.7rem, 2.2vw, 1.2rem) 0 clamp(0.4rem, 1.4vw, 0.7rem);
+  width: 100%;
+}
+
+.spotlight-divider {
+  border: none;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+  margin: clamp(1rem, 2.2vw, 1.6rem) 0;
+}
+
+.spotlight-quote {
+  width: 100%;
+  margin: 0;
+  padding-right: clamp(0.5rem, 2vw, 1.2rem);
+}
+
+.spotlight-inline-image,
+.spotlight-inline-image img,
+.spotlight-inline-image .spotlight-body-image,
+.spotlight-inline-image figcaption {
+  width: 100%;
+}
+
+.spotlight-inline-image {
+  margin: 0;
+}
+
+.spotlight-body-image {
+  width: 100%;
+}
+
+.spotlight-article-body p {
+  max-width: none;
+  width: 100%;
+}
+
+.spotlight-strong {
+  color: var(--foreground);
+}
+
+.spotlight-list {
+  display: grid;
+  gap: 0.7rem;
+  padding-left: 1.2rem;
+  color: var(--muted);
+}
+
+.spotlight-list-item {
+  line-height: 1.7;
+}
+
+.spotlight-quote {
+  border-left: 2px solid rgba(255, 255, 255, 0.4);
+  padding-left: clamp(1rem, 2.6vw, 1.6rem);
+  font-size: clamp(1rem, 2.5vw, 1.18rem);
+  font-style: italic;
+  color: rgba(245, 245, 245, 0.76);
+}
+
+.spotlight-inline-image {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.spotlight-body-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: clamp(1rem, 3vw, 1.8rem);
+  object-fit: cover;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+.spotlight-inline-image figcaption {
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  color: rgba(245, 245, 245, 0.6);
+  text-transform: uppercase;
+}
+
+.spotlight-not-found {
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
 @media (max-width: 720px) {
   .site-header {
     padding: 1.1rem 0;
@@ -911,12 +1376,12 @@ footer {
   }
 
   main {
-    width: calc(100% - 2.2rem);
-    gap: 2.2rem;
+    width: calc(100% - 1.6rem);
+    gap: 1.8rem;
   }
 
   .section {
-    padding: 2rem;
+    padding: 1.6rem;
   }
 
   .hero-grid {

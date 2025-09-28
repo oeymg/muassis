@@ -40,6 +40,18 @@ export const seoPages = {
       'Muslim youth mentorship'
     ]
   },
+  spotlight: {
+    path: '/Spotlight',
+    title: 'Founder Spotlight | Mu’assis: Muslim Founders Australia',
+    description:
+      'Founder spotlights from the Mu’assis network — stories of Muslim founders giving back, leading with hikmah, and building with mutual respect.',
+    keywords: [
+      'Mu’assis founder spotlight',
+      'Muslim founder stories',
+      'Islamic entrepreneurship',
+      'Muslim business community'
+    ]
+  },
   join: {
     path: '/join',
     title: 'Join the Mu’assis Muslim Founders Club',

@@ -15,7 +15,10 @@ export function Navigation() {
   return (
     <nav className="nav-links" aria-label="Primary">
       {links.map(({ href, label }) => {
-        const isActive = pathname === href;
+        const isActive =
+          pathname === href ||
+          (href !== '/' && pathname?.startsWith(`${href}/`)) ||
+          (href === '/community' && pathname?.startsWith('/Spotlight'));
 
         return (
           <Link
