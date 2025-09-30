@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: SpotlightPageParams): Promise
       title,
       description,
       alternates: {
-        canonical: `/Spotlight/${entry.slug}`
+        canonical: `${SITE_URL}/Spotlight/${entry.slug}`
       },
       openGraph: {
         title,

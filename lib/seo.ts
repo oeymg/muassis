@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 
 export const SITE_URL = 'https://muassis.org';
 
+const DEFAULT_SOCIAL_IMAGE = '/social/muassis-default.png';
+
 const baseOpenGraph = {
   siteName: 'Mu’assis',
   locale: 'en_AU',
@@ -87,16 +89,26 @@ export function createRootMetadata(): Metadata {
       ...baseOpenGraph,
       title: home.title,
       description: home.description,
-      url: buildUrl(home.path)
+      url: buildUrl(home.path),
+      images: [
+        {
+          url: buildUrl(DEFAULT_SOCIAL_IMAGE),
+          alt: 'Mu’assis default social graphic'
+        }
+      ]
     },
     twitter: {
       ...baseTwitter,
       title: home.title,
-      description: home.description
+      description: home.description,
+      images: [buildUrl(DEFAULT_SOCIAL_IMAGE)]
     },
     robots: {
       index: true,
       follow: true
+    },
+    alternates: {
+      canonical: SITE_URL
     }
   };
 }
@@ -109,18 +121,25 @@ export function createPageMetadata(key: PageKey): Metadata {
     description: page.description,
     keywords: page.keywords,
     alternates: {
-      canonical: page.path
+      canonical: buildUrl(page.path)
     },
     openGraph: {
       ...baseOpenGraph,
       title: page.title,
       description: page.description,
-      url: buildUrl(page.path)
+      url: buildUrl(page.path),
+      images: [
+        {
+          url: buildUrl(DEFAULT_SOCIAL_IMAGE),
+          alt: 'Mu’assis default social graphic'
+        }
+      ]
     },
     twitter: {
       ...baseTwitter,
       title: page.title,
-      description: page.description
+      description: page.description,
+      images: [buildUrl(DEFAULT_SOCIAL_IMAGE)]
     }
   };
 }
