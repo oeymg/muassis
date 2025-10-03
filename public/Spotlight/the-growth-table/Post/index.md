@@ -10,9 +10,6 @@ heroAlt: "Br. Sidqie at a Growth Table session"
 secondaryAlt: "Leaders collaborating during a Growth Table workshop"
 eventAlt: "Community leadership circle hosted by The Growth Table"
 metaDescription: "Founder spotlight on Br. Sidqie of The Growth Table, a venture helping leaders rise with purpose through principles of servant leadership, hikmah, and compassion."
----
-
-[Founder Photo](/Spotlight/the growth table/Post/the-growth-table-1.jpg)
 
 ---
 
