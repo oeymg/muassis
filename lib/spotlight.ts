@@ -143,7 +143,7 @@ function buildImageCandidateNames(dirName: string, slug: string, index: number):
   const altSlug = slug.replace(/\s+/g, '-');
   const extensionVariants = IMAGE_EXTENSIONS.flatMap((extension) => [extension, extension.toUpperCase()]);
 
-  const baseNames = new Set([
+  const baseNames = [
     `${slug}-${index}`,
     `${altSlug}-${index}`,
     `${normalisedDir}-${index}`,
@@ -156,7 +156,7 @@ function buildImageCandidateNames(dirName: string, slug: string, index: number):
     `${altSlug}- ${index}`,
     `${dirName}- ${index}`,
     `${normalisedDir}- ${index}`
-  ]);
+  ];
 
   const candidates: string[] = [];
 
