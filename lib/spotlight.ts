@@ -6,6 +6,7 @@ import imageSize from 'image-size';
 const SPOTLIGHT_ROOT = path.join(process.cwd(), 'public', 'Spotlight');
 const POST_DIRNAME = 'Post';
 const POST_FILENAME = 'index.md';
+const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png'] as const;
 
 type RawFrontmatter = Record<string, unknown>;
 
@@ -140,17 +141,32 @@ async function resolveImage(dirName: string, slug: string, index: 1 | 2 | 3, alt
 function buildImageCandidateNames(dirName: string, slug: string, index: number): string[] {
   const normalisedDir = dirName.replace(/\s+/g, '-');
   const altSlug = slug.replace(/\s+/g, '-');
+  const extensionVariants = IMAGE_EXTENSIONS.flatMap((extension) => [extension, extension.toUpperCase()]);
 
-  return [
-    `${slug}-${index}.jpg`,
-    `${altSlug}-${index}.jpg`,
-    `${normalisedDir}-${index}.jpg`,
-    `${dirName}-${index}.jpg`,
-    `${slug} ${index}.jpg`,
-    `${altSlug} ${index}.jpg`,
-    `${dirName} ${index}.jpg`,
-    `${normalisedDir} ${index}.jpg`
-  ];
+  const baseNames = new Set([
+    `${slug}-${index}`,
+    `${altSlug}-${index}`,
+    `${normalisedDir}-${index}`,
+    `${dirName}-${index}`,
+    `${slug} ${index}`,
+    `${altSlug} ${index}`,
+    `${dirName} ${index}`,
+    `${normalisedDir} ${index}`,
+    `${slug}- ${index}`,
+    `${altSlug}- ${index}`,
+    `${dirName}- ${index}`,
+    `${normalisedDir}- ${index}`
+  ]);
+
+  const candidates: string[] = [];
+
+  for (const base of baseNames) {
+    for (const extension of extensionVariants) {
+      candidates.push(`${base}${extension}`);
+    }
+  }
+
+  return candidates;
 }
 
 function buildImageSrc(dirName: string, fileName: string): string {

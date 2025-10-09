@@ -925,13 +925,15 @@ footer {
 }
 
 .spotlight-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  flex-direction: column;
   gap: clamp(1.1rem, 3vw, 1.8rem);
 }
 
 .spotlight-card {
-  display: grid;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
   background: var(--surface-100);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.6rem;
@@ -953,7 +955,8 @@ footer {
   border-radius: 1.2rem;
   overflow: hidden;
   background: var(--surface-200);
-  height: clamp(120px, 18vw, 160px);
+  flex: 0 0 clamp(200px, 32vw, 320px);
+  aspect-ratio: 4 / 3;
 }
 
 .spotlight-card-image {
@@ -968,6 +971,9 @@ footer {
   flex-direction: column;
   gap: 0.6rem;
   min-height: 100%;
+  min-width: 0;
+  justify-content: center;
+  flex: 1;
 }
 
 .spotlight-card h2,
