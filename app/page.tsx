@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 import { HomeNewsletterModal } from '@/components/HomeNewsletterModal';
 import { getSpotlightSummaries } from '@/lib/spotlight';
+import { getUpcomingEvents } from '@/lib/events';
 
 export const metadata = createPageMetadata('home');
 
@@ -42,6 +43,15 @@ const visionHighlights = [
 export default async function HomePage() {
   const spotlights = await getSpotlightSummaries();
   const featuredSpotlights = spotlights.slice(0, 4);
+  const events = await getUpcomingEvents();
+  const featuredEvent = events[0];
+  const upcomingEvents = events.slice(0, 3);
+  const eventBadgeLabel =
+    featuredEvent
+      ? new Intl.DateTimeFormat('en-AU', { day: '2-digit', month: 'short' }).format(
+          new Date(featuredEvent.startDate)
+        ).toUpperCase()
+      : null;
 
   return (
     <>
@@ -71,6 +81,32 @@ export default async function HomePage() {
           ))}
         </div>
       </section>
+
+      {featuredEvent ? (
+        <section className="section events-teaser">
+          <div className="events-teaser-header">
+            <span className="events-teaser-kicker">Upcoming Event</span>
+            <h2>Build with Mu’assis</h2>
+            <p>
+              Join our next community sprint to connect with mentors, collaborate on solutions, and pitch
+              what you build.
+            </p>
+          </div>
+          <Link className="events-teaser-card" href="/events">
+            <span className="events-teaser-icon" aria-hidden="true">
+              <span className="events-teaser-icon-inner">{eventBadgeLabel}</span>
+            </span>
+            <span className="events-teaser-copy">
+              <strong>{featuredEvent.title}</strong>
+              <span>
+                {featuredEvent.dateLabel} · {featuredEvent.timeLabel}
+              </span>
+              <span>{featuredEvent.location}</span>
+            </span>
+            <span className="events-teaser-cta">See details →</span>
+          </Link>
+        </section>
+      ) : null}
 
       <section className="section vision">
         <div className="vision-header">
@@ -139,22 +175,78 @@ export default async function HomePage() {
               <Link className="cta-button" href="/join">
                 Join Mu’assis →
               </Link>
-              <Link className="link-ghost" href="/community">
-                Explore the community
+              <Link className="link-ghost" href="/events">
+                View all events
               </Link>
             </div>
           </div>
         </div>
-        <div className="cta-grid" role="list">
-          <article className="cta-card accelerator-card" role="listitem">
-            <h3>Muslim founders don’t build alone.</h3>
-            <p>
-              The Mu’assis Accelerator will connect mentors, playbooks, and peers who share intros, talent, and dua —
-              so every win multiplies across the ummah.
-            </p>
-            <p className="accelerator-note">→ Launching soon.</p>
-          </article>
-        </div>
+        {upcomingEvents.length > 0 ? (
+          <div className="cta-grid events-cta-grid" role="list">
+            {upcomingEvents.map((event) => {
+              const badge = new Intl.DateTimeFormat('en-AU', {
+                day: '2-digit',
+                month: 'short'
+              })
+                .format(new Date(event.startDate))
+                .toUpperCase();
+
+              return (
+                <article key={event.slug} className="cta-card events-card" role="listitem">
+                  <header className="events-card-header">
+                    <span className="events-card-badge" aria-hidden="true">
+                      {badge}
+                    </span>
+                    <div>
+                      <h3>{event.title}</h3>
+                      {event.hosts ? <p className="events-card-host">{event.hosts}</p> : null}
+                      <p className="events-card-tagline">{event.tagline}</p>
+                    </div>
+                  </header>
+                  <dl className="events-card-meta">
+                    <div>
+                      <dt>Date</dt>
+                      <dd>{event.dateLabel}</dd>
+                    </div>
+                    <div>
+                      <dt>Time</dt>
+                      <dd>{event.timeLabel}</dd>
+                    </div>
+                    <div>
+                      <dt>Location</dt>
+                      <dd>{event.location}</dd>
+                    </div>
+                    {event.ticketPrice ? (
+                      <div>
+                        <dt>Ticket</dt>
+                        <dd>{event.ticketPrice}</dd>
+                      </div>
+                    ) : null}
+                  </dl>
+                  <p className="events-card-summary">{event.summary}</p>
+                  <Link
+                    className="events-card-link"
+                    href={event.registrationUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Get tickets →
+                  </Link>
+                </article>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="events-calendar-embed" role="region" aria-label="Mu’assis events calendar">
+            <iframe
+              className="events-calendar-frame"
+              src="https://luma.com/embed/calendar/cal-b1QvtkB46zl3Rj6/events"
+              title="Mu’assis events calendar"
+              loading="lazy"
+              allow="payment *; clipboard-write *; fullscreen"
+            />
+          </div>
+        )}
       </section>
 
       <HomeNewsletterModal />

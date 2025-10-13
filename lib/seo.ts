@@ -75,6 +75,21 @@ export const seoPages = {
       "Faith-rooted business support",
       "Mu’assis accelerator application"
     ]
+  },
+  events: {
+    path: '/events',
+    title: 'Events | Mu’assis: Muslim Founders Australia',
+    description:
+      'Discover Mu’assis events designed to help Muslim founders collaborate, access mentorship, and launch impactful solutions. Join build sprints, pitch sessions, and community gatherings crafted for values-led entrepreneurs.',
+    keywords: [
+      "Muslim founders events",
+      "Startup workshops for Muslims",
+      "Faith-led innovation sessions",
+      "Entrepreneur build sprint",
+      "Muslim business community events",
+      "Mentorship events for Muslim startups",
+      "Values-driven startup programming"
+    ]
   }
 };
 
