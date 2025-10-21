@@ -7,24 +7,6 @@ import { getUpcomingEvents } from '@/lib/events';
 
 export const metadata = createPageMetadata('home');
 
-const heroFutures = [
-  {
-    title: 'Business',
-    copy:
-      'Accountability circles, shared playbooks, and faith-centred governance so every venture compounds value.'
-  },
-  {
-    title: 'Ummah',
-    copy:
-      'Collaborative builds that channel capital, talent, and dua into solutions our communities urgently need.'
-  },
-  {
-    title: 'Next Generation',
-    copy:
-      'Role models, mentorship, and pathways that invite young Muslims to found, lead, and inherit with confidence.'
-  }
-];
-
 const visionHighlights = [
   {
     title: 'Faith-Led Foundations',
@@ -56,29 +38,19 @@ export default async function HomePage() {
   return (
     <>
       <section className="section hero hero-grid">
-        <div className="hero-intro">
+        <div className="hero-content">
+          <span className="hero-tagline">Mu’assis: Muslim Founders Australia</span>
           <h1>Uniting Muslims to Shape Futures.</h1>
-          <p className="hero-subhead">
-            Not just futures in business — but the future of our ummah, and the next generation who will
-            inherit it.
-          </p>
+        </div>
+        <div className="hero-cta">
           <div className="hero-actions">
             <Link className="cta-button" href="/join">
-              Join Mu’assis →
+              Join the Network
             </Link>
-            <Link className="link-ghost" href="/community">
-              Explore the community
+            <Link className="link-ghost" href="/pathways">
+              Explore Pathways
             </Link>
           </div>
-        </div>
-
-        <div className="hero-panels" role="list">
-          {heroFutures.map((future) => (
-            <article key={future.title} className="hero-panel" role="listitem">
-              <h2>{future.title}</h2>
-              <p>{future.copy}</p>
-            </article>
-          ))}
         </div>
       </section>
 

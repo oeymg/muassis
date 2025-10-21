@@ -46,6 +46,21 @@ export const seoPages = {
       "Entrepreneur community with values"
     ]
   },
+  pathways: {
+    path: '/pathways',
+    title: 'Mu’assis Pathways | Values-Aligned Hiring & Careers',
+    description:
+      'Mu’assis Pathways connects values-led Muslim founders and operators with open roles, curated intros, and job-ready support. Whether you are hiring or exploring your next move, share your brief and we will match you with aligned talent or opportunities.',
+    keywords: [
+      "Muslim job board Australia",
+      "Faith-aligned hiring platform",
+      "Values-led talent matching",
+      "Islamic careers network",
+      "Hire Muslim founders and operators",
+      "Career pathways for Muslim professionals",
+      "Mu’assis job pathways"
+    ]
+  },
   spotlight: {
     path: '/Spotlight',
     title: 'Founder Spotlight | Mu’assis: Muslim Founders Australia',
@@ -134,6 +149,10 @@ export function createRootMetadata(): Metadata {
     },
     alternates: {
       canonical: SITE_URL
+    },
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico'
     }
   };
 }

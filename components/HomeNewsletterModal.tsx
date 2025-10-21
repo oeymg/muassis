@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 import { NewsletterForm } from '@/components/NewsletterForm';
 
@@ -8,24 +8,68 @@ const STORAGE_KEY = 'muassis-newsletter-dismissed';
 
 export function HomeNewsletterModal() {
   const [isOpen, setIsOpen] = useState(false);
+  const hasTriggeredRef = useRef(false);
 
   useEffect(() => {
+    let dismissed = false;
+
     try {
-      if (window.localStorage.getItem(STORAGE_KEY) === 'true') {
-        return;
-      }
+      dismissed = window.localStorage.getItem(STORAGE_KEY) === 'true';
     } catch (error) {
       // Ignore storage errors (e.g., private mode)
     }
 
-    const timer = window.setTimeout(() => {
-      setIsOpen(true);
-    }, 2000);
+    if (dismissed) {
+      hasTriggeredRef.current = true;
+      return;
+    }
 
-    return () => window.clearTimeout(timer);
+    const triggerModal = () => {
+      if (hasTriggeredRef.current) {
+        return;
+      }
+
+      hasTriggeredRef.current = true;
+      setIsOpen(true);
+    };
+
+    const handleScroll = () => {
+      const doc = document.documentElement;
+      const scrollable = doc.scrollHeight - doc.clientHeight;
+      if (scrollable <= 0) {
+        return;
+      }
+
+      const ratio = window.scrollY / scrollable;
+      if (ratio >= 0.4) {
+        triggerModal();
+      }
+    };
+
+    const handleExitIntent = (event: MouseEvent) => {
+      if (event.clientY <= 0) {
+        triggerModal();
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    document.addEventListener('mouseout', handleExitIntent);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.removeEventListener('mouseout', handleExitIntent);
+    };
   }, []);
 
-  const closeModal = () => setIsOpen(false);
+  const closeModal = () => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, 'true');
+    } catch (error) {
+      // Ignore
+    }
+
+    setIsOpen(false);
+  };
 
   if (!isOpen) {
     return null;
@@ -45,8 +89,10 @@ export function HomeNewsletterModal() {
           ×
         </button>
         <div className="newsletter-content">
-          <h2 id="newsletter-heading">Stay in the loop</h2>
-          <p id="newsletter-description">Join the Mu’assis newsletter and shape futures with us.</p>
+          <h2 id="newsletter-heading">Stay connected — join the Mu’assis network</h2>
+          <p id="newsletter-description">
+            Get founder stories, pathways, and community build invitations delivered sparingly.
+          </p>
           <NewsletterForm className="newsletter-form" />
         </div>
       </div>

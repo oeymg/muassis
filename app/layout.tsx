@@ -3,6 +3,7 @@ import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 import { Navigation } from '@/components/Navigation';
+import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { createRootMetadata, organizationSchema, websiteSchema } from '@/lib/seo';
 
 export const metadata: Metadata = createRootMetadata();
@@ -36,6 +37,7 @@ export default function RootLayout({
             <div className="brand-name">Mu’assis</div>
             <Navigation />
           </div>
+          <ScrollProgressBar />
         </header>
         <main>{children}</main>
         <footer>

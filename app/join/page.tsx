@@ -13,7 +13,7 @@ const slackHighlights = [
 export default function JoinPage() {
   return (
     <section className="section join-section">
-      <h1>Join the Muslim Founders Club</h1>
+      <h1>Join the Muslim Founders Network</h1>
 
       <div className="slack-banner">
         <div className="slack-copy">

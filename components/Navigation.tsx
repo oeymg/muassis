@@ -6,7 +6,8 @@ import { usePathname } from 'next/navigation';
 const links = [
   { href: '/', label: 'Home' },
   { href: '/community', label: 'Community' },
-  { href: '/join', label: 'Join' }
+  { href: '/pathways', label: 'Pathways' },
+  { href: '/join', label: 'Join', variant: 'cta' as const }
 ];
 
 export function Navigation() {
@@ -14,7 +15,7 @@ export function Navigation() {
 
   return (
     <nav className="nav-links" aria-label="Primary">
-      {links.map(({ href, label }) => {
+      {links.map(({ href, label, variant }) => {
         const isActive =
           pathname === href ||
           (href !== '/' && pathname?.startsWith(`${href}/`)) ||
@@ -24,7 +25,7 @@ export function Navigation() {
           <Link
             key={href}
             href={href}
-            className="nav-link"
+            className={`nav-link${variant === 'cta' ? ' nav-link--cta' : ''}`}
             aria-current={isActive ? 'page' : undefined}
           >
             {label}
