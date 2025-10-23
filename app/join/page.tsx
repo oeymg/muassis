@@ -10,6 +10,30 @@ const slackHighlights = [
   'Gather for async stand-ups and keep momentum between live sessions.'
 ];
 
+const followLinks = [
+  {
+    label: 'Instagram',
+    url: 'https://www.instagram.com/muassis.au/',
+    handle: '@muassis.au',
+    variant: 'instagram',
+    cta: 'Follow on Instagram'
+  },
+  {
+    label: 'LinkedIn',
+    url: 'https://www.linkedin.com/company/muassis/',
+    handle: 'Mu’assis',
+    variant: 'linkedin',
+    cta: 'Follow on LinkedIn'
+  },
+  {
+    label: 'Newsletter',
+    url: 'https://muassis.substack.com/',
+    handle: 'muassis.substack.com',
+    variant: 'newsletter',
+    cta: 'Read the Newsletter'
+  }
+] as const;
+
 export default function JoinPage() {
   return (
     <section className="section join-section">
@@ -61,6 +85,24 @@ export default function JoinPage() {
           </ol>
         </div>
       </div>
+
+      <section className="join-follow" aria-labelledby="join-follow-heading">
+        <h2 id="join-follow-heading">Follow Mu’assis</h2>
+        <p>Stay close to every drop, from build sprints to founder spotlights and hiring calls.</p>
+        <div className="join-follow-grid">
+          {followLinks.map(({ label, url, handle, variant, cta }) => (
+            <article key={label} className={`join-follow-tile join-follow-tile--${variant}`}>
+              <div className="join-follow-tile-body">
+                <span className="join-follow-tag">{label}</span>
+                <h3>{handle}</h3>
+              </div>
+              <Link className="join-follow-button" href={url} target="_blank" rel="noreferrer">
+                {cta}
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
 
       <section className="join-newsletter" aria-labelledby="join-newsletter-heading">
         <h2 id="join-newsletter-heading">Subscribe to the Mu’assis Newsletter</h2>
