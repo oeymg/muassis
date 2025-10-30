@@ -125,6 +125,7 @@ export default function PathwaysPage() {
           <article id="hire" className="pathways-cta-card">
             <h3>Hiring? List your opportunity.</h3>
             <p>Reach talented Muslims who care about craft and character.</p>
+            <p>We charge a small match fee only once a successful hire is made — helping us sustain this platform for the community.</p>
             <Link className="pathways-button pathways-button--secondary" href="/pathways/hire">
               Hire through Pathways
             </Link>
@@ -214,6 +215,7 @@ export default function PathwaysPage() {
           <article className="pathways-cta-card">
             <h3>Hiring? List your opportunity.</h3>
             <p>Reach talented Muslims who care about craft and character.</p>
+            <p>We charge a small match fee only once a successful hire is made — helping us sustain this platform for the community.</p>
             <Link className="pathways-button pathways-button--secondary" href="/pathways/hire">
               Hire through Pathways
             </Link>

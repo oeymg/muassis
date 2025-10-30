@@ -27,7 +27,7 @@ While being known in the community once created hesitation among potential clien
 ## 🔑 3 Insights Sr. Nadima Has Gained
 	1.	You’re never too old to follow your path.
 No matter when the realisation comes, the door to purpose is never closed. Every stage of life brings new wisdom, and when Allah plants a seed in your heart, it’s never too late to nurture it.
-	2.	A supportive family and strong network are essential.
+	2.	A supportive family and strong network are essential.Join the Muslim Founders Club
 Behind every successful venture is a circle of people who believe in you. Family, mentors, and peers remind you of your why when doubt sets in — their support turns vision into reality.
 	3.	If you can’t find someone like you — become that person.
 Representation matters. Sr. Nadima built the space she once searched for — a place of empathy, faith, and understanding. Sometimes, Allah calls us to be the very example we once needed ourselves.
