@@ -3,12 +3,18 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navLinks = [
+type NavLink = {
+  href: string;
+  label: string;
+  variant?: 'cta';
+};
+
+const navLinks: readonly NavLink[] = [
   { href: '/', label: 'Home' },
   { href: '/community', label: 'Community' },
   { href: '/advisors', label: 'Advisors' },
   { href: '/pathways', label: 'Pathways' },
-  { href: '/join', label: 'Join', variant: 'cta' as const }
+  { href: '/join', label: 'Join', variant: 'cta' }
 ] as const;
 
 export function Navigation() {
