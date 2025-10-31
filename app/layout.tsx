@@ -40,9 +40,9 @@ export default function RootLayout({
           <ScrollProgressBar />
         </header>
         <main>{children}</main>
-        <footer>
-          Mu’assis: Muslim Founders Australia — Uniting Muslims to Shape Futures — in business, in
-          community, and for the next generation.
+        <footer className="site-footer-minimal">
+          <span>© 2025 Mu’assis: Muslim Founders Australia</span>
+          <span>Uniting Muslims to shape futures.</span>
         </footer>
         <Analytics />
       </body>

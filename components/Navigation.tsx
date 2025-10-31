@@ -3,19 +3,20 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const links = [
+const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/community', label: 'Community' },
+  { href: '/advisors', label: 'Advisors' },
   { href: '/pathways', label: 'Pathways' },
   { href: '/join', label: 'Join', variant: 'cta' as const }
-];
+] as const;
 
 export function Navigation() {
   const pathname = usePathname();
 
   return (
     <nav className="nav-links" aria-label="Primary">
-      {links.map(({ href, label, variant }) => {
+      {navLinks.map(({ href, label, variant }) => {
         const isActive =
           pathname === href ||
           (href !== '/' && pathname?.startsWith(`${href}/`)) ||

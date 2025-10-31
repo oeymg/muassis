@@ -46,6 +46,21 @@ export const seoPages = {
       "Entrepreneur community with values"
     ]
   },
+  advisors: {
+    path: '/advisors',
+    title: 'Advisors | Mu’assis: Muslim Founders Australia',
+    description:
+      'Meet the Mu’assis advisors who provide strategic guidance, faith-anchored counsel, and ecosystem support for Muslim founders across Australia. Our advisory circle connects entrepreneurs with experience in venture building, investment, governance, and community development.',
+    keywords: [
+      "Mu’assis advisors",
+      "Muslim startup mentors",
+      "Islamic venture advisory",
+      "Faith-led business guidance",
+      "Values-aligned board advisors",
+      "Muslim founders mentorship",
+      "Strategic advisors for startups"
+    ]
+  },
   pathways: {
     path: '/pathways',
     title: 'Mu’assis Pathways | Values-Aligned Hiring & Careers',
