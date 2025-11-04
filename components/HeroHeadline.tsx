@@ -65,8 +65,8 @@ export function HeroHeadline({ children }: HeroHeadlineProps) {
   );
 }
 
-const headingStyle: CSSProperties = {
+const headingStyle = {
   '--hero-headline-scale': SCALE_MAX,
   '--hero-headline-letter': '0.18em',
   '--hero-headline-opacity': 1
-};
+} as CSSProperties;
