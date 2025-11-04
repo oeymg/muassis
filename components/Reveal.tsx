@@ -72,7 +72,7 @@ export function Reveal<T extends ElementType = 'section'>({
 
   return (
     <Component
-      ref={(node) => {
+      ref={(node: Element | null) => {
         elementRef.current = node as Element | null;
       }}
       className={classes.join(' ')}
