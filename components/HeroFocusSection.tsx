@@ -73,9 +73,7 @@ export const HeroFocusSection = forwardRef<HTMLElement, HeroFocusSectionProps>(
 
     const combinedClassName = ['section hero hero-grid', className].filter(Boolean).join(' ');
 
-    const combinedStyle = style
-      ? ({ ...defaultVariables, ...style } as CSSProperties)
-      : defaultVariables;
+    const combinedStyle = (style ? { ...defaultVariables, ...style } : defaultVariables) as CSSProperties;
 
     return (
       <section
@@ -100,7 +98,7 @@ export const HeroFocusSection = forwardRef<HTMLElement, HeroFocusSectionProps>(
 
 HeroFocusSection.displayName = 'HeroFocusSection';
 
-const defaultVariables: CSSProperties = {
+const defaultVariables: Record<string, string | number> = {
   '--hero-focus-content-scale': CONTENT_SCALE_MAX,
   '--hero-focus-actions-scale': ACTIONS_SCALE_MAX,
   '--hero-focus-opacity': 1,
