@@ -1,34 +1,34 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { createPageMetadata } from '@/lib/seo';
-import { getSpotlightSummaries } from '@/lib/spotlight';
+import Image from "next/image";
+import Link from "next/link";
+import { createPageMetadata } from "@/lib/seo";
+import { getSpotlightSummaries } from "@/lib/spotlight";
 
-export const metadata = createPageMetadata('community');
-export const dynamic = 'force-static';
+export const metadata = createPageMetadata("community");
+export const dynamic = "force-static";
 
 export default async function CommunityPage() {
   const futures = [
     {
-      title: 'Business',
+      title: "Business",
       description:
-        'Founders, startups, and operators building ventures that honour faith and deliver sustainable growth.'
+        "Founders, startups, and operators building ventures that honour faith and deliver sustainable growth."
     },
     {
-      title: 'Ummah',
+      title: "Ummah",
       description:
-        'Community-first collaborations that strengthen collective resilience, shared resources, and belonging.'
+        "Community-first collaborations that strengthen collective resilience, shared resources, and belonging."
     },
     {
-      title: 'Next Generation',
+      title: "Next Generation",
       description:
-        'Mentorship pipelines, visible role models, and clear pathways for Muslim youth to build and lead.'
+        "Mentorship pipelines, visible role models, and clear pathways for Muslim youth to build and lead."
     }
   ];
   const spotlights = await getSpotlightSummaries();
 
   return (
     <>
-      <section className="section community community-hero">
+      <section className="section community community-hero" style={{ paddingBottom: "clamp(0.6rem, 2vw, 1.2rem)" }}>
         <h1>The Futures We’re Building</h1>
         <p className="community-lede">
           Each layer of Mu’assis is designed to compound impact — from the ventures we launch, to the
@@ -45,7 +45,7 @@ export default async function CommunityPage() {
         </div>
       </section>
 
-      <section className="section spotlight-index community-spotlights">
+      <section className="section spotlight-index community-spotlights" style={{ marginTop: "-1.2rem" }}>
         <header className="spotlight-header">
           <h2>Founder Spotlight Series</h2>
           <p>Read the stories of Muslim Mu’assis across Australia.</p>

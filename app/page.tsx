@@ -1,9 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
-import { HomeNewsletterModal } from '@/components/HomeNewsletterModal';
 import { getSpotlightSummaries } from '@/lib/spotlight';
 import { getUpcomingEvents } from '@/lib/events';
+import { HomeNewsletterModal } from '@/components/HomeNewsletterModal';
+import { Reveal } from '@/components/Reveal';
+import { HeroHeadline } from '@/components/HeroHeadline';
+import { HeroFocusSection } from '@/components/HeroFocusSection';
 
 export const metadata = createPageMetadata('home');
 
@@ -37,10 +40,10 @@ export default async function HomePage() {
 
   return (
     <>
-      <section className="section hero hero-grid">
+      <Reveal as={HeroFocusSection} variant="fade">
         <div className="hero-content">
           <span className="hero-tagline">Mu’assis: Muslim Founders Australia</span>
-          <h1>Uniting Muslims to Shape Futures.</h1>
+          <HeroHeadline>Uniting Muslims to Shape Futures.</HeroHeadline>
         </div>
         <div className="hero-cta">
           <div className="hero-actions">
@@ -52,10 +55,10 @@ export default async function HomePage() {
             </Link>
           </div>
         </div>
-      </section>
+      </Reveal>
 
       {featuredEvent ? (
-        <section className="section events-teaser">
+        <Reveal as="section" className="section events-teaser" variant="rise">
           <div className="events-teaser-header">
             <span className="events-teaser-kicker">Upcoming Event</span>
             <h2>Build with Mu’assis</h2>
@@ -64,7 +67,7 @@ export default async function HomePage() {
               what you build.
             </p>
           </div>
-          <Link className="events-teaser-card" href="/events">
+          <Reveal as={Link} className="events-teaser-card" href="/events" variant="scale" delay={60}>
             <span className="events-teaser-icon" aria-hidden="true">
               <span className="events-teaser-icon-inner">{eventBadgeLabel}</span>
             </span>
@@ -76,11 +79,11 @@ export default async function HomePage() {
               <span>{featuredEvent.location}</span>
             </span>
             <span className="events-teaser-cta">See details →</span>
-          </Link>
-        </section>
+          </Reveal>
+        </Reveal>
       ) : null}
 
-      <section className="section vision">
+      <Reveal as="section" className="section vision" variant="rise">
         <div className="vision-header">
           <span className="vision-kicker">Why we build</span>
           <h2>Our Vision</h2>
@@ -91,29 +94,39 @@ export default async function HomePage() {
           </p>
         </div>
         <div className="vision-grid" role="list">
-          {visionHighlights.map((highlight) => (
-            <article key={highlight.title} className="vision-card" role="listitem">
+          {visionHighlights.map((highlight, index) => (
+            <Reveal
+              key={highlight.title}
+              as="article"
+              className="vision-card"
+              role="listitem"
+              variant="scale"
+              delay={index * 90}
+            >
               <h3>{highlight.title}</h3>
               <p>{highlight.copy}</p>
-            </article>
+            </Reveal>
           ))}
         </div>
-      </section>
+      </Reveal>
 
       {featuredSpotlights.length > 0 ? (
-        <section className="section spotlight-teaser">
+        <Reveal as="section" className="section spotlight-teaser" variant="fade">
           <div className="spotlight-teaser-header">
             <span className="spotlight-kicker">Founder Spotlight</span>
             <h2>Discover Mu’assis Journeys</h2>
             <p>Find the journeys of Muslim Mu’assis across Australia.</p>
           </div>
           <div className="spotlight-teaser-grid" role="list">
-            {featuredSpotlights.map((spotlight) => (
-              <Link
+            {featuredSpotlights.map((spotlight, index) => (
+              <Reveal
                 key={spotlight.slug}
+                role="listitem"
+                as={Link}
                 href={spotlight.href}
                 className="spotlight-teaser-item"
-                role="listitem"
+                variant="scale"
+                delay={index * 60}
               >
                 <span className="spotlight-teaser-avatar">
                   <Image
@@ -129,16 +142,22 @@ export default async function HomePage() {
                   <strong>{spotlight.founder}</strong>
                   <span>{spotlight.company}</span>
                 </span>
-              </Link>
+              </Reveal>
             ))}
           </div>
-          <Link className="spotlight-teaser-link" href="/Spotlight">
+          <Reveal
+            as={Link}
+            className="spotlight-teaser-link"
+            href="/Spotlight"
+            variant="rise"
+            delay={200}
+          >
             Explore all spotlights →
-          </Link>
-        </section>
+          </Reveal>
+        </Reveal>
       ) : null}
 
-      <section className="section cta-section">
+      <Reveal as="section" className="section cta-section" variant="rise">
         <div className="cta-hero">
           <span className="cta-kicker">Collective Blueprint</span>
           <div className="cta-heading-row">
@@ -155,7 +174,7 @@ export default async function HomePage() {
         </div>
         {upcomingEvents.length > 0 ? (
           <div className="cta-grid events-cta-grid" role="list">
-            {upcomingEvents.map((event) => {
+            {upcomingEvents.map((event, index) => {
               const badge = new Intl.DateTimeFormat('en-AU', {
                 day: '2-digit',
                 month: 'short'
@@ -164,7 +183,14 @@ export default async function HomePage() {
                 .toUpperCase();
 
               return (
-                <article key={event.slug} className="cta-card events-card" role="listitem">
+                <Reveal
+                  key={event.slug}
+                  as="article"
+                  className="cta-card events-card"
+                  variant="scale"
+                  role="listitem"
+                  delay={index * 80}
+                >
                   <header className="events-card-header">
                     <span className="events-card-badge" aria-hidden="true">
                       {badge}
@@ -204,7 +230,7 @@ export default async function HomePage() {
                   >
                     Get tickets →
                   </Link>
-                </article>
+                </Reveal>
               );
             })}
           </div>
@@ -219,7 +245,7 @@ export default async function HomePage() {
             />
           </div>
         )}
-      </section>
+      </Reveal>
 
       <HomeNewsletterModal />
     </>

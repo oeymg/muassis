@@ -12,7 +12,7 @@ type NavLink = {
 const navLinks: readonly NavLink[] = [
   { href: '/', label: 'Home' },
   { href: '/community', label: 'Community' },
-  { href: '/advisors', label: 'Advisors' },
+  { href: '/advisors', label: 'Team' },
   { href: '/pathways', label: 'Pathways' },
   { href: '/join', label: 'Join', variant: 'cta' }
 ] as const;

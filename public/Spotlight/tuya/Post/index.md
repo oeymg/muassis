@@ -13,15 +13,12 @@ metaDescription: "Founder spotlight on Br. Rafif of Tuya Taste — an inspiring 
 
 ### **The Flavour of Faith: Br. Rafif’s Journey to Build Australia’s Leading Indonesian Brand**
 
-Born in Indonesia and raised in Australia, Rafif grew up with a dream to become a doctor: to help, to heal, to serve. But by his second year in biomedical science, he realised his purpose wasn’t in medicine. Instead of walking away, he finished what he started, graduating in 2022 — but with a new vision waiting to unfold.  
+The flavour of faith — Br. Rafif’s journey to build Australia’s leading Indonesian brand
+Born in Indonesia and raised in Australia, Rafif always dreamed of becoming a doctor to help, to heal, to serve. But by his second year of biomedical science, he realised his purpose wasn’t in medicine. He finished his degree in 2022, but with a new vision waiting to unfold.
 
-His first taste of entrepreneurship came even earlier, at just 18, when he was asked to run his school’s tuckshop as an alumnus. This became the beginning of Rafif’s lifelong entrepreneurial journey.  
+In 2021, Rafif and his mother launched Tuya Taste, named after his great-grandfather, with the intention to serve ‘to your taste’. What began as a food truck soon evolved into a full-fledged brand bridging Indonesian flavours to Australian homes. Since then, Rafif has expanded into a new product: sambal, and in 2024 opened up their first brick and mortar location, TUYA’S - selling the best smashed chicken and authentic Indonesian Street Food.
 
-In 2021, Rafif and his mother launched **Tuya Taste**, named after his great-grandfather, Tuya, with the intention to serve *‘to your taste’.* What began as a mobile kitchen soon evolved into something much bigger. After selling the food truck in 2022, he took over a bakso production and delivery business, which became the foundation of **Tuya Taste** as we know it today — a food hub that bridges the flavours of Indonesian cuisine into Australian homes.  
-
-For Rafif, business is more than a means to serve his family; it’s *barakah.* He believes every action, every decision, every ounce of rizq comes from Allah — and through his intention to feed another person every day, Tuya Taste continues to grow with purpose.  
-
-Alongside Tuya’s, Rafif is a Director at **SoulSeed Group**, fostering subhah and meaningful connections, and the Founder of **HANABI**, a marketing agency.  
+For Rafif, business is more than livelihood; it’s barakah. Every action, every ounce of rizq, comes from Allah, and through his intention to feed others daily, Tuya Taste continues to grow with purpose.
 
 ---
 
