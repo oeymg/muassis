@@ -337,10 +337,16 @@ main {
 }
 
 .hero::before {
-  background:
+  background-image:
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12), transparent 68%),
     radial-gradient(circle at 80% 10%, rgba(236, 72, 153, 0.2), transparent 72%),
-    url('/hero.jpg') center / cover no-repeat;
+    image-set(
+      url('/hero.webp') type('image/webp'),
+      url('/hero.jpg') type('image/jpeg')
+    );
+  background-position: 20% 20%, 80% 10%, center;
+  background-size: auto, auto, cover;
+  background-repeat: no-repeat, no-repeat, no-repeat;
   filter: saturate(0.92);
 }
 
