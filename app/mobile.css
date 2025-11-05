@@ -158,13 +158,33 @@
     font-size: 0.62rem;
   }
 
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
   .nav-links {
     font-size: 0.76rem;
     letter-spacing: 0.16em;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.6rem 0.8rem;
   }
 
   .nav-link {
     padding: 0.3rem 0;
+  }
+
+  .nav-link--cta {
+    order: -1;
+    align-self: flex-start;
+    padding: 0.45rem 1.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.2rem;
   }
 
   .hero-actions {
@@ -382,6 +402,27 @@
 }
 
 @media (max-width: 680px) {
+  .pathways-raw-embed {
+    padding: clamp(2.8rem, 12vw, 3.4rem) clamp(1.4rem, 10vw, 2.4rem);
+    min-height: clamp(1900px, 260vw, 3600px);
+  }
+
+  .pathways-embed-panel {
+    padding: clamp(1.6rem, 6vw, 2rem);
+    border-radius: clamp(0.9rem, 5vw, 1.4rem);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  }
+
+  .pathways-embed-title {
+    font-size: clamp(1.3rem, 8vw, 1.8rem);
+    letter-spacing: 0.14em;
+  }
+
+  .tally-embed-frame {
+    border-radius: clamp(0.8rem, 4vw, 1.1rem);
+    min-height: 1600px;
+  }
+
   .pathways-flip-card {
     perspective: none;
   }
