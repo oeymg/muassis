@@ -3,10 +3,16 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
+const DISABLED_PATHS = new Set(['/pathways/apply', '/pathways/hire']);
+
 export function ScrollRevealManager() {
   const pathname = usePathname();
 
   useEffect(() => {
+    if (pathname && DISABLED_PATHS.has(pathname)) {
+      return;
+    }
+
     if (typeof window === 'undefined' || typeof IntersectionObserver === 'undefined') {
       return;
     }

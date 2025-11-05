@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
+import './mobile.css';
 import { Navigation } from '@/components/Navigation';
 import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { ScrollRevealManager } from '@/components/ScrollRevealManager';
@@ -19,6 +20,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://tally.so" crossOrigin="anonymous" />
+      </head>
       <body>
         <Script
           id="organization-schema"

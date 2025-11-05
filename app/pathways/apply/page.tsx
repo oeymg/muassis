@@ -6,7 +6,7 @@ export const metadata = createPageMetadata('pathways');
 export default function PathwaysApplyPage() {
   return (
     <>
-      <Script async src="https://tally.so/widgets/embed.js" />
+      <Script src="https://tally.so/widgets/embed.js" strategy="beforeInteractive" />
       <div className="pathways-raw-embed">
         <iframe
           data-tally-src="https://tally.so/r/3lPEbV"
