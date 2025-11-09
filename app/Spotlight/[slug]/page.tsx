@@ -78,7 +78,7 @@ export default async function SpotlightPostPage({ params }: SpotlightPageParams)
     const trimmedContent = entry.content.replace(/\n## 📸 More from[\s\S]*/i, '');
 
     return (
-      <article className="section spotlight-article">
+      <article className="section spotlight-article" data-reveal-skip="true">
         <header className="spotlight-article-header">
           <span className="spotlight-kicker">Founder Spotlight</span>
           <h2 className="spotlight-article-title">
