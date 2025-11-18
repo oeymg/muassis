@@ -1,13 +1,13 @@
 @media (max-width: 768px) {
   :root {
-    --layout-gutter: clamp(1rem, 5vw, 1.6rem);
+    --layout-gutter: clamp(1.5rem, 5vw, 2rem);
   }
 
   body {
     width: 100%;
     max-width: min(390px, 100%);
     margin: 0 auto;
-    padding-inline: clamp(0.5rem, 4vw, 1rem);
+    padding-inline: clamp(1rem, 4vw, 1.5rem);
     overflow-x: hidden;
   }
 
@@ -181,7 +181,7 @@
     width: 100%;
     max-width: min(390px, 100%);
     margin: 0 auto;
-    padding-inline: clamp(0.5rem, 4vw, 1rem);
+    padding-inline: clamp(1rem, 4vw, 1.5rem);
   }
 
   .site-header,
@@ -208,8 +208,8 @@
   }
 
   .section {
-    gap: clamp(0.9rem, 4vw, 1.4rem);
-    padding-inline: clamp(0.75rem, 4vw, 1.1rem);
+    gap: clamp(1.2rem, 4vw, 1.6rem);
+    padding-inline: clamp(1rem, 4vw, 1.5rem);
   }
 
   main {
@@ -329,7 +329,7 @@
   .section {
     align-items: flex-start;
     text-align: left;
-    padding-inline: clamp(0.75rem, 4vw, 1.1rem);
+    padding-inline: clamp(1rem, 4vw, 1.5rem);
   }
 
   .section > * {
@@ -692,7 +692,7 @@
   }
 
   body {
-    padding-inline: clamp(0.6rem, 6vw, 0.9rem);
+    padding-inline: clamp(1rem, 6vw, 1.2rem);
   }
 
   :root {
@@ -740,7 +740,7 @@
   }
 
   .section {
-    padding-inline: clamp(0.65rem, 5vw, 0.9rem);
+    padding-inline: clamp(0.9rem, 5vw, 1.2rem);
   }
 
   .hero-actions {
