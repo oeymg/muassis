@@ -1,5 +1,5 @@
 ---
-founder: "Br.Shibly & Sr. Rehana"
+founder: "Br. Shibly & Sr. Rehana"
 company: "MustCare Vet Centres"
 headline: "When Work Becomes Worship: The Story of Shibly & Rehana"
 description: "How two UQ students turned their shared vision of faith and service into MustCare Vet Centres — a thriving network built on compassion, balance, and purpose."
