@@ -45,7 +45,7 @@ export default async function CommunityPage() {
         </div>
       </section>
 
-      <section className="section spotlight-index community-spotlights" style={{ marginTop: "-1.2rem" }}>
+      <section className="section spotlight-index community-spotlights" data-reveal-skip="true" style={{ marginTop: "-1.2rem" }}>
         <header className="spotlight-header">
           <h2>Founder Spotlight Series</h2>
           <p>Read the stories of Muslim Mu’assis across Australia.</p>

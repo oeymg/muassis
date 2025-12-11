@@ -10,7 +10,7 @@ export default async function SpotlightIndexPage() {
   const spotlights = await getSpotlightSummaries();
 
   return (
-    <section className="section spotlight-index">
+    <section className="section spotlight-index" data-reveal-skip="true">
       <header className="spotlight-header">
         <span className="spotlight-kicker">Founder Spotlight</span>
         <h1>Stories of builders shaping the ummah</h1>
