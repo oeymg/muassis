@@ -106,7 +106,7 @@ export default async function HomePage() {
           <span className="vision-kicker">Why we build</span>
           <h2>Our Vision</h2>
           <p className="vision-lede">
-            Mu'assis (مؤسس) means "the establisher". We believe every founder carries that calling —
+            Mu&apos;assis (مؤسس) means &quot;the establisher&quot;. We believe every founder carries that calling —
             to lay enduring foundations for our ummah, to activate collective resources, and to leave a
             blueprint the next generation can advance.
           </p>
@@ -133,7 +133,7 @@ export default async function HomePage() {
           <span className="scale-kicker">More than a network</span>
           <h2 className="scale-headline">This is how we scale</h2>
           <p className="scale-lede">
-            We're not just connecting founders — we're building the infrastructure that makes ventures
+            We&apos;re not just connecting founders — we&apos;re building the infrastructure that makes ventures
             sustainable, scalable, and anchored in purpose.
           </p>
         </div>
@@ -162,7 +162,7 @@ export default async function HomePage() {
           <div className="spotlight-teaser-header">
             <span className="spotlight-kicker">Founder Spotlight</span>
             <h2>Discover Mu’assis Journeys</h2>
-            <p>Find the journeys of Mu'assis across Australia.</p>
+            <p>Find the journeys of Mu&apos;assis across Australia.</p>
           </div>
           <div className="spotlight-teaser-grid" role="list">
             {featuredSpotlights.map((spotlight, index) => (

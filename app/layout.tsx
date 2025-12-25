@@ -60,7 +60,7 @@ export default function RootLayout({
         <main>{children}</main>
         <footer className="site-footer-minimal">
           <div className="site-footer-copy">
-            <span>© 2025 Mu'assis: Scaling for Generations</span>
+            <span>© 2025 Mu&apos;assis: Scaling for Generations</span>
             <span>The Ecosystem for Muslim-led Ventures</span>
           </div>
           <div className="site-footer-social">

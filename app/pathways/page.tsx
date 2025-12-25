@@ -107,14 +107,14 @@ export default function PathwaysPage() {
       {/* Hero Section */}
       <Reveal as="section" className="section pathways-hero" variant="fade">
         <div className="pathways-hero-content">
-          <span className="pathways-kicker">Pathways by Mu'assis</span>
+          <span className="pathways-kicker">Pathways by Mu&apos;assis</span>
           <h1 className="pathways-headline">
             Build careers and teams
             <br />
             <span className="pathways-subhead">rooted in excellence and purpose</span>
           </h1>
           <p className="pathways-lede">
-            Connect exceptional talent with meaningful opportunities. Whether you're seeking your next
+            Connect exceptional talent with meaningful opportunities. Whether you&apos;re seeking your next
             role or building a team, Pathways creates values-aligned matches that drive impact.
           </p>
           <div className="pathways-hero-actions">
