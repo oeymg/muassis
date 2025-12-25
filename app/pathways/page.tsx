@@ -1,234 +1,293 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
+import { Reveal } from '@/components/Reveal';
 
 export const metadata = createPageMetadata('pathways');
 
-const whatWeDo = [
+const pathwayFeatures = [
   {
     title: 'Apply to the Network',
     description:
-      'Join a curated pool of Muslim students, graduates, and professionals. Tell us your skills and interests—we’ll match you to relevant roles.'
+      'Join a curated community of talented professionals. Share your skills and aspirations—we connect you with opportunities that match your values and goals.'
   },
   {
     title: 'List a Role',
     description:
-      'Hiring for a project or team? Share your opportunity and reach talent who value excellence, integrity, and impact.'
+      'Building a team? Post your opportunity and reach exceptional talent who prioritize excellence, integrity, and meaningful impact.'
   },
   {
     title: 'Get Matched',
     description:
-      'We combine your preferences with our network insights to introduce you to high-fit candidates or roles.'
+      'We combine your preferences with our network intelligence to create high-quality introductions between candidates and opportunities.'
   }
 ] as const;
 
-const howItWorks = [
+const candidateSteps = [
   {
-    track: 'For candidates',
-    steps: [
-      {
-        title: 'Apply',
-        detail: 'Share your skills, interests, and availability.'
-      },
-      {
-        title: 'Verify',
-        detail: 'We review your profile and add you to our talent pool.'
-      },
-      {
-        title: 'Match',
-        detail: 'Get notified when roles align with your goals.'
-      }
-    ]
+    number: '01',
+    title: 'Apply',
+    detail: 'Share your skills, interests, and availability through our simple application.'
   },
   {
-    track: 'For employers',
-    steps: [
-      {
-        title: 'Submit a role',
-        detail: 'Tell us about the role, scope, and timelines.'
-      },
-      {
-        title: 'Review',
-        detail: 'We shortlist values-aligned candidates.'
-      },
-      {
-        title: 'Hire',
-        detail: 'Connect, interview, and build your team.'
-      }
-    ]
+    number: '02',
+    title: 'Verify',
+    detail: 'We review your profile and add you to our vetted talent pool.'
+  },
+  {
+    number: '03',
+    title: 'Match',
+    detail: 'Receive notifications when roles align with your goals and experience.'
   }
 ] as const;
 
-const trustPoints = [
+const employerSteps = [
   {
-    title: 'Values-aligned',
-    detail: 'We prioritise excellence (ihsan), impact, and integrity (amanah).'
+    number: '01',
+    title: 'Submit',
+    detail: 'Share details about the role, requirements, and your team culture.'
   },
   {
-    title: 'Privacy-first',
-    detail: 'Your details are only shared with vetted opportunities.'
+    number: '02',
+    title: 'Review',
+    detail: 'We shortlist values-aligned candidates from our curated network.'
   },
   {
-    title: 'Human review',
-    detail: 'Submissions are checked before going live or matched.'
+    number: '03',
+    title: 'Hire',
+    detail: 'Connect with candidates, conduct interviews, and build your team.'
+  }
+] as const;
+
+const trustPrinciples = [
+  {
+    title: 'Values-aligned matching',
+    detail: 'We prioritize excellence, integrity, and meaningful impact in every connection.'
+  },
+  {
+    title: 'Privacy-first approach',
+    detail: 'Your information is only shared with verified opportunities you approve.'
+  },
+  {
+    title: 'Human-reviewed quality',
+    detail: 'Every submission is personally reviewed before matching or going live.'
   }
 ] as const;
 
 const faqs = [
   {
     question: 'Who can apply to Pathways?',
-    answer: 'Students, graduates, and professionals across Australia. We welcome all disciplines and experience levels.'
+    answer:
+      'Students, graduates, and professionals across Australia. We welcome all disciplines and experience levels who are committed to excellence and impact.'
   },
   {
-    question: 'Does my opportunity have to be paid?',
+    question: 'Do opportunities need to be paid?',
     answer:
-      'Paid roles are preferred. If you’re listing a volunteer role, please be clear about expectations and benefits.'
+      'Paid roles are strongly preferred. If listing a volunteer opportunity, please clearly communicate expectations, time commitment, and the value provided to participants.'
   },
   {
-    question: 'Is Pathways only for Muslim-led organisations?',
+    question: 'Who can hire through Pathways?',
     answer:
-      'We prioritise Muslim-led and values-aligned organisations. If your culture aligns with our values, you’re welcome to hire through Pathways.'
+      'We prioritize values-aligned organizations that emphasize excellence, integrity, and meaningful impact. If your culture aligns with these principles, you are welcome to hire through Pathways.'
   },
   {
     question: 'How do you handle my data?',
-    answer: 'We only share candidate details with vetted opportunities. You can request removal anytime.'
+    answer:
+      'We only share candidate details with verified opportunities. Your privacy is paramount - you can request data removal anytime via contact@saysalams.com.au'
+  },
+  {
+    question: 'What is the match fee?',
+    answer:
+      'For employers, we charge a small fee only when a successful hire is made. This helps us sustain and grow the platform for the community. No fee for candidates.'
   }
 ] as const;
 
 export default function PathwaysPage() {
   return (
-    <div className="pathways-layout">
-      <section className="section pathways-hero">
-        <span className="pathways-kicker">Pathways by Mu&apos;assis</span>
-      </section>
+    <>
+      {/* Hero Section */}
+      <Reveal as="section" className="section pathways-hero" variant="fade">
+        <div className="pathways-hero-content">
+          <span className="pathways-kicker">Pathways by Mu'assis</span>
+          <h1 className="pathways-headline">
+            Build careers and teams
+            <br />
+            <span className="pathways-subhead">rooted in excellence and purpose</span>
+          </h1>
+          <p className="pathways-lede">
+            Connect exceptional talent with meaningful opportunities. Whether you're seeking your next
+            role or building a team, Pathways creates values-aligned matches that drive impact.
+          </p>
+          <div className="pathways-hero-actions">
+            <Link className="cta-button" href="#apply">
+              Apply to Network
+            </Link>
+            <Link className="cta-button cta-button--secondary" href="#hire">
+              Hire Talent
+            </Link>
+          </div>
+        </div>
+      </Reveal>
 
-      <section className="section pathways-section" aria-labelledby="pathways-what">
-        <h2 id="pathways-what">Build careers and teams anchored in ihsan</h2>
-        <div className="pathways-card-grid" role="list">
-          {whatWeDo.map(({ title, description }) => (
-            <article key={title} className="pathways-card" role="listitem">
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
+      {/* Features Section */}
+      <Reveal as="section" className="section pathways-features" variant="rise">
+        <div className="pathways-features-header">
+          <h2>How Pathways works</h2>
+        </div>
+        <div className="pathways-features-grid" role="list">
+          {pathwayFeatures.map((feature, index) => (
+            <Reveal
+              key={feature.title}
+              as="article"
+              className="pathways-feature-card"
+              role="listitem"
+              variant="scale"
+              delay={index * 90}
+            >
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </Reveal>
           ))}
         </div>
+      </Reveal>
+
+      {/* CTA Section - Split */}
+      <section className="section pathways-cta-split">
+        <Reveal as="article" id="apply" className="pathways-cta-card pathways-cta-primary" variant="rise">
+          <div className="pathways-cta-content">
+            <span className="pathways-cta-label">For candidates</span>
+            <h2>Ready to advance your career?</h2>
+            <p>
+              Join our curated network and get matched with opportunities that align with your skills,
+              values, and aspirations.
+            </p>
+            <Link className="cta-button" href="/pathways/apply">
+              Apply to Pathways →
+            </Link>
+          </div>
+        </Reveal>
+
+        <Reveal as="article" id="hire" className="pathways-cta-card pathways-cta-secondary" variant="rise" delay={150}>
+          <div className="pathways-cta-content">
+            <span className="pathways-cta-label">For employers</span>
+            <h2>Building your team?</h2>
+            <p>
+              Access exceptional talent who prioritize craft, character, and meaningful impact. We charge a
+              small match fee only when you make a successful hire.
+            </p>
+            <Link className="cta-button cta-button--secondary" href="/pathways/hire">
+              Hire through Pathways →
+            </Link>
+          </div>
+        </Reveal>
       </section>
 
-      <section className="section pathways-section" aria-label="Call to action">
-        <div className="pathways-cta-grid">
-          <article id="apply" className="pathways-cta-card">
-            <h3>Ready to take the next step?</h3>
-            <p>Join the network and get matched with roles that fit your skills and values.</p>
-            <Link className="pathways-button" href="/pathways/apply">
-              Apply to Pathways
-            </Link>
-          </article>
-          <article id="hire" className="pathways-cta-card">
-            <h3>Hiring? List your opportunity.</h3>
-            <p>Reach talented Muslims who care about craft and character.</p>
-            <p>We charge a small match fee only once a successful hire is made — helping us sustain this platform for the community.</p>
-            <Link className="pathways-button pathways-button--secondary" href="/pathways/hire">
-              Hire through Pathways
-            </Link>
-          </article>
+      {/* Process Section - Side by side */}
+      <Reveal as="section" className="section pathways-process" variant="rise">
+        <div className="pathways-process-header">
+          <h2>The process</h2>
+          <p>Simple, transparent steps for both candidates and employers</p>
         </div>
-      </section>
 
-      <section className="section pathways-section" aria-labelledby="pathways-how">
-        <h2 id="pathways-how">How it works</h2>
-        <div className="pathways-flip-grid" role="list">
-          {howItWorks.map(({ track, steps }) => {
-            const baseId = track.toLowerCase().replace(/[^a-z]+/g, '-').replace(/(^-|-$)/g, '');
-
-            return (
-              <article key={track} className="pathways-flip-card" role="listitem">
-                <div
-                  className="pathways-flip-inner"
-                  tabIndex={0}
-                  aria-labelledby={`${baseId}-title`}
-                  aria-describedby={`${baseId}-hint`}
+        <div className="pathways-process-grid">
+          <div className="pathways-process-track">
+            <h3 className="pathways-track-title">For candidates</h3>
+            <div className="pathways-steps">
+              {candidateSteps.map((step, index) => (
+                <Reveal
+                  key={step.title}
+                  as="article"
+                  className="pathways-step-card"
+                  variant="scale"
+                  delay={index * 90}
                 >
-                  <div className="pathways-flip-face pathways-flip-front">
-                    <span className="pathways-card-tag">{track}</span>
-                    <h3 id={`${baseId}-title`}>Steps at a glance</h3>
-                    <ul className="pathways-flip-steps" aria-label={`${track} steps`}>
-                      {steps.map(({ title }, index) => (
-                        <li key={title}>
-                          <span className="pathways-step-index">{String(index + 1).padStart(2, '0')}</span>
-                          <span>{title}</span>
-                        </li>
-                      ))}
-                    </ul>
-                    <span id={`${baseId}-hint`} className="pathways-flip-hint">
-                      Hover or focus to see the full process
-                    </span>
+                  <span className="pathways-step-number">{step.number}</span>
+                  <div className="pathways-step-content">
+                    <h4>{step.title}</h4>
+                    <p>{step.detail}</p>
                   </div>
-                  <div className="pathways-flip-face pathways-flip-back">
-                    <h3>How it works</h3>
-                    <ol>
-                      {steps.map(({ title, detail }) => (
-                        <li key={title}>
-                          <strong>{title}</strong>
-                          <span>{detail}</span>
-                        </li>
-                      ))}
-                    </ol>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <div className="pathways-process-track">
+            <h3 className="pathways-track-title">For employers</h3>
+            <div className="pathways-steps">
+              {employerSteps.map((step, index) => (
+                <Reveal
+                  key={step.title}
+                  as="article"
+                  className="pathways-step-card"
+                  variant="scale"
+                  delay={index * 90}
+                >
+                  <span className="pathways-step-number">{step.number}</span>
+                  <div className="pathways-step-content">
+                    <h4>{step.title}</h4>
+                    <p>{step.detail}</p>
                   </div>
-                </div>
-              </article>
-            );
-          })}
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section pathways-section" aria-labelledby="pathways-trust">
-        <h2 id="pathways-trust">Built on trust</h2>
-        <ul className="pathways-list">
-          {trustPoints.map(({ title, detail }) => (
-            <li key={title}>
-              <strong>{title} —</strong> {detail}
-            </li>
+      {/* Trust Section */}
+      <Reveal as="section" className="section pathways-trust" variant="rise">
+        <div className="pathways-trust-header">
+          <h2>Built on trust</h2>
+        </div>
+        <div className="pathways-trust-grid" role="list">
+          {trustPrinciples.map((principle, index) => (
+            <Reveal
+              key={principle.title}
+              as="article"
+              className="pathways-trust-card"
+              role="listitem"
+              variant="scale"
+              delay={index * 90}
+            >
+              <h3>{principle.title}</h3>
+              <p>{principle.detail}</p>
+            </Reveal>
           ))}
-        </ul>
-      </section>
+        </div>
+      </Reveal>
 
-      <section className="section pathways-section" aria-labelledby="pathways-faqs">
-        <h2 id="pathways-faqs">FAQs</h2>
+      {/* FAQ Section */}
+      <Reveal as="section" className="section pathways-faq" variant="rise">
+        <div className="pathways-faq-header">
+          <h2>Frequently asked questions</h2>
+        </div>
         <div className="pathways-faq-list">
-          {faqs.map(({ question, answer }) => (
-            <details key={question} className="pathways-faq">
-              <summary>{question}</summary>
-              <p>{answer}</p>
-            </details>
+          {faqs.map((faq, index) => (
+            <Reveal key={faq.question} as="details" className="pathways-faq-item" variant="scale" delay={index * 60}>
+              <summary>{faq.question}</summary>
+              <p>{faq.answer}</p>
+            </Reveal>
           ))}
         </div>
-      </section>
+      </Reveal>
 
-      <section className="section pathways-section" aria-label="Next steps">
-        <div className="pathways-cta-grid">
-          <article className="pathways-cta-card">
-            <h3>Ready to take the next step?</h3>
-            <p>Join the network and get matched with roles that fit your skills and values.</p>
-            <Link className="pathways-button" href="/pathways/apply">
-              Apply to Pathways
+      {/* Final CTA */}
+      <Reveal as="section" className="section pathways-final-cta" variant="rise">
+        <div className="pathways-final-cta-content">
+          <h2>Ready to get started?</h2>
+          <p>Join exceptional talent and values-aligned organizations building the future together.</p>
+          <div className="pathways-final-cta-actions">
+            <Link className="cta-button" href="/pathways/apply">
+              Apply to Network
             </Link>
-          </article>
-          <article className="pathways-cta-card">
-            <h3>Hiring? List your opportunity.</h3>
-            <p>Reach talented Muslims who care about craft and character.</p>
-            <p>We charge a small match fee only once a successful hire is made — helping us sustain this platform for the community.</p>
-            <Link className="pathways-button pathways-button--secondary" href="/pathways/hire">
-              Hire through Pathways
+            <Link className="cta-button cta-button--secondary" href="/pathways/hire">
+              Hire Talent
             </Link>
-          </article>
-          <article className="pathways-cta-card">
-            <h3>Have questions?</h3>
-            <p>We’re here to help. Reach out and we’ll get back to you with the details you need.</p>
-            <Link className="pathways-button pathways-button--ghost" href="mailto:contact@saysalams.com.au">
+            <Link className="link-ghost" href="mailto:contact@saysalams.com.au">
               Contact Us
             </Link>
-          </article>
+          </div>
         </div>
-      </section>
-    </div>
+      </Reveal>
+    </>
   );
 }

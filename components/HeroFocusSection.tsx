@@ -12,6 +12,8 @@ const ACTIONS_SCALE_MIN = 1;
 const TAG_LETTER_MAX = 0.34;
 const TAG_LETTER_MIN = 0.3;
 const TRANSLATE_MAX = 18;
+const BG_SCALE_MAX = 1;
+const BG_SCALE_MIN = 0.92;
 
 export const HeroFocusSection = forwardRef<HTMLElement, HeroFocusSectionProps>(
   ({ className, children, style, ...rest }, forwardedRef) => {
@@ -34,6 +36,7 @@ export const HeroFocusSection = forwardRef<HTMLElement, HeroFocusSectionProps>(
         target.style.setProperty('--hero-focus-opacity', '1');
         target.style.setProperty('--hero-focus-translate', '0px');
         target.style.setProperty('--hero-focus-tag-letter', `${TAG_LETTER_MIN}em`);
+        target.style.setProperty('--hero-focus-bg-scale', BG_SCALE_MAX.toFixed(3));
       };
 
       const initInteractive = (target: HTMLElement) => {
@@ -60,12 +63,14 @@ export const HeroFocusSection = forwardRef<HTMLElement, HeroFocusSectionProps>(
           const tagLetter = TAG_LETTER_MAX - (TAG_LETTER_MAX - TAG_LETTER_MIN) * progress;
           const opacity = 1 - progress * 0.12;
           const translate = progress * TRANSLATE_MAX;
+          const bgScale = BG_SCALE_MAX - (BG_SCALE_MAX - BG_SCALE_MIN) * progress;
 
           current.style.setProperty('--hero-focus-content-scale', contentScale.toFixed(3));
           current.style.setProperty('--hero-focus-actions-scale', actionsScale.toFixed(3));
           current.style.setProperty('--hero-focus-opacity', opacity.toFixed(3));
           current.style.setProperty('--hero-focus-translate', `${translate.toFixed(2)}px`);
           current.style.setProperty('--hero-focus-tag-letter', `${tagLetter.toFixed(3)}em`);
+          current.style.setProperty('--hero-focus-bg-scale', bgScale.toFixed(3));
 
           ticking = false;
         };
@@ -175,5 +180,6 @@ const defaultVariables: Record<string, string | number> = {
   '--hero-focus-actions-scale': ACTIONS_SCALE_MAX,
   '--hero-focus-opacity': 1,
   '--hero-focus-translate': '0px',
-  '--hero-focus-tag-letter': `${TAG_LETTER_MAX}em`
+  '--hero-focus-tag-letter': `${TAG_LETTER_MAX}em`,
+  '--hero-focus-bg-scale': BG_SCALE_MAX
 };

@@ -9,8 +9,11 @@
   --muted: rgba(255, 255, 255, 0.6);
   --accent: #10b981;
   --accent-hover: #059669;
+  --accent-orange: #C65D3B;
+  --accent-orange-muted: rgba(198, 93, 59, 0.15);
   --gradient-accent: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
   --gradient-glow: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.15), transparent 70%);
+  --gradient-glow-orange: radial-gradient(circle at 50% 50%, rgba(198, 93, 59, 0.12), transparent 70%);
   --layout-gutter: clamp(2rem, 7vw, 8rem);
   --layout-max-width: min(1600px, 100%);
   --reveal-duration: 0.6s;
@@ -303,7 +306,7 @@ main {
 }
 
 .hero {
-  min-height: clamp(700px, 100vh, 900px);
+  min-height: clamp(650px, 90vh, 850px);
   align-content: center;
   row-gap: clamp(2.5rem, 5vw, 4rem);
   position: relative;
@@ -366,6 +369,8 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   opacity: 0.65;
+  transform: scale(var(--hero-focus-bg-scale, 1));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .hero::after {
@@ -470,7 +475,7 @@ main {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--accent-orange);
   font-weight: 500;
 }
 
@@ -501,18 +506,20 @@ main {
   background: var(--surface);
   backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid var(--border);
+  border-top: 2px solid var(--accent-orange);
   border-radius: 1rem;
   padding: clamp(2rem, 4vw, 2.5rem);
   display: grid;
   gap: 1rem;
   min-height: auto;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-top-color 0.2s ease;
 }
 
 .vision-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15), 0 0 40px var(--gradient-glow);
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15), 0 0 40px var(--gradient-glow-orange);
+  border-top-color: var(--accent-orange);
 }
 
 .vision-card h3 {
@@ -525,6 +532,146 @@ main {
 
 .vision-card p {
   color: var(--muted);
+}
+
+/* Scale Section - Split Layout with Puzzle Pieces */
+.scale-section {
+  position: relative;
+  padding: clamp(3rem, 6vw, 4.5rem) clamp(2rem, 5vw, 3rem);
+  background: linear-gradient(180deg, rgba(198, 93, 59, 0.03) 0%, transparent 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(3rem, 6vw, 5rem);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .scale-section {
+    grid-template-columns: 1fr;
+    gap: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+.scale-header {
+  text-align: left;
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  max-width: 500px;
+}
+
+.scale-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.85rem;
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
+.scale-headline {
+  font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.scale-lede {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.65;
+}
+
+.scale-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1rem, 2vw, 1.2rem);
+  max-width: 550px;
+  justify-self: center;
+}
+
+@media (max-width: 900px) {
+  .scale-grid {
+    justify-self: stretch;
+    max-width: 100%;
+  }
+}
+
+.scale-card {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(1.5rem, 3vw, 2rem);
+  padding: clamp(1.8rem, 3.5vw, 2.2rem);
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid var(--accent-orange);
+  border-radius: 0.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.scale-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(198, 93, 59, 0.05) 0%, transparent 40%);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scale-card::after {
+  content: none;
+}
+
+.scale-card:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.04);
+  border-left-width: 4px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.scale-card:hover::before {
+  background: linear-gradient(90deg, rgba(198, 93, 59, 0.08) 0%, transparent 40%);
+}
+
+.scale-card-number {
+  font-size: clamp(2.5rem, 5vw, 3.2rem);
+  font-weight: 800;
+  color: var(--accent-orange);
+  line-height: 1;
+  flex-shrink: 0;
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -0.02em;
+  opacity: 0.85;
+  position: relative;
+  z-index: 1;
+}
+
+.scale-card-content {
+  display: grid;
+  gap: 0.6rem;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.scale-card h3 {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.3;
+}
+
+.scale-card p {
+  font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
 }
 
 .hero-panel h2 {
@@ -565,7 +712,7 @@ main {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--accent-orange);
   font-weight: 500;
 }
 
@@ -1391,7 +1538,7 @@ footer {
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.85rem;
-  color: var(--muted);
+  color: var(--accent-orange);
   font-weight: 500;
 }
 
@@ -1546,15 +1693,16 @@ footer {
   gap: 1rem;
   padding: 1rem;
   border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-orange-muted);
   border-radius: 1rem;
   background: var(--surface);
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-left-color 0.2s ease;
 }
 
 .spotlight-teaser-item:hover,
 .spotlight-teaser-item:focus-visible {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.15);
+  border-left-color: var(--accent-orange);
 }
 
 .spotlight-teaser-avatar {
@@ -2269,58 +2417,438 @@ footer {
     font-size: 0.88rem;
   }
 }
-.pathways-layout {
-  display: contents;
-}
+/* ============================================
+   PATHWAYS PAGE - REDESIGNED
+   ============================================ */
 
-.pathways-section {
-  display: grid;
-  gap: clamp(1.6rem, 4vw, 2.6rem);
-}
-
+/* Hero Section */
 .pathways-hero {
+  padding: clamp(4rem, 10vw, 8rem) clamp(2rem, 5vw, 3rem) clamp(3rem, 8vw, 6rem);
+  text-align: center;
   display: grid;
-  gap: clamp(1rem, 3vw, 1.8rem);
+  gap: clamp(2rem, 4vw, 3rem);
+  align-content: center;
+  min-height: 70vh;
+}
+
+.pathways-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2rem);
 }
 
 .pathways-kicker {
-  font-size: clamp(0.85rem, 2.8vw, 1rem);
-  letter-spacing: 0.26em;
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: rgba(245, 245, 245, 0.72);
+  color: var(--accent-orange);
+  font-weight: 600;
 }
 
-.pathways-intro {
-  max-width: 52ch;
-  letter-spacing: 0.04em;
-  color: rgba(245, 245, 245, 0.82);
+.pathways-headline {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }
 
-.pathways-card-grid {
+.pathways-subhead {
+  display: block;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.5rem;
+}
+
+.pathways-lede {
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.75);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.pathways-hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+/* Features Section */
+.pathways-features {
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 3rem);
+}
+
+.pathways-features-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.pathways-features-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pathways-features-grid {
   display: grid;
-  gap: clamp(1.4rem, 4vw, 2rem);
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.pathways-card {
+.pathways-feature-card {
+  padding: clamp(2rem, 4vw, 2.5rem);
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid var(--accent-orange);
+  border-radius: 0.8rem;
+  display: grid;
+  gap: 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.pathways-feature-card:hover {
+  transform: translateX(4px);
+  background: rgba(255, 255, 255, 0.04);
+  border-left-width: 4px;
+}
+
+.pathways-feature-card h3 {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.pathways-feature-card p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* CTA Split Section */
+.pathways-cta-split {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 450px), 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 3rem);
+}
+
+.pathways-cta-card {
+  padding: clamp(2.5rem, 5vw, 3.5rem);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 1.2rem;
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2rem);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.pathways-cta-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.pathways-cta-primary {
+  background: linear-gradient(135deg, rgba(198, 93, 59, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(198, 93, 59, 0.2);
+}
+
+.pathways-cta-primary:hover {
+  background: linear-gradient(135deg, rgba(198, 93, 59, 0.12) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-color: rgba(198, 93, 59, 0.3);
+}
+
+.pathways-cta-secondary {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.pathways-cta-secondary:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.pathways-cta-content {
+  display: grid;
+  gap: 1rem;
+}
+
+.pathways-cta-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
+.pathways-cta-content h2 {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.pathways-cta-content p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* Process Section */
+.pathways-process {
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 3rem);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.pathways-process-header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.pathways-process-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.pathways-process-header p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.pathways-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pathways-track-title {
+  font-size: clamp(1.3rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  text-align: center;
+}
+
+.pathways-steps {
+  display: grid;
+  gap: clamp(1.2rem, 2.5vw, 1.5rem);
+}
+
+.pathways-step-content {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.pathways-step-card {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0.8rem;
   display: grid;
   gap: 0.8rem;
-  padding: clamp(1.6rem, 4vw, 2.2rem);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: clamp(1rem, 3vw, 1.5rem);
-  background: linear-gradient(130deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.pathways-card h3 {
-  font-size: clamp(1.2rem, 3vw, 1.5rem);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.pathways-step-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateX(4px);
 }
 
-.pathways-card p {
-  color: rgba(245, 245, 245, 0.82);
-  letter-spacing: 0.03em;
+.pathways-step-number {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--accent-orange);
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.pathways-step-card h4 {
+  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.pathways-step-card p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Trust Section */
+.pathways-trust {
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 3rem);
+}
+
+.pathways-trust-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.pathways-trust-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pathways-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: clamp(1.5rem, 3vw, 2rem);
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pathways-trust-card {
+  padding: clamp(2rem, 4vw, 2.5rem);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 0.8rem;
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pathways-trust-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-4px);
+}
+
+.pathways-trust-card h3 {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.pathways-trust-card p {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+/* FAQ Section */
+.pathways-faq {
+  padding: clamp(3rem, 6vw, 5rem) clamp(2rem, 5vw, 3rem);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.pathways-faq-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.pathways-faq-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pathways-faq-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+}
+
+.pathways-faq-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.8rem;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pathways-faq-item[open] {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.pathways-faq-item summary {
+  padding: clamp(1.2rem, 3vw, 1.5rem);
+  cursor: pointer;
+  list-style: none;
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-weight: 600;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  transition: all 0.2s ease;
+}
+
+.pathways-faq-item summary:hover {
+  color: var(--accent-orange);
+}
+
+.pathways-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.pathways-faq-item summary::after {
+  content: '+';
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.pathways-faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.pathways-faq-item p {
+  padding: 0 clamp(1.2rem, 3vw, 1.5rem) clamp(1.2rem, 3vw, 1.5rem);
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Final CTA Section */
+.pathways-final-cta {
+  padding: clamp(4rem, 8vw, 6rem) clamp(2rem, 5vw, 3rem);
+  text-align: center;
+}
+
+.pathways-final-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.pathways-final-cta-content h2 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.pathways-final-cta-content p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: clamp(1.05rem, 2vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.pathways-final-cta-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .pathways-flip-grid {

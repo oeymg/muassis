@@ -12,8 +12,8 @@ export const metadata = createPageMetadata('home');
 
 const visionHighlights = [
   {
-    title: 'Faith-Led Foundations',
-    copy: 'We blueprint every venture with prophetic principles so momentum never asks us to compromise our deen.'
+    title: 'Principled Foundations',
+    copy: 'We build every venture with ethical clarity and conviction, so growth never requires compromising our values.'
   },
   {
     title: 'Collective Intelligence',
@@ -22,6 +22,21 @@ const visionHighlights = [
   {
     title: 'Generational Continuity',
     copy: 'We design systems the next generation can inherit — ventures with governance and culture that endure beyond us.'
+  }
+];
+
+const scaleHighlights = [
+  {
+    title: 'Provide Mentorship',
+    copy: 'Access experienced founders who guide you through real challenges with wisdom grounded in faith and experience.'
+  },
+  {
+    title: 'Find Talent',
+    copy: 'Connect with skilled professionals and builders who share your values and vision for impact.'
+  },
+  {
+    title: 'Raise Capital',
+    copy: 'Unlock funding opportunities through investors who understand both your mission and your market.'
   }
 ];
 
@@ -42,8 +57,11 @@ export default async function HomePage() {
     <>
       <Reveal as={HeroFocusSection} variant="fade">
         <div className="hero-content">
-          <span className="hero-tagline">Mu’assis: Muslim Founders Australia</span>
-          <HeroHeadline>Uniting Muslims to Shape Futures.</HeroHeadline>
+          <HeroHeadline>
+            Scaling for generations
+            <br />
+            <span className="hero-subhead">The ecosystem for Muslim-led ventures</span>
+          </HeroHeadline>
         </div>
         <div className="hero-cta">
           <div className="hero-actions">
@@ -88,7 +106,7 @@ export default async function HomePage() {
           <span className="vision-kicker">Why we build</span>
           <h2>Our Vision</h2>
           <p className="vision-lede">
-            Mu’assis (مؤسس) means “the establisher”. We believe every Muslim founder carries that calling —
+            Mu'assis (مؤسس) means "the establisher". We believe every founder carries that calling —
             to lay enduring foundations for our ummah, to activate collective resources, and to leave a
             blueprint the next generation can advance.
           </p>
@@ -110,12 +128,41 @@ export default async function HomePage() {
         </div>
       </Reveal>
 
+      <Reveal as="section" className="section scale-section" variant="rise">
+        <div className="scale-header">
+          <span className="scale-kicker">More than a network</span>
+          <h2 className="scale-headline">This is how we scale</h2>
+          <p className="scale-lede">
+            We're not just connecting founders — we're building the infrastructure that makes ventures
+            sustainable, scalable, and anchored in purpose.
+          </p>
+        </div>
+        <div className="scale-grid" role="list">
+          {scaleHighlights.map((highlight, index) => (
+            <Reveal
+              key={highlight.title}
+              as="article"
+              className="scale-card"
+              role="listitem"
+              variant="scale"
+              delay={index * 90}
+            >
+              <span className="scale-card-number">0{index + 1}</span>
+              <div className="scale-card-content">
+                <h3>{highlight.title}</h3>
+                <p>{highlight.copy}</p>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+      </Reveal>
+
       {featuredSpotlights.length > 0 ? (
         <Reveal as="section" className="section spotlight-teaser" variant="fade">
           <div className="spotlight-teaser-header">
             <span className="spotlight-kicker">Founder Spotlight</span>
             <h2>Discover Mu’assis Journeys</h2>
-            <p>Find the journeys of Muslim Mu’assis across Australia.</p>
+            <p>Find the journeys of Mu'assis across Australia.</p>
           </div>
           <div className="spotlight-teaser-grid" role="list">
             {featuredSpotlights.map((spotlight, index) => (
@@ -161,7 +208,7 @@ export default async function HomePage() {
         <div className="cta-hero">
           <span className="cta-kicker">Collective Blueprint</span>
           <div className="cta-heading-row">
-            <h2>Build with the Ummah</h2>
+            <h2>Build with us</h2>
             <div className="cta-actions">
               <Link className="cta-button" href="/join">
                 Join Mu’assis →
