@@ -181,11 +181,9 @@ export function createRootMetadata(): Metadata {
       canonical: SITE_URL
     },
     icons: {
-      icon: [
-        { url: '/logo.svg', type: 'image/svg+xml' }
-      ],
-      shortcut: '/logo.svg',
-      apple: '/logo.svg'
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+      apple: '/favicon.ico'
     }
   };
 }
@@ -226,7 +224,7 @@ export const organizationSchema = {
   '@type': 'Organization',
   name: seoPages.home.title,
   url: SITE_URL,
-  logo: `${SITE_URL}/logo.svg`,
+  logo: `${SITE_URL}/favicon.ico`,
   missionStatement:
     'A Muslim founders network in Australia uniting Muslims to shape futures — in business, in community, and for the next generation.'
 };
