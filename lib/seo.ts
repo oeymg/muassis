@@ -5,7 +5,7 @@ export const SITE_URL = 'https://muassis.org';
 const DEFAULT_SOCIAL_IMAGE = '/social/muassis-default.png';
 
 const baseOpenGraph = {
-  siteName: 'Mu’assis',
+  siteName: "Mu'assis",
   locale: 'en_AU',
   type: 'website' as const
 };
@@ -18,9 +18,9 @@ const baseTwitter = {
 export const seoPages = {
   home: {
     path: '/',
-    title: 'Mu’assis: Muslim Founders Australia',
+    title: "Mu'assis: Muslim Founders Australia",
     description:
-      'Mu’assis is a Muslim founders network in Australia uniting Muslims to shape futures — in business, in community, and for the next generation. Looking for a Muslim startup accelerator in Australia? Mu’assis connects entrepreneurs through mentorship, community, and values-driven programs.',
+      "Mu'assis is a Muslim founders network in Australia uniting Muslims to shape futures — in business, in community, and for the next generation. Looking for a Muslim startup accelerator in Australia? Mu'assis connects entrepreneurs through mentorship, community, and values-driven programs.",
     keywords: [
       "Muslim startup accelerator Australia",
       "Muslim entrepreneur network",
@@ -33,9 +33,9 @@ export const seoPages = {
   },
   community: {
     path: '/community',
-    title: 'Community | Mu’assis: Muslim Founders Australia',
+    title: "Community | Mu'assis: Muslim Founders Australia",
     description:
-      'Explore how Mu’assis activates Muslim founders across business, ummah, and next generation futures through shared intelligence and collaborative builds. Want to join a faith-based mentorship and networking platform? Our community supports entrepreneurs with peer collaboration and shared values.',
+      "Explore how Mu'assis activates Muslim founders across business, ummah, and next generation futures through shared intelligence and collaborative builds. Want to join a faith-based mentorship and networking platform? Our community supports entrepreneurs with peer collaboration and shared values.",
     keywords: [
       "Muslim networking platform",
       "Faith-based mentorship",
@@ -48,9 +48,9 @@ export const seoPages = {
   },
   team: {
     path: '/advisors',
-    title: 'Team | Mu’assis: Muslim Founders Australia',
+    title: "Team | Mu'assis: Muslim Founders Australia",
     description:
-      'Meet the Mu’assis team stewarding our mission — from the founder to partners guiding strategy, capital growth, and long-term stewardship. Discover the people turning values into ventures.',
+      "Meet the Mu'assis team stewarding our mission — from the founder to partners guiding strategy, capital growth, and long-term stewardship. Discover the people turning values into ventures.",
     keywords: [
       "Mu’assis team",
       "Muslim founders leadership",
@@ -63,9 +63,9 @@ export const seoPages = {
   },
   pathways: {
     path: '/pathways',
-    title: 'Mu’assis Pathways | Values-Aligned Hiring & Careers',
+    title: "Mu'assis Pathways | Values-Aligned Hiring & Careers",
     description:
-      'Mu’assis Pathways connects values-led Muslim founders and operators with open roles, curated intros, and job-ready support. Whether you are hiring or exploring your next move, share your brief and we will match you with aligned talent or opportunities.',
+      "Mu'assis Pathways connects values-led Muslim founders and operators with open roles, curated intros, and job-ready support. Whether you are hiring or exploring your next move, share your brief and we will match you with aligned talent or opportunities.",
     keywords: [
       "Muslim job board Australia",
       "Faith-aligned hiring platform",
@@ -78,9 +78,9 @@ export const seoPages = {
   },
   spotlight: {
     path: '/Spotlight',
-    title: 'Founder Spotlight | Mu’assis: Muslim Founders Australia',
+    title: "Founder Spotlight | Mu'assis: Muslim Founders Australia",
     description:
-      'Founder spotlights from the Mu’assis network — stories of Muslim founders giving back, leading with hikmah, and building with mutual respect. Curious about inspiring Muslim entrepreneur journeys? Discover leadership and wisdom through our featured founder stories.',
+      "Founder spotlights from the Mu'assis network — stories of Muslim founders giving back, leading with hikmah, and building with mutual respect. Curious about inspiring Muslim entrepreneur journeys? Discover leadership and wisdom through our featured founder stories.",
     keywords: [
       "Muslim founder stories",
       "Islamic leadership in business",
@@ -93,9 +93,9 @@ export const seoPages = {
   },
   join: {
     path: '/join',
-    title: 'Join the Mu’assis Muslim Founders Club',
+    title: "Join the Mu'assis Muslim Founders Club",
     description:
-      'Apply to Mu’assis to connect with Muslim founders shaping futures, access curated circles, and collaborate through our community Slack. Looking to become part of a supportive Muslim founders program? Join us to access mentorship, networking, and growth opportunities tailored for Muslim entrepreneurs.',
+      "Apply to Mu'assis to connect with Muslim founders shaping futures, access curated circles, and collaborate through our community Slack. Looking to become part of a supportive Muslim founders program? Join us to access mentorship, networking, and growth opportunities tailored for Muslim entrepreneurs.",
     keywords: [
       "Apply to Muslim accelerator",
       "Join startup incubator",
@@ -108,9 +108,9 @@ export const seoPages = {
   },
   events: {
     path: '/events',
-    title: 'Events | Mu’assis: Muslim Founders Australia',
+    title: "Events | Mu'assis: Muslim Founders Australia",
     description:
-      'Discover Mu’assis events designed to help Muslim founders collaborate, access mentorship, and launch impactful solutions. Join build sprints, pitch sessions, and community gatherings crafted for values-led entrepreneurs.',
+      "Discover Mu'assis events designed to help Muslim founders collaborate, access mentorship, and launch impactful solutions. Join build sprints, pitch sessions, and community gatherings crafted for values-led entrepreneurs.",
     keywords: [
       "Muslim founders events",
       "Startup workshops for Muslims",
@@ -119,6 +119,21 @@ export const seoPages = {
       "Muslim business community events",
       "Mentorship events for Muslim startups",
       "Values-driven startup programming"
+    ]
+  },
+  launchpad: {
+    path: '/launchpad',
+    title: "Launchpad | Mu'assis: Professional Incubator for Purpose-Driven Founders",
+    description:
+      "Mu'assis Launchpad is Australia's first Muslim-led incubator designed to professionalize ethical entrepreneurship. We bridge the gap between having a good idea and running a legally robust, investor-ready company. Join our 3-month hybrid program launching in 2026.",
+    keywords: [
+      "Muslim startup incubator Australia",
+      "Ethical entrepreneurship program",
+      "Purpose-driven founder accelerator",
+      "Startup governance and structure",
+      "Muslim-led business incubator",
+      "Investor-ready startup program",
+      "Mu'assis Launchpad 2026"
     ]
   }
 };
@@ -148,7 +163,7 @@ export function createRootMetadata(): Metadata {
       images: [
         {
           url: buildUrl(DEFAULT_SOCIAL_IMAGE),
-          alt: 'Mu’assis default social graphic'
+          alt: "Mu'assis default social graphic"
         }
       ]
     },
@@ -166,8 +181,11 @@ export function createRootMetadata(): Metadata {
       canonical: SITE_URL
     },
     icons: {
-      icon: '/favicon.ico',
-      shortcut: '/favicon.ico'
+      icon: [
+        { url: '/logo.svg', type: 'image/svg+xml' }
+      ],
+      shortcut: '/logo.svg',
+      apple: '/logo.svg'
     }
   };
 }
@@ -190,7 +208,7 @@ export function createPageMetadata(key: PageKey): Metadata {
       images: [
         {
           url: buildUrl(DEFAULT_SOCIAL_IMAGE),
-          alt: 'Mu’assis default social graphic'
+          alt: "Mu'assis default social graphic"
         }
       ]
     },
@@ -208,7 +226,7 @@ export const organizationSchema = {
   '@type': 'Organization',
   name: seoPages.home.title,
   url: SITE_URL,
-  logo: `${SITE_URL}/favicon.ico`,
+  logo: `${SITE_URL}/logo.svg`,
   missionStatement:
     'A Muslim founders network in Australia uniting Muslims to shape futures — in business, in community, and for the next generation.'
 };

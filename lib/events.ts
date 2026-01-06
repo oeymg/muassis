@@ -57,9 +57,9 @@ const events: EventEntry[] = [
       { name: 'UQ Muslim Students Association' },
       { name: 'Awqaf Australia' }
     ],
-    hosts: 'Hosted by Mu’assis – Muslim Founders Australia & Awqaf Australia',
+    hosts: 'Hosted by Mu\'assis – Muslim Founders Australia & Awqaf Australia',
     ticketPrice: 'A$10.00 (includes lunch & materials)',
-    contactEmail: 'contact@saysalams.com.au'
+    contactEmail: 'contact@muassis.org'
   }
 ];
 

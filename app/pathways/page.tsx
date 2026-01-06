@@ -92,7 +92,7 @@ const faqs = [
   {
     question: 'How do you handle my data?',
     answer:
-      'We only share candidate details with verified opportunities. Your privacy is paramount - you can request data removal anytime via contact@saysalams.com.au'
+      'We only share candidate details with verified opportunities. Your privacy is paramount - you can request data removal anytime via contact@muassis.org'
   },
   {
     question: 'What is the match fee?',
@@ -282,7 +282,7 @@ export default function PathwaysPage() {
             <Link className="cta-button cta-button--secondary" href="/pathways/hire">
               Hire Talent
             </Link>
-            <Link className="link-ghost" href="mailto:contact@saysalams.com.au">
+            <Link className="link-ghost" href="mailto:contact@muassis.org">
               Contact Us
             </Link>
           </div>

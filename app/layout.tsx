@@ -8,7 +8,6 @@ import './mobile.css';
 import { Navigation } from '@/components/Navigation';
 import { ScrollProgressBar } from '@/components/ScrollProgressBar';
 import { ScrollRevealManager } from '@/components/ScrollRevealManager';
-import { SpotlightCursor } from '@/components/SpotlightCursor';
 import { createRootMetadata, organizationSchema, websiteSchema } from '@/lib/seo';
 
 export const metadata: Metadata = createRootMetadata();
@@ -21,6 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
         <link rel="preconnect" href="https://tally.so" crossOrigin="anonymous" />
       </head>
       <body>
@@ -61,7 +64,7 @@ export default function RootLayout({
         <footer className="site-footer-minimal">
           <div className="site-footer-copy">
             <span>© 2025 Mu&apos;assis: Scaling for Generations</span>
-            <span>The Ecosystem for Muslim-led Ventures</span>
+            <span>the ethical ecosystem in Australia</span>
           </div>
           <div className="site-footer-social">
             <span className="site-footer-social-title">Connect with us</span>
@@ -116,7 +119,6 @@ export default function RootLayout({
           </div>
         </footer>
         <ScrollRevealManager />
-        <SpotlightCursor />
         <Analytics />
       </body>
     </html>

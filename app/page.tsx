@@ -7,6 +7,7 @@ import { HomeNewsletterModal } from '@/components/HomeNewsletterModal';
 import { Reveal } from '@/components/Reveal';
 import { HeroHeadline } from '@/components/HeroHeadline';
 import { HeroFocusSection } from '@/components/HeroFocusSection';
+import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 
 export const metadata = createPageMetadata('home');
 
@@ -55,12 +56,13 @@ export default async function HomePage() {
 
   return (
     <>
+      <AnnouncementBanner text="ANNOUNCEMENT. JAN 16." />
       <Reveal as={HeroFocusSection} variant="fade">
         <div className="hero-content">
           <HeroHeadline>
             Scaling for generations
             <br />
-            <span className="hero-subhead">The ecosystem for Muslim-led ventures</span>
+            <span className="hero-subhead">the ethical ecosystem in Australia</span>
           </HeroHeadline>
         </div>
         <div className="hero-cta">
@@ -106,7 +108,7 @@ export default async function HomePage() {
           <span className="vision-kicker">Why we build</span>
           <h2>Our Vision</h2>
           <p className="vision-lede">
-            Mu&apos;assis (مؤسس) means &quot;the establisher&quot;. We believe every founder carries that calling —
+            Mu&apos;assis means &quot;the establisher&quot;. We believe every founder carries that calling —
             to lay enduring foundations for our ummah, to activate collective resources, and to leave a
             blueprint the next generation can advance.
           </p>
