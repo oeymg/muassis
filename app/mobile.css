@@ -1,14 +1,277 @@
 @media (max-width: 768px) {
+  body:has(.launchpad-industrial) {
+    padding-inline: 0;
+    background: #050505;
+    background-image: none;
+  }
+
+  body:has(.launchpad-industrial) main {
+    max-width: 100%;
+    margin-inline: 0;
+  }
+
   :root {
-    --layout-gutter: clamp(1.5rem, 5vw, 2rem);
+    --layout-gutter: clamp(1rem, 4vw, 1.6rem);
+    --max-page-width: min(1440px, 100%);
+    --max-content-width: min(720px, 100%);
+    --industrial-ease: cubic-bezier(0.2, 0.7, 0, 1);
   }
 
   body {
     width: 100%;
-    max-width: min(390px, 100%);
-    margin: 0 auto;
-    padding-inline: clamp(1rem, 4vw, 1.5rem);
+    max-width: 100%;
+    margin: 0;
+    padding-inline: var(--layout-gutter);
     overflow-x: hidden;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
+    background-position: center;
+  }
+
+  .nav {
+    width: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6rem;
+    margin-left: auto;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: min(220px, 65vw);
+    align-items: flex-end;
+    gap: 0.6rem 0.8rem;
+    text-align: right;
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    width: 100%;
+  }
+
+  .site-footer-minimal {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section:not(.hero) h1,
+  .section:not(.hero) h2,
+  .section:not(.hero) h3,
+  .section:not(.hero) h4,
+  .section:not(.hero) h5,
+  .section:not(.hero) h6 {
+    text-align: left;
+  }
+
+  .section:not(.hero) .vision-kicker,
+  .section:not(.hero) .community-kicker,
+  .section:not(.hero) .team-kicker,
+  .section:not(.hero) .events-kicker,
+  .section:not(.hero) .events-teaser-kicker,
+  .section:not(.hero) .cta-kicker,
+  .section:not(.hero) .pathways-kicker,
+  .section:not(.hero) .spotlight-kicker,
+  .section:not(.hero) .scale-kicker {
+    text-align: left;
+  }
+
+  .team-hero,
+  .launchpad-section-title,
+  .launchpad-problem-intro,
+  .launchpad-cta-content {
+    text-align: left;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px !important;
+    border-radius: 0 !important;
+    border-width: 1px;
+  }
+
+  button,
+  .cta-button,
+  .link-ghost,
+  .slack-button,
+  .nav-link--cta {
+    border-radius: 0 !important;
+    transition: all 0.2s var(--industrial-ease);
+    border-width: 1px;
+  }
+
+  main,
+  .site-header,
+  .navbar,
+  .section,
+  .spotlight-teaser,
+  .events-page,
+  .community,
+  .community-spotlights,
+  .join-section,
+  .pathways-layout,
+  .team-hero,
+  .team-roster,
+  .site-footer-minimal {
+    max-width: var(--max-page-width);
+    margin-inline: auto;
+  }
+
+  .section p,
+  .section ul,
+  .section ol,
+  form,
+  .tally-embed-frame,
+  .spotlight-header p,
+  .launchpad-section-intro,
+  .launchpad-problem-description,
+  .launchpad-hero-subtitle,
+  .launchpad-hero-tagline {
+    max-width: var(--max-content-width);
+    margin-inline: auto;
+  }
+
+  .launchpad-hero-industrial,
+  .launchpad-audience-industrial,
+  .launchpad-problem-industrial,
+  .launchpad-curriculum-industrial,
+  .launchpad-advisors-industrial,
+  .launchpad-final-cta-industrial,
+  .launchpad-stats-industrial {
+    padding-inline: var(--layout-gutter);
+  }
+
+  .launchpad-hero-center,
+  .launchpad-section-title,
+  .launchpad-path-grid,
+  .launchpad-problem-intro,
+  .launchpad-problem-stack,
+  .launchpad-timeline-horizontal,
+  .launchpad-advisors-grid,
+  .launchpad-stats-grid,
+  .launchpad-cta-content,
+  .launchpad-hero-props,
+  .launchpad-cta-actions {
+    width: 100%;
+    max-width: var(--max-content-width);
+    margin-inline: auto;
+  }
+
+  .launchpad-hero-industrial {
+    min-height: clamp(420px, 70vh, 560px);
+    padding-block: clamp(2.4rem, 7vw, 3.2rem);
+  }
+
+  .launchpad-audience-industrial,
+  .launchpad-problem-industrial,
+  .launchpad-curriculum-industrial,
+  .launchpad-advisors-industrial,
+  .launchpad-final-cta-industrial {
+    padding-block: clamp(3rem, 9vw, 4rem);
+  }
+
+  .launchpad-section-title {
+    margin-bottom: clamp(1.8rem, 6vw, 2.4rem);
+  }
+
+  .launchpad-problem-intro {
+    margin-bottom: clamp(1.6rem, 5vw, 2.1rem);
+  }
+
+  .launchpad-path-card {
+    padding: clamp(2.2rem, 6vw, 3rem) clamp(1.4rem, 4vw, 1.8rem);
+  }
+
+  .launchpad-problem-row {
+    padding-block: clamp(2rem, 6vw, 2.6rem);
+    gap: clamp(1.6rem, 5vw, 2rem);
+  }
+
+  .launchpad-timeline-step {
+    padding: clamp(3rem, 8vw, 3.6rem) clamp(1.2rem, 4vw, 1.6rem)
+      clamp(2.2rem, 6vw, 2.8rem);
+  }
+
+  .launchpad-advisor-card {
+    padding: clamp(2.1rem, 6vw, 2.6rem) clamp(1.3rem, 4vw, 1.7rem);
+  }
+
+  .launchpad-status-badge {
+    margin-bottom: clamp(1.4rem, 4vw, 1.8rem);
+  }
+
+  .launchpad-hero-props {
+    margin-top: clamp(1.4rem, 4vw, 1.8rem);
+    padding-top: clamp(1.1rem, 3vw, 1.4rem);
+  }
+
+  .launchpad-cta-content p {
+    margin-bottom: clamp(1.6rem, 5vw, 2.2rem);
+  }
+
+  .launchpad-cta-actions {
+    margin-bottom: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .cta-button,
+  .link-ghost,
+  .slack-button,
+  button,
+  input,
+  textarea,
+  select,
+  .pillar-card,
+  .spotlight-card,
+  .events-card,
+  .join-follow-tile,
+  .faq-list details,
+  .community-faq-list details,
+  .pathways-faq-list details,
+  .launchpad-path-card,
+  .launchpad-problem-row,
+  .launchpad-timeline-step,
+  .launchpad-advisor-card,
+  .launchpad-final-btn,
+  .launchpad-hero-btn {
+    border-radius: 0 !important;
+  }
+
+  .pillar-card,
+  .spotlight-card,
+  .events-card,
+  .join-follow-tile,
+  .faq-list details,
+  .community-faq-list details,
+  .pathways-faq-list details,
+  .launchpad-path-card,
+  .launchpad-timeline-step,
+  .launchpad-advisor-card {
+    border-width: 1px;
+  }
+
+  .spotlight-card,
+  .events-card,
+  .pillar-card,
+  .launchpad-path-card,
+  .launchpad-timeline-step,
+  .launchpad-advisor-card,
+  .launchpad-final-btn,
+  .launchpad-hero-btn,
+  .faq-list details,
+  .community-faq-list details,
+  .pathways-faq-list details {
+    transition: all 0.2s var(--industrial-ease);
   }
 
   .hero {
@@ -18,7 +281,7 @@
     padding: clamp(0.75rem, 4vw, 1.2rem) clamp(0.55rem, 3.5vw, 0.9rem) !important;
     row-gap: clamp(0.45rem, 3vw, 0.85rem);
     overflow: hidden;
-    border-radius: clamp(0.8rem, 4vw, 1.2rem);
+    border-radius: 0;
     position: relative;
     background: transparent;
   }
@@ -58,7 +321,7 @@
     justify-items: center;
     text-align: center;
     gap: clamp(0.5rem, 3vw, 0.9rem);
-    max-width: min(340px, 100%);
+    max-width: var(--max-content-width);
   }
 
   .hero-content {
@@ -69,18 +332,15 @@
   }
 
   .hero-tagline {
-    letter-spacing: 0.15em;
     font-size: clamp(0.66rem, 2vw, 0.75rem);
   }
 
   .hero h1 {
     font-size: clamp(1.18rem, 5.4vw, 1.65rem);
-    letter-spacing: 0.08em;
   }
 
   .hero-headline {
     font-size: clamp(1.08rem, 5.2vw, 1.56rem);
-    letter-spacing: clamp(0.06em, 1.2vw, 0.09em);
     line-height: 1.1;
     max-width: clamp(16ch, 72vw, 19ch);
     margin-inline: auto;
@@ -105,7 +365,8 @@
   .hero-actions {
     align-items: stretch;
     flex-direction: column;
-    width: min(280px, 100%);
+    width: 100%;
+    max-width: var(--max-content-width);
     gap: 0.42rem;
     margin-top: 0.2rem;
   }
@@ -116,7 +377,6 @@
     max-width: none;
     padding: 0.6rem 1.05rem;
     font-size: 0.72rem;
-    letter-spacing: 0.13em;
     justify-content: center;
   }
 
@@ -127,7 +387,7 @@
 
   .spotlight-index {
     width: 100%;
-    max-width: min(340px, 100%);
+    max-width: var(--max-content-width);
     margin-inline: auto;
   }
 
@@ -150,7 +410,7 @@
 
   .spotlight-index {
     width: 100%;
-    max-width: min(360px, 100%);
+    max-width: var(--max-content-width);
     margin-inline: auto;
   }
 
@@ -170,7 +430,7 @@
 
 @media (max-width: 640px) {
   :root {
-    --layout-max-width: min(390px, 100%);
+    --layout-max-width: var(--max-page-width);
   }
 
   html {
@@ -179,9 +439,9 @@
 
   body {
     width: 100%;
-    max-width: min(390px, 100%);
-    margin: 0 auto;
-    padding-inline: clamp(1rem, 4vw, 1.5rem);
+    max-width: 100%;
+    margin: 0;
+    padding-inline: var(--layout-gutter);
   }
 
   .site-header,
@@ -198,13 +458,13 @@
 .team-roster,
 .site-footer-minimal {
   width: 100%;
-  max-width: min(390px, 100%);
+  max-width: var(--max-page-width);
     margin-inline: auto;
   }
   
   .community,
   .community-spotlights {
-    max-width: min(320px, 100%);
+    max-width: var(--max-content-width);
   }
 
   .section {
@@ -214,13 +474,13 @@
 
   main {
     width: 100%;
-    max-width: min(390px, 100%);
+    max-width: var(--max-page-width);
     justify-items: center;
   }
 
   main > * {
     width: 100%;
-    max-width: min(380px, 100%);
+    max-width: var(--max-content-width);
   }
 
   .section > * {
@@ -230,13 +490,11 @@
   .section h1,
   .section h2 {
     font-size: clamp(1.25rem, 6.4vw, 1.6rem);
-    letter-spacing: 0.08em;
   }
 
   .section h3,
   .section h4 {
     font-size: clamp(0.95rem, 5vw, 1.15rem);
-    letter-spacing: 0.12em;
   }
 
   .section p,
@@ -252,28 +510,47 @@
   .section .cta-kicker,
   .section .pathways-kicker,
   .section .spotlight-kicker {
-    letter-spacing: 0.16em;
     font-size: 0.62rem;
   }
 
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     gap: 0.6rem;
   }
 
+  .nav {
+    width: auto;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.6rem;
+    margin-left: auto;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
   .nav-links {
+    display: none;
+    flex-direction: column;
     font-size: 0.76rem;
-    letter-spacing: 0.16em;
     flex-wrap: wrap;
-    width: 100%;
-    justify-content: flex-start;
-    align-items: flex-start;
+    width: min(220px, 65vw);
+    justify-content: flex-end;
+    align-items: flex-end;
     gap: 0.6rem 0.8rem;
+    text-align: right;
+  }
+
+  .nav-links.is-open {
+    display: flex;
   }
 
   .nav-link {
     padding: 0.3rem 0;
+    width: 100%;
   }
 
   .nav-link--cta {
@@ -281,7 +558,6 @@
     align-self: flex-start;
     padding: 0.45rem 1.2rem;
     font-size: 0.72rem;
-    letter-spacing: 0.12em;
     margin-bottom: 0.2rem;
   }
 
@@ -317,7 +593,7 @@
   .hero-illustration,
   .hero-figure {
     width: 100%;
-    max-width: min(320px, 100%);
+    max-width: var(--max-content-width);
     margin: 0 auto;
   }
 
@@ -339,7 +615,6 @@
   .section h1,
   .section h2 {
     line-height: 1.15;
-    letter-spacing: 0.1em;
   }
 
   .section h3,
@@ -442,7 +717,7 @@
   .spotlight-article {
     padding: clamp(1.05rem, 5vw, 1.45rem);
     width: 100%;
-    max-width: min(360px, 100%);
+    max-width: var(--max-content-width);
   }
 
   .spotlight-article-header {
@@ -469,7 +744,8 @@
   .site-footer-minimal {
     padding-inline: clamp(0.9rem, 5vw, 1.2rem);
     gap: 1rem;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
   }
 
   .site-footer-social {
@@ -525,7 +801,7 @@
   .team-grid,
   .events-highlights,
   .events-future-list {
-    max-width: min(360px, 100%);
+    max-width: var(--max-content-width);
     margin-inline: auto;
   }
 
@@ -534,7 +810,7 @@
     padding-inline: clamp(0.45rem, 4vw, 0.7rem);
     gap: clamp(0.7rem, 3.6vw, 1rem);
     width: 100%;
-    max-width: min(312px, 100%);
+    max-width: var(--max-content-width);
     margin-inline: auto;
     text-align: left;
   }
@@ -553,7 +829,7 @@
   .spotlight-grid {
     grid-template-columns: 1fr;
     gap: clamp(0.5rem, 3.2vw, 0.75rem);
-    max-width: min(312px, 100%);
+    max-width: var(--max-content-width);
     margin: 0 auto;
   }
 
@@ -602,7 +878,6 @@
   .events-hero h1,
   .pathways-section h2 {
     font-size: clamp(1.2rem, 6.5vw, 1.5rem);
-    letter-spacing: 0.08em;
   }
 
   .join-follow-tile h3,
@@ -612,27 +887,23 @@
   .events-highlight h3,
   .cta-card h3 {
     font-size: clamp(0.92rem, 4.5vw, 1.1rem);
-    letter-spacing: 0.12em;
   }
 
   .spotlight-card h2,
   .spotlight-card h3 {
     font-size: clamp(0.94rem, 4.4vw, 1.08rem);
-    letter-spacing: 0.1em;
     line-height: 1.18;
     margin: 0;
   }
 
   .spotlight-card-tagline {
     font-size: clamp(0.76rem, 3.8vw, 0.88rem);
-    letter-spacing: 0.055em;
     margin: 0;
   }
 
   .team-card-title,
   .team-card-role {
     font-size: clamp(0.72rem, 3.8vw, 0.85rem);
-    letter-spacing: 0.08em;
   }
 
   .spotlight-card {
@@ -642,7 +913,6 @@
   .spotlight-card-link {
     margin-top: 0;
     align-self: flex-start;
-    letter-spacing: 0.18em;
     font-size: 0.66rem;
   }
 
@@ -696,7 +966,7 @@
   }
 
   :root {
-    --layout-max-width: min(390px, 100%);
+    --layout-max-width: var(--max-page-width);
   }
 
   main,
@@ -704,20 +974,19 @@
   .site-footer-minimal,
   .navbar {
     width: 100%;
-    max-width: min(390px, 100%);
+    max-width: var(--max-page-width);
     margin-inline: auto;
   }
 
   .hero {
     padding-inline: clamp(0.55rem, 5vw, 0.85rem);
-    max-width: min(310px, 100%) !important;
+    max-width: var(--max-content-width) !important;
     margin-inline: auto !important;
     border-radius: clamp(0.85rem, 6vw, 1.25rem);
   }
 
   .hero h1 {
     font-size: clamp(1.05rem, 6.6vw, 1.52rem);
-    letter-spacing: 0.1em;
   }
 
   .hero-headline {
@@ -726,7 +995,6 @@
   }
 
   .hero-tagline {
-    letter-spacing: 0.18em;
     font-size: 0.58rem;
   }
 
@@ -769,20 +1037,20 @@
   }
 
   main > * {
-    max-width: min(320px, 100%);
+    max-width: var(--max-content-width);
   }
 
   .community,
   .community-spotlights,
   .community.section,
   .community-spotlights.section {
-    max-width: min(300px, 100%);
+    max-width: var(--max-content-width);
     padding-inline: clamp(0.4rem, 4vw, 0.65rem);
   }
 
   .community-grid,
   .spotlight-grid {
-    max-width: min(300px, 100%);
+    max-width: var(--max-content-width);
     gap: clamp(0.48rem, 3.8vw, 0.72rem);
   }
 
@@ -814,7 +1082,6 @@
 
   .pathways-embed-title {
     font-size: clamp(1.3rem, 8vw, 1.8rem);
-    letter-spacing: 0.14em;
   }
 
   .tally-embed-frame {
@@ -864,5 +1131,153 @@
 
   .pathways-flip-hint {
     display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .hero-grid,
+  .hero-media,
+  .hero-media img,
+  .hero-media video,
+  .hero-illustration,
+  .hero-figure,
+  .spotlight-index,
+  .spotlight-article,
+  .community,
+  .community-spotlights,
+  .community.section,
+  .community-spotlights.section,
+  .community-grid,
+  .spotlight-grid,
+  .vision-grid,
+  .pillars-grid,
+  .cta-grid,
+  .join-follow-grid,
+  .pathways-card-grid,
+  .pathways-flip-grid,
+  .pathways-cta-grid,
+  .events-cta-grid,
+  .team-grid,
+  .events-highlights,
+  .events-future-list,
+  .events-embed,
+  .events-calendar-embed,
+  .events-overview,
+  .events-partners,
+  .events-future,
+  .slack-banner,
+  .join-overview,
+  .join-guidance,
+  .join-newsletter,
+  .join-follow,
+  .team-roster-header,
+  .spotlight-carousel,
+  .spotlight-carousel-track,
+  .spotlight-article-header,
+  .spotlight-article-body,
+  main > * {
+    max-width: var(--max-content-width);
+  }
+
+  .hero-actions {
+    width: 100%;
+    max-width: var(--max-content-width);
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .newsletter-form input,
+  .newsletter-form button {
+    width: 100%;
+  }
+
+  .newsletter-modal {
+    width: 100%;
+    max-width: var(--max-content-width);
+    padding: clamp(1.2rem, 5vw, 1.6rem);
+  }
+
+  .events-embed,
+  .events-calendar-embed {
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero,
+  .spotlight-card,
+  .spotlight-card-media,
+  .hero-media,
+  .hero-media img,
+  .hero-media video,
+  .hero-illustration,
+  .hero-figure,
+  .faq-list details,
+  .community-faq-list details,
+  .pathways-faq-list details,
+  .pathways-embed-panel,
+  .pathways-flip-face,
+  .pathways-flip-back,
+  .pathways-flip-inner,
+  .tally-embed-frame,
+  .events-card,
+  .pillar-card,
+  .join-follow-tile,
+  .community-card,
+  .collaboration-card,
+  .slack-banner,
+  .join-guidance,
+  .join-newsletter,
+  .join-follow,
+  .join-follow-tag,
+  .join-follow-button,
+  .team-card,
+  .team-avatar,
+  .team-avatar-image,
+  .events-meta-item,
+  .events-highlight,
+  .events-future-list li,
+  .events-embed,
+  .events-embed-frame,
+  .events-calendar-embed,
+  .events-calendar-frame,
+  .spotlight-carousel-slide,
+  .spotlight-carousel-button,
+  .spotlight-body-image,
+  .spotlight-teaser-item,
+  .spotlight-teaser-avatar,
+  .site-footer-social-link,
+  .newsletter-modal,
+  .newsletter-form,
+  .newsletter-form input,
+  .newsletter-form button,
+  .pathways-card,
+  .pathways-cta-card,
+  .launchpad-path-card,
+  .launchpad-advisor-card,
+  .launchpad-timeline-step {
+    border-radius: 0 !important;
+  }
+
+  .community-card,
+  .collaboration-card,
+  .slack-banner,
+  .join-guidance,
+  .join-newsletter,
+  .join-follow,
+  .join-follow-tile,
+  .team-card,
+  .events-embed,
+  .events-calendar-embed,
+  .events-meta-item,
+  .events-highlight,
+  .events-future-list li,
+  .spotlight-carousel-slide,
+  .spotlight-body-image {
+    box-shadow: none !important;
   }
 }

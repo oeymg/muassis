@@ -446,7 +446,7 @@ export default function LaunchpadApplyPage() {
               </div>
               <div className="apply-form-grid">
                 <div className="apply-form-field apply-form-field-full">
-                  <label htmlFor="video_url">Video Pitch URL (Optional)</label>
+                  <label htmlFor="video_url">Video Pitch URL (Recommended)</label>
                   <input
                     id="video_url"
                     name="video_url"

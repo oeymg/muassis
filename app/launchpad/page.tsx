@@ -7,28 +7,32 @@ import { NewsletterModal } from '@/components/NewsletterModal';
 
 const advisors = [
   {
-    name: 'Naz',
+    name: 'Nazley Khan',
     role: 'Legal',
     icon: 'fa-solid fa-scale-balanced',
-    credentials: 'Corporate Law & Compliance'
+    credentials: 'Corporate Law & Compliance',
+    venture: 'Blackstone Legal'
   },
   {
     name: 'Salmin Khan',
     role: 'Strategy',
     icon: 'fa-solid fa-chess',
-    credentials: 'Market Positioning & GTM'
+    credentials: 'Market Positioning & GTM',
+    venture: 'TACT Advisory'
   },
   {
     name: 'Abdul Khan',
     role: 'Capital',
     icon: 'fa-solid fa-chart-line',
-    credentials: 'Fundraising & Investor Relations'
+    credentials: 'Fundraising & Investor Relations',
+    venture: 'Vested'
   },
   {
     name: 'Mariam Rehman',
     role: 'Brand',
     icon: 'fa-solid fa-palette',
-    credentials: 'Identity & Communications'
+    credentials: 'Identity & Communications',
+    venture: 'Monale'
   }
 ];
 
@@ -130,7 +134,7 @@ export default function LaunchpadPage() {
             STATUS: PRE-LAUNCH // BATCH 2026
           </div>
           <h1 className="launchpad-hero-title">
-            <span className="launchpad-title-small">MU&apos;ASSIS</span>
+            <span className="launchpad-title-small">MU’ASSIS</span>
             <span className="launchpad-title-large">LAUNCHPAD</span>
           </h1>
           <p className="launchpad-hero-subtitle">
@@ -188,7 +192,7 @@ export default function LaunchpadPage() {
             <div className="launchpad-path-stage">1 → 10</div>
             <h3>THE SCALER</h3>
             <p>
-              You&apos;ve achieved product-market fit and early traction, but need operational systems, investor-ready documentation, and access to institutional capital networks to reach sustainable scale without compromising values.
+              You’ve achieved product-market fit and early traction, but need operational systems, investor-ready documentation, and access to institutional capital networks to reach sustainable scale without compromising values.
             </p>
           </div>
         </div>
@@ -198,10 +202,9 @@ export default function LaunchpadPage() {
       <section className="launchpad-problem-industrial">
         <div className="launchpad-problem-intro">
           <span className="launchpad-kicker">{'//'} THE GAPS WE FILL</span>
-          <h2>Why Founders Stall</h2>
+          <h2>Where Founders Stall</h2>
           <p className="launchpad-problem-description">
-            Most early-stage ventures fail not from lack of vision, but from three structural deficits.
-            We close them.
+            Most early-stage ventures don’t stall for lack of vision, but for lack of structure. We close those gaps.
           </p>
         </div>
         <div className="launchpad-problem-stack">
@@ -213,7 +216,7 @@ export default function LaunchpadPage() {
                 <p className="launchpad-problem-detail">
                   {item.problem === 'Fragmentation' && 'Disconnected tools and advice lead to operational paralysis.'}
                   {item.problem === 'Structure' && 'Scaling too fast without compliance creates invisible liabilities.'}
-                  {item.problem === 'Direction' && 'Capital doesn&apos;t move without institutional-grade presentation.'}
+                  {item.problem === 'Direction' && 'Capital doesn’t move without institutional-grade presentation.'}
                 </p>
               </div>
               <div className="launchpad-divider">
@@ -225,7 +228,7 @@ export default function LaunchpadPage() {
                 <p className="launchpad-solution-detail">
                   {item.solution === 'Centralized Roadmap' && 'One unified system that connects legal, finance, and operations.'}
                   {item.solution === 'Embedded Experts' && 'Tier-1 advisors who build compliance frameworks from day one.'}
-                  {item.solution === 'Commercial Validation' && 'The Mu&apos;assis seal that opens doors to institutional capital.'}
+                  {item.solution === 'Commercial Validation' && 'The Mu’assis seal that opens doors to institutional capital.'}
                 </p>
               </div>
             </div>
@@ -269,6 +272,7 @@ export default function LaunchpadPage() {
               <h3>{advisor.name}</h3>
               <div className="launchpad-advisor-role">{advisor.role}</div>
               <div className="launchpad-advisor-credentials">{advisor.credentials}</div>
+              <div className="launchpad-advisor-venture">{advisor.venture}</div>
             </div>
           ))}
         </div>
@@ -280,7 +284,7 @@ export default function LaunchpadPage() {
           <div className="launchpad-cta-badge">WAITLIST NOW OPEN</div>
           <h2>Build a venture<br/>worth generations</h2>
           <p>
-            We&apos;re looking for purpose-driven founders ready to scale their impact without compromising their values. If that&apos;s you, we want to hear from you.
+            We’re looking for purpose-driven founders ready to scale their impact without compromising their values. If that’s you, we want to hear from you.
           </p>
           <div className="launchpad-cta-actions">
             <button onClick={() => setIsNewsletterOpen(true)} className="launchpad-final-btn launchpad-final-btn--primary">
