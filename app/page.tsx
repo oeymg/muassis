@@ -42,7 +42,7 @@ export default async function HomePage() {
   return (
     <>
       <AnnouncementBanner text="ANNOUNCEMENT. JAN 16." />
-      <Reveal as={HeroFocusSection} variant="fade">
+      <Reveal as={HeroFocusSection} className="home-hero" variant="fade">
         <div className="hero-content">
           <HeroHeadline>
             Scaling for generations

@@ -294,9 +294,6 @@ export default function LaunchpadPage() {
               ASK A QUESTION
             </Link>
           </div>
-          <div className="launchpad-cta-footer">
-            Waitlist open now. Applications open Q1 2026.
-          </div>
         </div>
       </section>
 

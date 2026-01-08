@@ -9,8 +9,8 @@ type HeroHeadlineProps = {
 
 const SCALE_MAX = 1.32;
 const SCALE_MIN = 1;
-const LETTER_MAX = 0.2;
-const LETTER_MIN = 0.15;
+const LETTER_MAX = 0.18;
+const LETTER_MIN = 0.12;
 
 export function HeroHeadline({ children }: HeroHeadlineProps) {
   const headingRef = useRef<HTMLHeadingElement | null>(null);

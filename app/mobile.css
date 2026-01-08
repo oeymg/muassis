@@ -3,6 +3,8 @@
     padding-inline: 0;
     background: #050505;
     background-image: none;
+    --max-content-width: min(390px, 92vw);
+    --content-max-width: min(390px, 92vw);
   }
 
   body:has(.launchpad-industrial) main {
@@ -29,6 +31,7 @@
     background-size: 32px 32px;
     background-position: center;
   }
+
 
   body:has(.apply-container) main {
     padding: 0;
@@ -388,6 +391,29 @@
   .launchpad-hero-industrial {
     min-height: clamp(420px, 70vh, 560px);
     padding-block: clamp(2.4rem, 7vw, 3.2rem);
+    padding-inline: 0;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
+  .launchpad-hero-industrial .launchpad-hero-center {
+    max-width: 100%;
+    margin-inline: 0;
+    padding-inline: var(--layout-gutter);
+  }
+
+  .launchpad-hero-title {
+    max-width: 100%;
+  }
+
+  .launchpad-title-small {
+    font-size: clamp(1.6rem, 4.8vw, 2.4rem);
+  }
+
+  .launchpad-title-large {
+    font-size: clamp(3.2rem, 11.5vw, 4.4rem);
+    letter-spacing: 0.04em;
   }
 
   .launchpad-audience-industrial,
@@ -431,6 +457,13 @@
   .launchpad-hero-props {
     margin-top: clamp(1.4rem, 4vw, 1.8rem);
     padding-top: clamp(1.1rem, 3vw, 1.4rem);
+    flex-wrap: wrap;
+    gap: 0.9rem 1.4rem;
+  }
+
+  .launchpad-hero-prop-item:not(:last-child) {
+    padding-right: 0;
+    border-right: none;
   }
 
   .launchpad-cta-content p {
@@ -505,6 +538,12 @@
     background: transparent;
   }
 
+  .home-hero {
+    min-height: clamp(420px, 70vh, 600px);
+    padding: clamp(0.6rem, 3.5vw, 0.95rem) clamp(0.45rem, 3vw, 0.75rem) !important;
+    row-gap: clamp(0.3rem, 2vw, 0.6rem);
+  }
+
   .hero::before,
   .hero::after {
     content: '';
@@ -563,6 +602,11 @@
     line-height: 1.05;
     max-width: clamp(18ch, 86vw, 26ch);
     margin-inline: auto;
+  }
+
+  .home-hero .hero-headline {
+    font-size: clamp(2.4rem, 10.5vw, 3.2rem);
+    max-width: min(86vw, 330px);
   }
 
   .hero-cta {
@@ -1208,6 +1252,11 @@
     border-radius: clamp(0.85rem, 6vw, 1.25rem);
   }
 
+  .home-hero {
+    min-height: clamp(380px, 65vh, 520px);
+    padding: clamp(0.55rem, 4vw, 0.8rem) clamp(0.4rem, 3vw, 0.65rem) !important;
+  }
+
   .hero h1 {
     font-size: clamp(2.2rem, 11vw, 3.2rem);
   }
@@ -1215,6 +1264,11 @@
   .hero-headline {
     font-size: clamp(2.2rem, 11vw, 3.2rem);
     line-height: 1.05;
+  }
+
+  .home-hero .hero-headline {
+    font-size: clamp(2.3rem, 10.5vw, 3rem);
+    max-width: min(86vw, 320px);
   }
 
   .hero-tagline {

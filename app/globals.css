@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raghdani:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Open+Sauce+One:wght@400;500;600;700&family=Raghdani:wght@300;400;500;600;700&display=swap');
 
 :root {
   --background: #0a0a0a;
@@ -6,7 +6,7 @@
   --surface-elevated: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.08);
   --foreground: #ffffff;
-  --muted: rgba(255, 255, 255, 0.7);
+  --muted: rgba(255, 255, 255, 0.6);
   --accent: #10b981;
   --accent-hover: #059669;
   --accent-orange: #C65D3B;
@@ -14,15 +14,12 @@
   --gradient-accent: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
   --gradient-glow: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.15), transparent 70%);
   --gradient-glow-orange: radial-gradient(circle at 50% 50%, rgba(198, 93, 59, 0.12), transparent 70%);
-  --layout-gutter: clamp(2rem, 7vw, 8rem);
-  --layout-max-width: min(1440px, 100%);
+  --layout-gutter: clamp(1.5rem, 5vw, 6rem);
+  --layout-max-width: min(1440px, 92vw);
   --content-max-width: min(720px, 100%);
-  --font-body: 'Inter', sans-serif;
-  --font-heading: 'Rajdhani', sans-serif;
+  --font-body: "Helvetica Neue", Arial, sans-serif;
+  --font-heading: "Helvetica Neue", Arial, sans-serif;
   --font-mono: 'Courier New', monospace;
-  --heading-tracking: 0.16em;
-  --kicker-tracking: 0.18em;
-  --body-leading: 1.75;
   --reveal-duration: 0.6s;
   color-scheme: dark;
 }
@@ -57,7 +54,7 @@
 
 body {
   font-family: var(--font-body);
-  font-weight: 400;
+  font-weight: 500;
   background: var(--background);
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
@@ -65,22 +62,11 @@ body {
   background-size: 50px 50px;
   background-position: center center;
   color: var(--foreground);
-  line-height: var(--body-leading);
-  letter-spacing: 0.01em;
+  line-height: 1.7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-heading);
-  letter-spacing: var(--heading-tracking);
 }
 
 input,
@@ -124,10 +110,10 @@ a:focus-visible {
   background: rgba(10, 10, 10, 0.8);
   padding: 1rem 0;
   border-bottom: 1px solid var(--border);
-  font-family: var(--font-heading);
-  font-weight: 600;
+  font-family: 'Open Sauce One', "Helvetica Neue", Arial, sans-serif;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.1em;
 }
 
 .site-header * {
@@ -309,8 +295,8 @@ a:focus-visible {
 
 main {
   width: 100%;
-  max-width: var(--layout-max-width);
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   padding: 0 0 clamp(3rem, 6vw, 5rem);
   display: grid;
   gap: 0;
@@ -375,7 +361,7 @@ main {
   width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding-inline: clamp(2rem, 6vw, 4rem);
+  padding-inline: var(--layout-gutter);
   --hero-focus-content-scale: 1;
   --hero-focus-actions-scale: 1;
   --hero-focus-opacity: 1;
@@ -386,7 +372,7 @@ main {
 .section h1,
 .section h2 {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   margin-bottom: 0;
   font-weight: 600;
@@ -398,7 +384,7 @@ main {
   letter-spacing: 0.01em;
   color: var(--muted);
   max-width: var(--content-max-width);
-  line-height: var(--body-leading);
+  line-height: 1.8;
 }
 
 .hero-grid {
@@ -409,7 +395,7 @@ main {
   position: relative;
   isolation: isolate;
   width: 100%;
-  max-width: var(--layout-max-width);
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -448,7 +434,7 @@ main {
 .hero-content {
   display: grid;
   gap: clamp(1rem, 2.6vw, 1.8rem);
-  padding-left: clamp(2rem, 6vw, 5rem);
+  padding-left: 0;
   transform-origin: left top;
   transform: scale(var(--hero-focus-content-scale, 1));
   opacity: var(--hero-focus-opacity, 1);
@@ -457,13 +443,23 @@ main {
     opacity 0.3s ease-out;
 }
 
+@media (min-width: 769px) {
+  .home-hero .hero-content {
+    padding-left: clamp(1.5rem, 4vw, 4rem);
+  }
+
+  .home-hero .hero-cta {
+    padding-right: clamp(1.5rem, 4vw, 4rem);
+  }
+}
+
 .hero-content p {
   margin: 0;
 }
 
 .hero-tagline {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.15em;
   font-size: clamp(0.85rem, 1.2vw, 1rem);
   color: #c65d3b;
   font-weight: 500;
@@ -472,7 +468,7 @@ main {
 
 .hero h1 {
   font-size: clamp(2rem, 5vw, 3.2rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   font-weight: 700;
   color: var(--foreground);
@@ -482,7 +478,7 @@ main {
 .hero-headline {
   display: inline-block;
   font-size: clamp(2rem, 5vw, 3.2rem);
-  letter-spacing: var(--hero-headline-letter, var(--heading-tracking));
+  letter-spacing: var(--hero-headline-letter, 0.02em);
   line-height: 1.1;
   font-weight: 700;
   color: var(--foreground);
@@ -505,7 +501,7 @@ main {
 .hero-cta {
   display: flex;
   justify-content: flex-end;
-  padding-right: clamp(2rem, 6vw, 5rem);
+  padding-right: 0;
   transform-origin: right center;
   transform: translateY(var(--hero-focus-translate, 0))
     scale(var(--hero-focus-actions-scale, 1));
@@ -537,7 +533,7 @@ main {
 
 .vision-kicker {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.12em;
   font-size: 0.85rem;
   color: var(--accent-orange);
   font-weight: 500;
@@ -588,7 +584,7 @@ main {
 
 .vision-card h3 {
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.05em;
   font-size: 1.1rem;
   color: var(--foreground);
   font-weight: 600;
@@ -625,7 +621,7 @@ main {
 
 .scale-kicker {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.15em;
   font-size: 0.85rem;
   color: var(--accent-orange);
   font-weight: 600;
@@ -634,7 +630,7 @@ main {
 .scale-headline {
   font-size: clamp(2.2rem, 5.5vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: -0.02em;
   line-height: 1.1;
   background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
   -webkit-background-clip: text;
@@ -707,8 +703,8 @@ main {
   color: var(--accent-orange);
   line-height: 1;
   flex-shrink: 0;
-  font-family: var(--font-heading);
-  letter-spacing: var(--heading-tracking);
+  font-family: 'Anton', sans-serif;
+  letter-spacing: -0.02em;
   opacity: 0.85;
   position: relative;
   z-index: 1;
@@ -725,7 +721,7 @@ main {
 .scale-card h3 {
   font-size: clamp(1.2rem, 2vw, 1.4rem);
   font-weight: 600;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.01em;
   color: #ffffff;
   margin: 0;
   line-height: 1.3;
@@ -740,7 +736,7 @@ main {
 
 .hero-panel h2 {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.2em;
   font-size: 0.9rem;
   color: rgba(245, 245, 245, 0.85);
 }
@@ -774,7 +770,7 @@ main {
 
 .cta-kicker {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.12em;
   font-size: 0.85rem;
   color: var(--accent-orange);
   font-weight: 500;
@@ -782,7 +778,7 @@ main {
 
 .cta-hero h2 {
   font-size: clamp(2.5rem, 5.5vw, 3.5rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.02em;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -872,7 +868,7 @@ main {
 
 .events-card h3 {
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.02em;
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   color: var(--foreground);
   font-weight: 600;
@@ -1592,10 +1588,10 @@ footer {
   padding: 1.7rem 0;
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.16em;
   text-align: center;
   color: rgba(245, 245, 245, 0.6);
-  font-family: var(--font-heading);
+  font-family: 'Open Sauce One', "Helvetica Neue", Arial, sans-serif;
 }
 
 /* Announcement Banner - Minimal */
@@ -1610,7 +1606,7 @@ footer {
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: #c65d3b;
 }
@@ -1643,7 +1639,7 @@ footer {
 
 .spotlight-kicker {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.12em;
   font-size: 0.85rem;
   color: var(--accent-orange);
   font-weight: 500;
@@ -1705,7 +1701,7 @@ footer {
 .spotlight-card h2,
 .spotlight-card h3 {
   font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1778,7 +1774,7 @@ footer {
 
 .spotlight-teaser-header h2 {
   font-size: clamp(1.6rem, 4vw, 2.3rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
@@ -1851,7 +1847,7 @@ footer {
 .spotlight-teaser-link {
   justify-self: flex-start;
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.2em;
   font-size: 0.74rem;
   color: rgba(245, 245, 245, 0.78);
 }
@@ -1874,7 +1870,7 @@ footer {
 
 .events-teaser-kicker {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.12em;
   font-size: 0.85rem;
   color: var(--muted);
   font-weight: 500;
@@ -1972,7 +1968,7 @@ footer {
 
 .events-kicker {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.44em;
   font-size: 0.72rem;
   color: rgba(245, 245, 245, 0.6);
 }
@@ -2191,13 +2187,13 @@ footer {
 
 .spotlight-article-title {
   font-size: clamp(1.8rem, 4.8vw, 2.6rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .spotlight-article h1 {
   font-size: clamp(2.1rem, 5vw, 3rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -2335,7 +2331,7 @@ footer {
 
 .spotlight-heading {
   font-size: clamp(1.35rem, 3.5vw, 1.8rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   margin: clamp(0.9rem, 2.4vw, 1.4rem) 0 clamp(0.45rem, 1.6vw, 0.8rem);
   width: 100%;
@@ -2343,7 +2339,7 @@ footer {
 
 .spotlight-subheading {
   font-size: clamp(1.05rem, 2.8vw, 1.4rem);
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   margin: clamp(0.7rem, 2.2vw, 1.2rem) 0 clamp(0.4rem, 1.4vw, 0.7rem);
   width: 100%;
@@ -2518,12 +2514,12 @@ footer {
   .section h1,
   .section h2 {
     font-size: clamp(1.6rem, 11vw, 2.1rem);
-    letter-spacing: var(--heading-tracking);
+    letter-spacing: 0.06em;
   }
 
   .hero h1 {
     font-size: clamp(2rem, 12vw, 2.5rem);
-    letter-spacing: var(--heading-tracking);
+    letter-spacing: 0.1em;
   }
 
   .hero-subhead {
@@ -2553,7 +2549,7 @@ footer {
 
 .pathways-kicker {
   font-size: 0.85rem;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent-orange);
   font-weight: 600;
@@ -2563,7 +2559,7 @@ footer {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: -0.02em;
   color: #ffffff;
 }
 
@@ -2696,7 +2692,7 @@ footer {
 
 .pathways-cta-label {
   font-size: 0.85rem;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--accent-orange);
   font-weight: 600;
@@ -3570,7 +3566,7 @@ footer {
 
 .team-kicker {
   text-transform: uppercase;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.34em;
   font-size: 0.72rem;
   color: rgba(245, 245, 245, 0.58);
 }
@@ -3972,7 +3968,7 @@ footer {
   font-size: 1.8rem;
   font-weight: 700;
   color: #c65d3b;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: -0.02em;
 }
 
 .stats-ticker-label {
@@ -3987,7 +3983,9 @@ footer {
    ============================================ */
 
 .launchpad-industrial {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Raghdani', sans-serif;
+  --font-body: 'Raghdani', sans-serif;
+  --font-heading: 'Raghdani', sans-serif;
   background: #050505;
   color: #ffffff;
   min-height: 100vh;
@@ -3999,6 +3997,11 @@ body:has(.launchpad-industrial) .site-header {
   background: rgba(5, 5, 5, 0.95) !important;
   backdrop-filter: blur(10px);
   border-bottom: 1px solid #333333 !important;
+  font-family: 'Raghdani', sans-serif;
+}
+
+body:has(.apply-container) .site-header {
+  font-family: 'Raghdani', sans-serif;
 }
 
 .launchpad-industrial ~ header .navbar,
@@ -4042,7 +4045,20 @@ body:has(.launchpad-industrial) .nav-link::after {
 
 .launchpad-hero-center {
   text-align: left;
-  max-width: var(--content-max-width);
+  width: min(100%, var(--content-max-width));
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .launchpad-hero-industrial {
+    justify-content: flex-start;
+    padding-inline: var(--layout-gutter);
+  }
+
+  .launchpad-hero-center {
+    max-width: min(1100px, 88vw);
+    margin-inline: 0;
+  }
 }
 
 .launchpad-status-badge {
@@ -4054,7 +4070,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   border: 1px solid #333333;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.08em;
   color: #e78121;
   margin-bottom: 2.2rem;
   backdrop-filter: blur(10px);
@@ -4081,7 +4097,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-hero-title {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 1.1rem;
@@ -4106,7 +4122,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 .launchpad-title-large {
   font-size: clamp(4.5rem, 15vw, 10rem);
   color: #e78121;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.05em;
   line-height: 0.9;
   display: block;
   text-shadow: 0 0 40px rgba(231, 129, 33, 0.3);
@@ -4178,7 +4194,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   gap: 0.8rem;
   font-size: 0.9rem;
   color: #A1A1AA;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 
 .launchpad-hero-meta-item i {
@@ -4193,7 +4209,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   padding: 1.2rem 3rem;
   background: #e78121;
   color: #050505;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.1rem;
   text-transform: uppercase;
@@ -4223,7 +4239,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: #e78121;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.08em;
   margin-bottom: 1rem;
 }
 
@@ -4232,7 +4248,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.08em;
   color: #ffffff;
 }
 
@@ -4293,7 +4309,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-weight: 600;
   color: #A1A1AA;
   margin-bottom: 1rem;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.08em;
 }
 
 .launchpad-path-card h3 {
@@ -4301,7 +4317,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -4330,7 +4346,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.08em;
   color: #ffffff;
   margin-bottom: 1.5rem;
 }
@@ -4375,7 +4391,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 .launchpad-solution-label {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: #666666;
 }
@@ -4386,7 +4402,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.05em;
   margin: 0;
 }
 
@@ -4396,7 +4412,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-weight: 700;
   color: #e78121;
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.05em;
   margin: 0;
 }
 
@@ -4469,7 +4485,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.2rem;
   font-weight: 700;
   color: #e78121;
@@ -4489,7 +4505,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.08em;
   margin-bottom: 0.5rem;
   color: #ffffff;
 }
@@ -4562,7 +4578,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-advisor-card h3 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.8rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -4596,7 +4612,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.08em;
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -4615,7 +4631,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   padding: 1.2rem 3rem;
   background: #e78121;
   color: #050505;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 1.1rem;
   text-transform: uppercase;
@@ -4751,7 +4767,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-stat-number {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(3rem, 6vw, 4.5rem);
   font-weight: 700;
   color: #e78121;
@@ -4784,7 +4800,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   border: 1px solid rgba(231, 129, 33, 0.3);
   color: #e78121;
   font-size: 0.75rem;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-family: var(--font-mono);
   margin-bottom: 2rem;
@@ -4811,7 +4827,10 @@ body:has(.launchpad-industrial) .nav-link::after {
   gap: 1.5rem;
   flex-wrap: wrap;
   margin-bottom: 2rem;
+  justify-content: center;
+  width: 100%;
 }
+
 
 .launchpad-final-btn--primary {
   background: #e78121;
@@ -4886,7 +4905,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   gap: 0.6rem;
   font-size: 0.85rem;
   color: #A1A1AA;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 500;
 }
 
@@ -4901,7 +4920,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: 0.85rem;
   color: #666666;
   margin-top: 0.5rem;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.5;
 }
@@ -4910,7 +4929,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: 0.78rem;
   color: #A1A1AA;
   margin-top: 0.6rem;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -5006,7 +5025,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 .launchpad-kicker {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.08em;
   color: #e78121;
   font-weight: 600;
   display: block;
@@ -5064,7 +5083,9 @@ body:has(.launchpad-industrial) .nav-link::after {
   min-height: 100vh;
   background: #050505;
   color: #ffffff;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Raghdani', sans-serif;
+  --font-body: 'Raghdani', sans-serif;
+  --font-heading: 'Raghdani', sans-serif;
 }
 
 /* Progress Bar */
@@ -5123,7 +5144,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   border: 1px solid rgba(231, 129, 33, 0.3);
   color: #e78121;
   font-size: 0.7rem;
-  letter-spacing: var(--kicker-tracking);
+  letter-spacing: 0.15em;
   text-transform: uppercase;
   font-family: var(--font-mono);
   margin-bottom: 2rem;
@@ -5145,7 +5166,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .apply-title-small {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(0.9rem, 2vw, 1.1rem);
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -5157,7 +5178,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.05em;
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1.1;
@@ -5182,7 +5203,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: 0.85rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 
 .apply-reset-btn:hover {
@@ -5230,7 +5251,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .apply-section-number {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 3rem;
   font-weight: 700;
   color: #e78121;
@@ -5241,7 +5262,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: var(--heading-tracking);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   margin: 0;
   color: #ffffff;
@@ -5325,7 +5346,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   padding: 1rem 2rem;
   font-size: 1rem;
   font-weight: 600;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   cursor: pointer;
@@ -5397,7 +5418,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-body);
 }
 
 .apply-step-item:hover {
@@ -5423,7 +5444,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   height: 32px;
   background: #333333;
   color: #ffffff;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-weight: 700;
   font-size: 0.9rem;
   flex-shrink: 0;
@@ -5591,7 +5612,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-outcome-card h3 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -5634,7 +5655,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-faq-item h3 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 600;
   color: #ffffff;
@@ -5677,7 +5698,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   align-items: center;
   gap: 1rem;
   justify-content: center;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -5743,7 +5764,7 @@ body:has(.launchpad-industrial) .nav-link::after {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 0.9rem;
   font-weight: 500;
   letter-spacing: 0.02em;
