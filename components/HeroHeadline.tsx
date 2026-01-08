@@ -9,6 +9,8 @@ type HeroHeadlineProps = {
 
 const SCALE_MAX = 1.32;
 const SCALE_MIN = 1;
+const LETTER_MAX = 0.2;
+const LETTER_MIN = 0.15;
 
 export function HeroHeadline({ children }: HeroHeadlineProps) {
   const headingRef = useRef<HTMLHeadingElement | null>(null);
@@ -30,7 +32,7 @@ export function HeroHeadline({ children }: HeroHeadlineProps) {
       const progress = Math.min(Math.max(progressRaw, 0), 1);
 
       const scale = SCALE_MAX - (SCALE_MAX - SCALE_MIN) * progress;
-      const letterSpacing = 0.12 + (0.18 - 0.12) * (1 - progress);
+      const letterSpacing = LETTER_MIN + (LETTER_MAX - LETTER_MIN) * (1 - progress);
       const opacity = 1 - progress * 0.08;
 
       node.style.setProperty('--hero-headline-scale', scale.toFixed(3));
@@ -67,6 +69,6 @@ export function HeroHeadline({ children }: HeroHeadlineProps) {
 
 const headingStyle = {
   '--hero-headline-scale': SCALE_MAX,
-  '--hero-headline-letter': '0.18em',
+  '--hero-headline-letter': `${LETTER_MAX}em`,
   '--hero-headline-opacity': 1
 } as CSSProperties;

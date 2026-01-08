@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=Open+Sauce+One:wght@400;500;600;700&family=Raghdani:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Raghdani:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap');
 
 :root {
   --background: #0a0a0a;
@@ -6,7 +6,7 @@
   --surface-elevated: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.08);
   --foreground: #ffffff;
-  --muted: rgba(255, 255, 255, 0.6);
+  --muted: rgba(255, 255, 255, 0.7);
   --accent: #10b981;
   --accent-hover: #059669;
   --accent-orange: #C65D3B;
@@ -15,7 +15,14 @@
   --gradient-glow: radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.15), transparent 70%);
   --gradient-glow-orange: radial-gradient(circle at 50% 50%, rgba(198, 93, 59, 0.12), transparent 70%);
   --layout-gutter: clamp(2rem, 7vw, 8rem);
-  --layout-max-width: min(1600px, 100%);
+  --layout-max-width: min(1440px, 100%);
+  --content-max-width: min(720px, 100%);
+  --font-body: 'Inter', sans-serif;
+  --font-heading: 'Rajdhani', sans-serif;
+  --font-mono: 'Courier New', monospace;
+  --heading-tracking: 0.16em;
+  --kicker-tracking: 0.18em;
+  --body-leading: 1.75;
   --reveal-duration: 0.6s;
   color-scheme: dark;
 }
@@ -49,8 +56,8 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, sans-serif;
-  font-weight: 500;
+  font-family: var(--font-body);
+  font-weight: 400;
   background: var(--background);
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
@@ -58,11 +65,30 @@ body {
   background-size: 50px 50px;
   background-position: center center;
   color: var(--foreground);
-  line-height: 1.7;
+  line-height: var(--body-leading);
+  letter-spacing: 0.01em;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  letter-spacing: var(--heading-tracking);
+}
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 a {
@@ -98,10 +124,10 @@ a:focus-visible {
   background: rgba(10, 10, 10, 0.8);
   padding: 1rem 0;
   border-bottom: 1px solid var(--border);
-  font-family: 'Open Sauce One', "Helvetica Neue", Arial, sans-serif;
-  font-weight: 500;
+  font-family: var(--font-heading);
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
+  letter-spacing: var(--kicker-tracking);
 }
 
 .site-header * {
@@ -360,18 +386,19 @@ main {
 .section h1,
 .section h2 {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
-  letter-spacing: 0.02em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
   margin-bottom: 0;
   font-weight: 600;
+  font-family: var(--font-heading);
 }
 
 .section p {
   font-size: clamp(0.95rem, 1.8vw, 1.05rem);
   letter-spacing: 0.01em;
   color: var(--muted);
-  max-width: 65ch;
-  line-height: 1.8;
+  max-width: var(--content-max-width);
+  line-height: var(--body-leading);
 }
 
 .hero-grid {
@@ -436,24 +463,26 @@ main {
 
 .hero-tagline {
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: var(--kicker-tracking);
   font-size: clamp(0.85rem, 1.2vw, 1rem);
   color: #c65d3b;
   font-weight: 500;
+  font-family: var(--font-heading);
 }
 
 .hero h1 {
   font-size: clamp(2rem, 5vw, 3.2rem);
-  letter-spacing: 0.02em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
   font-weight: 700;
   color: var(--foreground);
+  font-family: var(--font-heading);
 }
 
 .hero-headline {
   display: inline-block;
   font-size: clamp(2rem, 5vw, 3.2rem);
-  letter-spacing: var(--hero-headline-letter, 0.02em);
+  letter-spacing: var(--hero-headline-letter, var(--heading-tracking));
   line-height: 1.1;
   font-weight: 700;
   color: var(--foreground);
@@ -508,7 +537,7 @@ main {
 
 .vision-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.85rem;
   color: var(--accent-orange);
   font-weight: 500;
@@ -559,7 +588,7 @@ main {
 
 .vision-card h3 {
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--heading-tracking);
   font-size: 1.1rem;
   color: var(--foreground);
   font-weight: 600;
@@ -596,7 +625,7 @@ main {
 
 .scale-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.85rem;
   color: var(--accent-orange);
   font-weight: 600;
@@ -605,7 +634,7 @@ main {
 .scale-headline {
   font-size: clamp(2.2rem, 5.5vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--heading-tracking);
   line-height: 1.1;
   background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
   -webkit-background-clip: text;
@@ -678,8 +707,8 @@ main {
   color: var(--accent-orange);
   line-height: 1;
   flex-shrink: 0;
-  font-family: 'Anton', sans-serif;
-  letter-spacing: -0.02em;
+  font-family: var(--font-heading);
+  letter-spacing: var(--heading-tracking);
   opacity: 0.85;
   position: relative;
   z-index: 1;
@@ -696,7 +725,7 @@ main {
 .scale-card h3 {
   font-size: clamp(1.2rem, 2vw, 1.4rem);
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: var(--heading-tracking);
   color: #ffffff;
   margin: 0;
   line-height: 1.3;
@@ -711,7 +740,7 @@ main {
 
 .hero-panel h2 {
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.9rem;
   color: rgba(245, 245, 245, 0.85);
 }
@@ -745,7 +774,7 @@ main {
 
 .cta-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.85rem;
   color: var(--accent-orange);
   font-weight: 500;
@@ -753,7 +782,7 @@ main {
 
 .cta-hero h2 {
   font-size: clamp(2.5rem, 5.5vw, 3.5rem);
-  letter-spacing: 0.02em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -843,7 +872,7 @@ main {
 
 .events-card h3 {
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: var(--heading-tracking);
   font-size: clamp(1.2rem, 3vw, 1.6rem);
   color: var(--foreground);
   font-weight: 600;
@@ -1399,7 +1428,7 @@ main {
   padding: 0.85rem 1rem;
   border: 1px solid rgba(5, 5, 5, 0.4);
   border-radius: 999px;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 500;
   color: #050505;
   background: rgba(5, 5, 5, 0.04);
@@ -1563,10 +1592,10 @@ footer {
   padding: 1.7rem 0;
   font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--kicker-tracking);
   text-align: center;
   color: rgba(245, 245, 245, 0.6);
-  font-family: 'Open Sauce One', "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-heading);
 }
 
 /* Announcement Banner - Minimal */
@@ -1578,10 +1607,10 @@ footer {
 }
 
 .announcement-minimal-content {
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--kicker-tracking);
   text-transform: uppercase;
   color: #c65d3b;
 }
@@ -1614,7 +1643,7 @@ footer {
 
 .spotlight-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.85rem;
   color: var(--accent-orange);
   font-weight: 500;
@@ -1676,7 +1705,7 @@ footer {
 .spotlight-card h2,
 .spotlight-card h3 {
   font-size: clamp(1.05rem, 2.5vw, 1.35rem);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
 }
 
@@ -1749,7 +1778,7 @@ footer {
 
 .spotlight-teaser-header h2 {
   font-size: clamp(1.6rem, 4vw, 2.3rem);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
 }
 
@@ -1822,7 +1851,7 @@ footer {
 .spotlight-teaser-link {
   justify-self: flex-start;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.74rem;
   color: rgba(245, 245, 245, 0.78);
 }
@@ -1845,7 +1874,7 @@ footer {
 
 .events-teaser-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.85rem;
   color: var(--muted);
   font-weight: 500;
@@ -1943,7 +1972,7 @@ footer {
 
 .events-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.44em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.72rem;
   color: rgba(245, 245, 245, 0.6);
 }
@@ -2155,17 +2184,20 @@ footer {
   display: grid;
   gap: clamp(0.6rem, 1.8vw, 1rem);
   align-items: start;
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
 }
 
 .spotlight-article-title {
   font-size: clamp(1.8rem, 4.8vw, 2.6rem);
-  letter-spacing: 0.1em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
 }
 
 .spotlight-article h1 {
   font-size: clamp(2.1rem, 5vw, 3rem);
-  letter-spacing: 0.12em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
 }
 
@@ -2287,6 +2319,9 @@ footer {
 .spotlight-article-body {
   display: grid;
   gap: clamp(1rem, 2.5vw, 1.6rem);
+  width: 100%;
+  max-width: var(--content-max-width);
+  margin-inline: auto;
 }
 
 .spotlight-paragraph {
@@ -2295,12 +2330,12 @@ footer {
   color: var(--muted);
   margin: 0;
   width: 100%;
-  max-width: none;
+  max-width: 100%;
 }
 
 .spotlight-heading {
   font-size: clamp(1.35rem, 3.5vw, 1.8rem);
-  letter-spacing: 0.12em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
   margin: clamp(0.9rem, 2.4vw, 1.4rem) 0 clamp(0.45rem, 1.6vw, 0.8rem);
   width: 100%;
@@ -2308,7 +2343,7 @@ footer {
 
 .spotlight-subheading {
   font-size: clamp(1.05rem, 2.8vw, 1.4rem);
-  letter-spacing: 0.08em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
   margin: clamp(0.7rem, 2.2vw, 1.2rem) 0 clamp(0.4rem, 1.4vw, 0.7rem);
   width: 100%;
@@ -2343,7 +2378,7 @@ footer {
 }
 
 .spotlight-article-body p {
-  max-width: none;
+  max-width: 100%;
   width: 100%;
 }
 
@@ -2483,12 +2518,12 @@ footer {
   .section h1,
   .section h2 {
     font-size: clamp(1.6rem, 11vw, 2.1rem);
-    letter-spacing: 0.06em;
+    letter-spacing: var(--heading-tracking);
   }
 
   .hero h1 {
     font-size: clamp(2rem, 12vw, 2.5rem);
-    letter-spacing: 0.1em;
+    letter-spacing: var(--heading-tracking);
   }
 
   .hero-subhead {
@@ -2510,7 +2545,7 @@ footer {
 }
 
 .pathways-hero-content {
-  max-width: 900px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
   display: grid;
   gap: clamp(1.5rem, 3vw, 2rem);
@@ -2518,7 +2553,7 @@ footer {
 
 .pathways-kicker {
   font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  letter-spacing: var(--kicker-tracking);
   text-transform: uppercase;
   color: var(--accent-orange);
   font-weight: 600;
@@ -2528,7 +2563,7 @@ footer {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--heading-tracking);
   color: #ffffff;
 }
 
@@ -2661,7 +2696,7 @@ footer {
 
 .pathways-cta-label {
   font-size: 0.85rem;
-  letter-spacing: 0.15em;
+  letter-spacing: var(--kicker-tracking);
   text-transform: uppercase;
   color: var(--accent-orange);
   font-weight: 600;
@@ -2836,7 +2871,7 @@ footer {
 }
 
 .pathways-faq-list {
-  max-width: 900px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
   display: grid;
   gap: 1rem;
@@ -2903,7 +2938,7 @@ footer {
 }
 
 .pathways-final-cta-content {
-  max-width: 800px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
   display: grid;
   gap: clamp(2rem, 4vw, 3rem);
@@ -3535,7 +3570,7 @@ footer {
 
 .team-kicker {
   text-transform: uppercase;
-  letter-spacing: 0.34em;
+  letter-spacing: var(--kicker-tracking);
   font-size: 0.72rem;
   color: rgba(245, 245, 245, 0.58);
 }
@@ -3937,7 +3972,7 @@ footer {
   font-size: 1.8rem;
   font-weight: 700;
   color: #c65d3b;
-  letter-spacing: -0.02em;
+  letter-spacing: var(--heading-tracking);
 }
 
 .stats-ticker-label {
@@ -4007,7 +4042,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 
 .launchpad-hero-center {
   text-align: left;
-  max-width: 900px;
+  max-width: var(--content-max-width);
 }
 
 .launchpad-status-badge {
@@ -4017,9 +4052,9 @@ body:has(.launchpad-industrial) .nav-link::after {
   padding: 0.6rem 1.5rem;
   background: rgba(17, 17, 17, 0.8);
   border: 1px solid #333333;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--kicker-tracking);
   color: #e78121;
   margin-bottom: 2.2rem;
   backdrop-filter: blur(10px);
@@ -4071,7 +4106,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 .launchpad-title-large {
   font-size: clamp(4.5rem, 15vw, 10rem);
   color: #e78121;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--heading-tracking);
   line-height: 0.9;
   display: block;
   text-shadow: 0 0 40px rgba(231, 129, 33, 0.3);
@@ -4180,24 +4215,24 @@ body:has(.launchpad-industrial) .nav-link::after {
 .launchpad-section-title {
   text-align: center;
   margin: 0 auto 3.5rem;
-  max-width: 900px;
+  max-width: var(--content-max-width);
 }
 
 .launchpad-kicker {
   display: block;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   color: #e78121;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--kicker-tracking);
   margin-bottom: 1rem;
 }
 
 .launchpad-section-title h2 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--heading-tracking);
   color: #ffffff;
 }
 
@@ -4253,20 +4288,20 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-path-stage {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 1.2rem;
   font-weight: 600;
   color: #A1A1AA;
   margin-bottom: 1rem;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--kicker-tracking);
 }
 
 .launchpad-path-card h3 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--heading-tracking);
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -4285,17 +4320,17 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-problem-intro {
-  max-width: 900px;
+  max-width: var(--content-max-width);
   margin: 0 auto 4rem;
   text-align: center;
 }
 
 .launchpad-problem-intro h2 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--heading-tracking);
   color: #ffffff;
   margin-bottom: 1.5rem;
 }
@@ -4338,30 +4373,30 @@ body:has(.launchpad-industrial) .nav-link::after {
 
 .launchpad-problem-label,
 .launchpad-solution-label {
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: 0.75rem;
-  letter-spacing: 0.06em;
+  letter-spacing: var(--kicker-tracking);
   text-transform: uppercase;
   color: #666666;
 }
 
 .launchpad-problem-title {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
   color: #ffffff;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--heading-tracking);
   margin: 0;
 }
 
 .launchpad-solution-title {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
   color: #e78121;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--heading-tracking);
   margin: 0;
 }
 
@@ -4450,11 +4485,11 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-timeline-step h3 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--heading-tracking);
   margin-bottom: 0.5rem;
   color: #ffffff;
 }
@@ -4551,17 +4586,17 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .launchpad-cta-content {
-  max-width: 800px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
   text-align: center;
 }
 
 .launchpad-cta-content h2 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 6vw, 4rem);
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--heading-tracking);
   margin-bottom: 1.5rem;
   color: #ffffff;
 }
@@ -4749,14 +4784,14 @@ body:has(.launchpad-industrial) .nav-link::after {
   border: 1px solid rgba(231, 129, 33, 0.3);
   color: #e78121;
   font-size: 0.75rem;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--kicker-tracking);
   text-transform: uppercase;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   margin-bottom: 2rem;
 }
 
 .launchpad-final-cta-industrial h2 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 700;
   line-height: 1.1;
@@ -4969,9 +5004,9 @@ body:has(.launchpad-industrial) .nav-link::after {
 
 /* Improved kicker consistency */
 .launchpad-kicker {
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
-  letter-spacing: 0.08em;
+  letter-spacing: var(--kicker-tracking);
   color: #e78121;
   font-weight: 600;
   display: block;
@@ -5074,7 +5109,7 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .apply-header-content {
-  max-width: 900px;
+  max-width: var(--content-max-width);
   margin: 0 auto;
   text-align: center;
 }
@@ -5088,9 +5123,9 @@ body:has(.launchpad-industrial) .nav-link::after {
   border: 1px solid rgba(231, 129, 33, 0.3);
   color: #e78121;
   font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  letter-spacing: var(--kicker-tracking);
   text-transform: uppercase;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-mono);
   margin-bottom: 2rem;
 }
 
@@ -5119,10 +5154,10 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .apply-title-large {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--heading-tracking);
   color: #ffffff;
   text-transform: uppercase;
   line-height: 1.1;
@@ -5160,14 +5195,14 @@ body:has(.launchpad-industrial) .nav-link::after {
   display: grid;
   grid-template-columns: 1fr 280px;
   gap: 3rem;
-  max-width: 1400px;
+  max-width: var(--layout-max-width);
   margin: 0 auto;
   padding: 4rem 2rem;
 }
 
 /* Form Container */
 .apply-form-container {
-  max-width: 800px;
+  max-width: var(--content-max-width);
 }
 
 .apply-section {
@@ -5203,10 +5238,10 @@ body:has(.launchpad-industrial) .nav-link::after {
 }
 
 .apply-section-header h2 {
-  font-family: 'Rajdhani', sans-serif;
+  font-family: var(--font-heading);
   font-size: 2rem;
   font-weight: 700;
-  letter-spacing: 0.05em;
+  letter-spacing: var(--heading-tracking);
   text-transform: uppercase;
   margin: 0;
   color: #ffffff;
@@ -5249,8 +5284,8 @@ body:has(.launchpad-industrial) .nav-link::after {
   background: #111111;
   border: 1px solid #333333;
   color: #ffffff;
-  font-size: 0.95rem;
-  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-family: var(--font-body);
   transition: all 0.2s ease;
   outline: none;
 }

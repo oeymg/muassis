@@ -11,21 +11,6 @@ import { AnnouncementBanner } from '@/components/AnnouncementBanner';
 
 export const metadata = createPageMetadata('home');
 
-const visionHighlights = [
-  {
-    title: 'Principled Foundations',
-    copy: 'We build every venture with ethical clarity and conviction, so growth never requires compromising our values.'
-  },
-  {
-    title: 'Collective Intelligence',
-    copy: 'We listen to founders, families, and investors across the Ummah, focusing our builds where impact compounds.'
-  },
-  {
-    title: 'Generational Continuity',
-    copy: 'We design systems the next generation can inherit — ventures with governance and culture that endure beyond us.'
-  }
-];
-
 const scaleHighlights = [
   {
     title: 'Provide Mentorship',
@@ -103,40 +88,13 @@ export default async function HomePage() {
         </Reveal>
       ) : null}
 
-      <Reveal as="section" className="section vision" variant="rise">
-        <div className="vision-header">
-          <span className="vision-kicker">Why we build</span>
-          <h2>Our Vision</h2>
-          <p className="vision-lede">
-            Mu&apos;assis means &quot;the establisher&quot;. We believe every founder carries that calling —
-            to lay enduring foundations for our ummah, to activate collective resources, and to leave a
-            blueprint the next generation can advance.
-          </p>
-        </div>
-        <div className="vision-grid" role="list">
-          {visionHighlights.map((highlight, index) => (
-            <Reveal
-              key={highlight.title}
-              as="article"
-              className="vision-card"
-              role="listitem"
-              variant="scale"
-              delay={index * 90}
-            >
-              <h3>{highlight.title}</h3>
-              <p>{highlight.copy}</p>
-            </Reveal>
-          ))}
-        </div>
-      </Reveal>
-
       <Reveal as="section" className="section scale-section" variant="rise">
         <div className="scale-header">
-          <span className="scale-kicker">More than a network</span>
-          <h2 className="scale-headline">This is how we scale</h2>
+          <span className="scale-kicker">Our Vision</span>
+          <h2 className="scale-headline">We scale founders</h2>
           <p className="scale-lede">
-            We&apos;re not just connecting founders — we&apos;re building the infrastructure that makes ventures
-            sustainable, scalable, and anchored in purpose.
+            Our vision is to scale founders through three domains: provide mentorship, find talent, and
+            raise capital.
           </p>
         </div>
         <div className="scale-grid" role="list">
