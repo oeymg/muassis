@@ -62,6 +62,25 @@ export default async function HomePage() {
         </div>
       </Reveal>
 
+      <Reveal as="section" className="section recap-section" variant="rise">
+        <div className="recap-header">
+          <span className="recap-kicker">Recap // 2025</span>
+          <h2>A glimpse of our 2025</h2>
+          <p>In 2025, we inspired the idea. In 2026, we build the founder.</p>
+        </div>
+        <div className="recap-embed" role="region" aria-label="Mu’assis recap video">
+          <iframe
+            className="recap-frame"
+            src="https://www.youtube.com/embed/V2eeL0jnBzU?si=e71dUtp7O2KGbzTG"
+            title="Mu’assis recap video"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
+      </Reveal>
+
       {featuredEvent ? (
         <Reveal as="section" className="section events-teaser" variant="rise">
           <div className="events-teaser-header">

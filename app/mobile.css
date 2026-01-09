@@ -912,6 +912,11 @@
     border-radius: clamp(0.9rem, 4vw, 1.3rem);
   }
 
+  .recap-embed .recap-frame {
+    height: 100%;
+    border-radius: inherit;
+  }
+
   .vision-grid,
   .pillars-grid,
   .cta-grid,

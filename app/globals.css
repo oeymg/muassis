@@ -1852,6 +1852,47 @@ footer {
   color: rgba(245, 245, 245, 0.78);
 }
 
+.recap-section {
+  display: grid;
+  gap: clamp(1.6rem, 3.2vw, 2.4rem);
+  align-items: start;
+}
+
+.recap-header {
+  display: grid;
+  gap: 0.6rem;
+  max-width: var(--content-max-width);
+}
+
+.recap-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+  color: var(--accent-orange);
+  font-weight: 600;
+}
+
+.recap-embed {
+  position: relative;
+  width: 100%;
+  max-width: var(--layout-max-width);
+  margin-inline: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-radius: clamp(1rem, 3vw, 1.4rem);
+  overflow: hidden;
+  background: var(--surface-elevated);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.recap-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 .events-teaser {
   display: grid;
   gap: clamp(1.4rem, 3.5vw, 2rem);

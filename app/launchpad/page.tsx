@@ -24,7 +24,7 @@ const advisors = [
     name: 'Abdul Khan',
     role: 'Capital',
     icon: 'fa-solid fa-chart-line',
-    credentials: 'Fundraising & Investor Relations',
+    credentials: 'Capital Raising & Investor Relations',
     venture: 'Vested'
   },
   {
@@ -33,24 +33,6 @@ const advisors = [
     icon: 'fa-solid fa-palette',
     credentials: 'Identity & Communications',
     venture: 'Monale'
-  }
-];
-
-const problems = [
-  {
-    problem: 'Fragmentation',
-    solution: 'Centralized Roadmap',
-    icon: 'fa-solid fa-puzzle-piece'
-  },
-  {
-    problem: 'Structure',
-    solution: 'Embedded Experts',
-    icon: 'fa-solid fa-building-columns'
-  },
-  {
-    problem: 'Direction',
-    solution: 'Commercial Validation',
-    icon: 'fa-solid fa-compass'
   }
 ];
 
@@ -67,14 +49,14 @@ const curriculumSteps = [
     title: 'Growth',
     subtitle: 'Acquisition',
     icon: 'fa-solid fa-rocket',
-    description: 'GTM strategy, operational efficiency, and customer acquisition.'
+    description: 'GTM strategy, operational efficiency, customer acquisition, and brand positioning.'
   },
   {
     step: '03',
     title: 'Launch',
     subtitle: 'Capital',
     icon: 'fa-solid fa-money-bill-trend-up',
-    description: 'Investor relations, due diligence, and global fundraising.'
+    description: 'Investor relations, due diligence, and capital raising.'
   }
 ];
 
@@ -138,7 +120,7 @@ export default function LaunchpadPage() {
             <span className="launchpad-title-large">LAUNCHPAD</span>
           </h1>
           <p className="launchpad-hero-subtitle">
-            The incubator for founders building for generations
+            Incubating founders Building for Generations
           </p>
           <div className="launchpad-hero-cta-group">
             <button onClick={() => setIsNewsletterOpen(true)} className="launchpad-hero-btn">
@@ -198,52 +180,14 @@ export default function LaunchpadPage() {
         </div>
       </section>
 
-      {/* Problem/Solution Grid */}
-      <section className="launchpad-problem-industrial">
-        <div className="launchpad-problem-intro">
-          <span className="launchpad-kicker">{'//'} THE GAPS WE FILL</span>
-          <h2>Where Founders Stall</h2>
-          <p className="launchpad-problem-description">
-            Most early-stage ventures don’t stall for lack of vision, but for lack of structure. We close those gaps.
-          </p>
-        </div>
-        <div className="launchpad-problem-stack">
-          {problems.map((item, index) => (
-            <div key={index} className="launchpad-problem-row">
-              <div className="launchpad-problem-side">
-                <div className="launchpad-problem-label">Problem {index + 1}</div>
-                <h3 className="launchpad-problem-title">{item.problem}</h3>
-                <p className="launchpad-problem-detail">
-                  {item.problem === 'Fragmentation' && 'Disconnected tools and advice lead to operational paralysis.'}
-                  {item.problem === 'Structure' && 'Scaling too fast without compliance creates invisible liabilities.'}
-                  {item.problem === 'Direction' && 'Capital doesn’t move without institutional-grade presentation.'}
-                </p>
-              </div>
-              <div className="launchpad-divider">
-                <i className="fa-solid fa-arrow-right"></i>
-              </div>
-              <div className="launchpad-solution-side">
-                <div className="launchpad-solution-label">Our Solution</div>
-                <h3 className="launchpad-solution-title">{item.solution}</h3>
-                <p className="launchpad-solution-detail">
-                  {item.solution === 'Centralized Roadmap' && 'One unified system that connects legal, finance, and operations.'}
-                  {item.solution === 'Embedded Experts' && 'Tier-1 advisors who build compliance frameworks from day one.'}
-                  {item.solution === 'Commercial Validation' && 'The Mu’assis seal that opens doors to institutional capital.'}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Curriculum Timeline */}
       <section className="launchpad-curriculum-industrial">
         <div className="launchpad-section-title">
           <span className="launchpad-kicker">{'//'} THE PROGRAM</span>
-          <h2>THREE-PHASE SYSTEM</h2>
+          <h2>OUR STRATEGY</h2>
           <p className="launchpad-section-intro">
-            A deliberate 90-day sequence that takes you from formation to funded scale. Each phase builds on the last,
-            with expert guidance and tangible deliverables at every step.
+            A deliberate 90-day sequence that takes you from formation to funded scale, closing the gaps that stall founders:
+            fragmented execution, weak structure, and unclear direction.
           </p>
         </div>
         <div className="launchpad-timeline-horizontal">
