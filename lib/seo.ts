@@ -18,46 +18,46 @@ const baseTwitter = {
 export const seoPages = {
   home: {
     path: '/',
-    title: "Mu'assis: Muslim Founders Australia",
+    title: "Mu'assis: Ethical Founders Australia",
     description:
-      "Mu'assis is a Muslim founders network in Australia uniting Muslims to shape futures — in business, in community, and for the next generation. Looking for a Muslim startup accelerator in Australia? Mu'assis connects entrepreneurs through mentorship, community, and values-driven programs.",
+      "Mu'assis is an ethical founders network in Australia uniting values-led founders to shape futures — in business, in community, and for the next generation. Looking for an ethical startup accelerator in Australia? Mu'assis connects entrepreneurs through mentorship, community, and values-driven programs.",
     keywords: [
-      "Muslim startup accelerator Australia",
-      "Muslim entrepreneur network",
-      "Islamic values in business",
-      "Muslim innovation hub",
-      "Faith-driven founders",
-      "Startup incubator for Muslims",
+      "Ethical startup accelerator Australia",
+      "Ethical entrepreneur network",
+      "Ethical values in business",
+      "Ethical innovation hub",
+      "Values-driven founders",
+      "Startup incubator for ethical ventures",
       "Mu’assis community"
     ]
   },
   community: {
     path: '/community',
-    title: "Community | Mu'assis: Muslim Founders Australia",
+    title: "Community | Mu'assis: Ethical Founders Australia",
     description:
-      "Explore how Mu'assis activates Muslim founders across business, ummah, and next generation futures through shared intelligence and collaborative builds. Want to join a faith-based mentorship and networking platform? Our community supports entrepreneurs with peer collaboration and shared values.",
+      "Explore how Mu'assis activates ethical founders across business, community, and next generation futures through shared intelligence and collaborative builds. Want to join a values-based mentorship and networking platform? Our community supports entrepreneurs with peer collaboration and shared values.",
     keywords: [
-      "Muslim networking platform",
-      "Faith-based mentorship",
+      "Ethical networking platform",
+      "Values-based mentorship",
       "Founder collaboration Australia",
-      "Muslim professional network",
+      "Ethical professional network",
       "Peer-to-peer support for entrepreneurs",
-      "Startup ecosystem for Muslims",
+      "Startup ecosystem for ethical ventures",
       "Entrepreneur community with values"
     ]
   },
   team: {
     path: '/advisors',
-    title: "Team | Mu'assis: Muslim Founders Australia",
+    title: "Team | Mu'assis: Ethical Founders Australia",
     description:
       "Meet the Mu'assis team stewarding our mission — from the founder to partners guiding strategy, capital growth, and long-term stewardship. Discover the people turning values into ventures.",
     keywords: [
       "Mu’assis team",
-      "Muslim founders leadership",
-      "Islamic startup mentors",
-      "Faith-led business advisors",
+      "Ethical founders leadership",
+      "Values-led startup mentors",
+      "Purpose-driven business advisors",
       "Purpose-driven strategic partners",
-      "Muslim entrepreneur support",
+      "Ethical entrepreneur support",
       "Values-aligned founder network"
     ]
   },
@@ -65,59 +65,59 @@ export const seoPages = {
     path: '/pathways',
     title: "Mu'assis Pathways | Values-Aligned Hiring & Careers",
     description:
-      "Mu'assis Pathways connects values-led Muslim founders and operators with open roles, curated intros, and job-ready support. Whether you are hiring or exploring your next move, share your brief and we will match you with aligned talent or opportunities.",
+      "Mu'assis Pathways connects values-led founders and operators with open roles, curated intros, and job-ready support. Whether you are hiring or exploring your next move, share your brief and we will match you with aligned talent or opportunities.",
     keywords: [
-      "Muslim job board Australia",
+      "Ethical job board Australia",
       "Faith-aligned hiring platform",
       "Values-led talent matching",
-      "Islamic careers network",
-      "Hire Muslim founders and operators",
-      "Career pathways for Muslim professionals",
+      "Ethical careers network",
+      "Hire values-led founders and operators",
+      "Career pathways for ethical professionals",
       "Mu’assis job pathways"
     ]
   },
   spotlight: {
     path: '/Spotlight',
-    title: "Founder Spotlight | Mu'assis: Muslim Founders Australia",
+    title: "Founder Spotlight | Mu'assis: Ethical Founders Australia",
     description:
-      "Founder spotlights from the Mu'assis network — stories of Muslim founders giving back, leading with hikmah, and building with mutual respect. Curious about inspiring Muslim entrepreneur journeys? Discover leadership and wisdom through our featured founder stories.",
+      "Founder spotlights from the Mu'assis network — stories of ethical founders giving back, leading with hikmah, and building with mutual respect. Curious about inspiring ethical entrepreneur journeys? Discover leadership and wisdom through our featured founder stories.",
     keywords: [
-      "Muslim founder stories",
-      "Islamic leadership in business",
-      "Case studies of Muslim startups",
+      "Ethical founder stories",
+      "Values-led leadership in business",
+      "Case studies of ethical startups",
       "Values-led entrepreneurship",
-      "Muslim innovation journeys",
+      "Ethical innovation journeys",
       "Entrepreneurial wisdom (hikmah)",
       "Mu’assis spotlight series"
     ]
   },
   join: {
     path: '/join',
-    title: "Join the Mu'assis Muslim Founders Club",
+    title: "Join the Mu'assis Ethical Founders Club",
     description:
-      "Apply to Mu'assis to connect with Muslim founders shaping futures, access curated circles, and collaborate through our community Slack. Looking to become part of a supportive Muslim founders program? Join us to access mentorship, networking, and growth opportunities tailored for Muslim entrepreneurs.",
+      "Apply to Mu'assis to connect with ethical founders shaping futures, access curated circles, and collaborate through our community Slack. Looking to become part of a supportive ethical founders program? Join us to access mentorship, networking, and growth opportunities tailored for values-led entrepreneurs.",
     keywords: [
-      "Apply to Muslim accelerator",
+      "Apply to ethical accelerator",
       "Join startup incubator",
-      "Membership for Muslim entrepreneurs",
-      "Muslim founders program Australia",
+      "Membership for ethical entrepreneurs",
+      "Ethical founders program Australia",
       "Startup mentorship network",
-      "Faith-rooted business support",
+      "Values-rooted business support",
       "Mu’assis accelerator application"
     ]
   },
   events: {
     path: '/events',
-    title: "Events | Mu'assis: Muslim Founders Australia",
+    title: "Events | Mu'assis: Ethical Founders Australia",
     description:
-      "Discover Mu'assis events designed to help Muslim founders collaborate, access mentorship, and launch impactful solutions. Join build sprints, pitch sessions, and community gatherings crafted for values-led entrepreneurs.",
+      "Discover Mu'assis events designed to help ethical founders collaborate, access mentorship, and launch impactful solutions. Join build sprints, pitch sessions, and community gatherings crafted for values-led entrepreneurs.",
     keywords: [
-      "Muslim founders events",
-      "Startup workshops for Muslims",
-      "Faith-led innovation sessions",
+      "Ethical founders events",
+      "Startup workshops for ethical founders",
+      "Values-led innovation sessions",
       "Entrepreneur build sprint",
-      "Muslim business community events",
-      "Mentorship events for Muslim startups",
+      "Ethical business community events",
+      "Mentorship events for ethical startups",
       "Values-driven startup programming"
     ]
   },
@@ -125,13 +125,13 @@ export const seoPages = {
     path: '/launchpad',
     title: "Launchpad | Mu'assis: Professional Incubator for Purpose-Driven Founders",
     description:
-      "Mu'assis Launchpad is Australia's first Muslim-led incubator designed to professionalize ethical entrepreneurship. We bridge the gap between having a good idea and running a legally robust, investor-ready company. Join our 3-month hybrid program launching in 2026.",
+      "Mu'assis Launchpad is Australia's first incubator designed to professionalize ethical entrepreneurship and support Muslim-led ventures. We bridge the gap between having a good idea and running a legally robust, investor-ready company. Join our 3-month hybrid program launching in 2026.",
     keywords: [
-      "Muslim startup incubator Australia",
+      "Ethical startup incubator Australia",
       "Ethical entrepreneurship program",
       "Purpose-driven founder accelerator",
       "Startup governance and structure",
-      "Muslim-led business incubator",
+      "Muslim-led ventures incubator",
       "Investor-ready startup program",
       "Mu'assis Launchpad 2026"
     ]
@@ -226,7 +226,7 @@ export const organizationSchema = {
   url: SITE_URL,
   logo: `${SITE_URL}/favicon.ico`,
   missionStatement:
-    'A Muslim founders network in Australia uniting Muslims to shape futures — in business, in community, and for the next generation.'
+    'An ethical founders network in Australia uniting values-led founders to shape futures — in business, in community, and for the next generation.'
 };
 
 export const websiteSchema = {
