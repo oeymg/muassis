@@ -42,11 +42,23 @@ const INITIAL_FORM_DATA = {
   referral: ''
 };
 
+type FormField = keyof typeof INITIAL_FORM_DATA;
+
+const REQUIRED_FIELDS: Record<number, FormField[]> = {
+  1: ['full_name', 'email', 'location', 'job_status', 'team_structure'],
+  2: ['pitch', 'problem', 'solution', 'business_model', 'scalability_check'],
+  3: ['stage', 'proof_of_work', 'governance_status'],
+  4: ['hard_thing', 'ethical_alignment'],
+  5: [],
+  6: ['commitment']
+};
+
 export default function LaunchpadApplyPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState(INITIAL_FORM_DATA);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errors, setErrors] = useState<Partial<Record<FormField, string>>>({});
 
   // Load from localStorage on mount
   useEffect(() => {
@@ -67,11 +79,68 @@ export default function LaunchpadApplyPage() {
     localStorage.setItem('launchpad_application_draft', JSON.stringify({ formData, currentStep }));
   }, [formData, currentStep]);
 
-  const handleInputChange = (field: string, value: string) => {
+  const handleInputChange = (field: FormField, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
+    setErrors(prev => {
+      if (!prev[field] || !value.trim()) {
+        return prev;
+      }
+      const next = { ...prev };
+      delete next[field];
+      return next;
+    });
+  };
+
+  const getMissingFields = (fields: FormField[]) =>
+    fields.filter((field) => !formData[field].trim());
+
+  const applyErrors = (fields: FormField[], missingFields: FormField[]) => {
+    setErrors((prev) => {
+      const next = { ...prev };
+      fields.forEach((field) => {
+        delete next[field];
+      });
+      missingFields.forEach((field) => {
+        next[field] = 'This field is required.';
+      });
+      return next;
+    });
+  };
+
+  const validateStep = (step: number) => {
+    const fields = REQUIRED_FIELDS[step] ?? [];
+    const missingFields = getMissingFields(fields);
+    applyErrors(fields, missingFields);
+    return missingFields.length === 0;
+  };
+
+  const getFirstIncompleteStep = () => {
+    for (let step = 1; step <= 6; step += 1) {
+      const fields = REQUIRED_FIELDS[step] ?? [];
+      if (getMissingFields(fields).length > 0) {
+        return step;
+      }
+    }
+    return 7;
+  };
+
+  const validateAll = () => {
+    const fields = Object.values(REQUIRED_FIELDS).flat();
+    const missingFields = getMissingFields(fields);
+    setErrors(() => {
+      const next: Partial<Record<FormField, string>> = {};
+      missingFields.forEach((field) => {
+        next[field] = 'This field is required.';
+      });
+      return next;
+    });
+    return missingFields;
   };
 
   const handleNext = () => {
+    if (!validateStep(currentStep)) {
+      return;
+    }
     if (currentStep < 6) setCurrentStep(currentStep + 1);
   };
 
@@ -109,8 +178,21 @@ export default function LaunchpadApplyPage() {
   };
 
   const handleSubmit = async () => {
-    setIsSubmitting(true);
     setSubmitStatus('idle');
+    const missingFields = validateAll();
+    if (missingFields.length > 0) {
+      const firstInvalidStep = Number(
+        Object.keys(REQUIRED_FIELDS).find((step) =>
+          REQUIRED_FIELDS[Number(step)].some((field) => missingFields.includes(field))
+        )
+      );
+      if (firstInvalidStep) {
+        setCurrentStep(firstInvalidStep);
+      }
+      return;
+    }
+
+    setIsSubmitting(true);
 
     try {
       const formBody = new FormData();
@@ -181,7 +263,7 @@ export default function LaunchpadApplyPage() {
                 </div>
               </div>
               <div className="apply-form-grid">
-                <div className="apply-form-field">
+                <div className={`apply-form-field ${errors.full_name ? 'is-invalid' : ''}`}>
                   <label htmlFor="full_name">Full Name *</label>
                   <input
                     id="full_name"
@@ -190,9 +272,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.full_name}
                     onChange={(e) => handleInputChange('full_name', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.full_name)}
                   />
+                  {errors.full_name && <span className="apply-field-error">{errors.full_name}</span>}
                 </div>
-                <div className="apply-form-field">
+                <div className={`apply-form-field ${errors.email ? 'is-invalid' : ''}`}>
                   <label htmlFor="email">Email *</label>
                   <input
                     id="email"
@@ -201,7 +285,9 @@ export default function LaunchpadApplyPage() {
                     value={formData.email}
                     onChange={(e) => handleInputChange('email', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.email)}
                   />
+                  {errors.email && <span className="apply-field-error">{errors.email}</span>}
                 </div>
                 <div className="apply-form-field">
                   <label htmlFor="linkedin">LinkedIn Profile</label>
@@ -214,7 +300,7 @@ export default function LaunchpadApplyPage() {
                     onChange={(e) => handleInputChange('linkedin', e.target.value)}
                   />
                 </div>
-                <div className="apply-form-field">
+                <div className={`apply-form-field ${errors.location ? 'is-invalid' : ''}`}>
                   <label htmlFor="location">Location *</label>
                   <input
                     id="location"
@@ -224,9 +310,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.location}
                     onChange={(e) => handleInputChange('location', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.location)}
                   />
+                  {errors.location && <span className="apply-field-error">{errors.location}</span>}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.job_status ? 'is-invalid' : ''}`}>
                   <label htmlFor="job_status">Current Employment Status *</label>
                   <select
                     id="job_status"
@@ -234,6 +322,7 @@ export default function LaunchpadApplyPage() {
                     value={formData.job_status}
                     onChange={(e) => handleInputChange('job_status', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.job_status)}
                   >
                     <option value="">Select...</option>
                     <option value="full-time-founder">Full-time Founder</option>
@@ -242,8 +331,9 @@ export default function LaunchpadApplyPage() {
                     <option value="employed">Employed (exploring ventures)</option>
                     <option value="other">Other</option>
                   </select>
+                  {errors.job_status && <span className="apply-field-error">{errors.job_status}</span>}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.team_structure ? 'is-invalid' : ''}`}>
                   <label htmlFor="team_structure">Team Structure *</label>
                   <textarea
                     id="team_structure"
@@ -253,7 +343,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.team_structure}
                     onChange={(e) => handleInputChange('team_structure', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.team_structure)}
                   />
+                  {errors.team_structure && (
+                    <span className="apply-field-error">{errors.team_structure}</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -270,7 +364,7 @@ export default function LaunchpadApplyPage() {
                 </div>
               </div>
               <div className="apply-form-grid">
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.pitch ? 'is-invalid' : ''}`}>
                   <label htmlFor="pitch">One-Line Pitch *</label>
                   <input
                     id="pitch"
@@ -280,9 +374,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.pitch}
                     onChange={(e) => handleInputChange('pitch', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.pitch)}
                   />
+                  {errors.pitch && <span className="apply-field-error">{errors.pitch}</span>}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.problem ? 'is-invalid' : ''}`}>
                   <label htmlFor="problem">Problem Statement *</label>
                   <textarea
                     id="problem"
@@ -292,9 +388,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.problem}
                     onChange={(e) => handleInputChange('problem', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.problem)}
                   />
+                  {errors.problem && <span className="apply-field-error">{errors.problem}</span>}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.solution ? 'is-invalid' : ''}`}>
                   <label htmlFor="solution">Your Solution *</label>
                   <textarea
                     id="solution"
@@ -304,9 +402,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.solution}
                     onChange={(e) => handleInputChange('solution', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.solution)}
                   />
+                  {errors.solution && <span className="apply-field-error">{errors.solution}</span>}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.business_model ? 'is-invalid' : ''}`}>
                   <label htmlFor="business_model">Business Model *</label>
                   <textarea
                     id="business_model"
@@ -316,9 +416,13 @@ export default function LaunchpadApplyPage() {
                     value={formData.business_model}
                     onChange={(e) => handleInputChange('business_model', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.business_model)}
                   />
+                  {errors.business_model && (
+                    <span className="apply-field-error">{errors.business_model}</span>
+                  )}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.scalability_check ? 'is-invalid' : ''}`}>
                   <label htmlFor="scalability_check">Why Is This Scalable? *</label>
                   <textarea
                     id="scalability_check"
@@ -328,7 +432,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.scalability_check}
                     onChange={(e) => handleInputChange('scalability_check', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.scalability_check)}
                   />
+                  {errors.scalability_check && (
+                    <span className="apply-field-error">{errors.scalability_check}</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -345,7 +453,7 @@ export default function LaunchpadApplyPage() {
                 </div>
               </div>
               <div className="apply-form-grid">
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.stage ? 'is-invalid' : ''}`}>
                   <label htmlFor="stage">Current Stage *</label>
                   <select
                     id="stage"
@@ -353,6 +461,7 @@ export default function LaunchpadApplyPage() {
                     value={formData.stage}
                     onChange={(e) => handleInputChange('stage', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.stage)}
                   >
                     <option value="">Select...</option>
                     <option value="idea">Idea Stage (concept validated)</option>
@@ -361,8 +470,9 @@ export default function LaunchpadApplyPage() {
                     <option value="revenue">Revenue Generating</option>
                     <option value="scaling">Scaling (operational + financial systems in place)</option>
                   </select>
+                  {errors.stage && <span className="apply-field-error">{errors.stage}</span>}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.proof_of_work ? 'is-invalid' : ''}`}>
                   <label htmlFor="proof_of_work">Proof of Work *</label>
                   <textarea
                     id="proof_of_work"
@@ -372,9 +482,13 @@ export default function LaunchpadApplyPage() {
                     value={formData.proof_of_work}
                     onChange={(e) => handleInputChange('proof_of_work', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.proof_of_work)}
                   />
+                  {errors.proof_of_work && (
+                    <span className="apply-field-error">{errors.proof_of_work}</span>
+                  )}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.governance_status ? 'is-invalid' : ''}`}>
                   <label htmlFor="governance_status">Governance & Legal Status *</label>
                   <select
                     id="governance_status"
@@ -382,6 +496,7 @@ export default function LaunchpadApplyPage() {
                     value={formData.governance_status}
                     onChange={(e) => handleInputChange('governance_status', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.governance_status)}
                   >
                     <option value="">Select...</option>
                     <option value="not-incorporated">Not Yet Incorporated</option>
@@ -389,6 +504,9 @@ export default function LaunchpadApplyPage() {
                     <option value="other-entity">Other Entity Type</option>
                     <option value="in-progress">Incorporation In Progress</option>
                   </select>
+                  {errors.governance_status && (
+                    <span className="apply-field-error">{errors.governance_status}</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -405,7 +523,7 @@ export default function LaunchpadApplyPage() {
                 </div>
               </div>
               <div className="apply-form-grid">
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.hard_thing ? 'is-invalid' : ''}`}>
                   <label htmlFor="hard_thing">The Hardest Thing *</label>
                   <textarea
                     id="hard_thing"
@@ -415,9 +533,13 @@ export default function LaunchpadApplyPage() {
                     value={formData.hard_thing}
                     onChange={(e) => handleInputChange('hard_thing', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.hard_thing)}
                   />
+                  {errors.hard_thing && (
+                    <span className="apply-field-error">{errors.hard_thing}</span>
+                  )}
                 </div>
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.ethical_alignment ? 'is-invalid' : ''}`}>
                   <label htmlFor="ethical_alignment">Ethical Alignment *</label>
                   <textarea
                     id="ethical_alignment"
@@ -427,7 +549,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.ethical_alignment}
                     onChange={(e) => handleInputChange('ethical_alignment', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.ethical_alignment)}
                   />
+                  {errors.ethical_alignment && (
+                    <span className="apply-field-error">{errors.ethical_alignment}</span>
+                  )}
                 </div>
               </div>
             </div>
@@ -473,7 +599,7 @@ export default function LaunchpadApplyPage() {
                 </div>
               </div>
               <div className="apply-form-grid">
-                <div className="apply-form-field apply-form-field-full">
+                <div className={`apply-form-field apply-form-field-full ${errors.commitment ? 'is-invalid' : ''}`}>
                   <label htmlFor="commitment">Program Commitment *</label>
                   <textarea
                     id="commitment"
@@ -483,7 +609,11 @@ export default function LaunchpadApplyPage() {
                     value={formData.commitment}
                     onChange={(e) => handleInputChange('commitment', e.target.value)}
                     required
+                    aria-invalid={Boolean(errors.commitment)}
                   />
+                  {errors.commitment && (
+                    <span className="apply-field-error">{errors.commitment}</span>
+                  )}
                 </div>
                 <div className="apply-form-field apply-form-field-full">
                   <label htmlFor="referral">How Did You Hear About Us?</label>
@@ -563,7 +693,19 @@ export default function LaunchpadApplyPage() {
             {SECTIONS.map((section) => (
               <button
                 key={section.id}
-                onClick={() => setCurrentStep(section.id)}
+                onClick={() => {
+                  if (section.id <= currentStep) {
+                    setCurrentStep(section.id);
+                    return;
+                  }
+                  const firstIncompleteStep = getFirstIncompleteStep();
+                  if (section.id > firstIncompleteStep) {
+                    validateStep(firstIncompleteStep);
+                    setCurrentStep(firstIncompleteStep);
+                    return;
+                  }
+                  setCurrentStep(section.id);
+                }}
                 className={`apply-step-item ${currentStep === section.id ? 'active' : ''} ${currentStep > section.id ? 'completed' : ''}`}
                 type="button"
               >

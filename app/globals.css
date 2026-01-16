@@ -5547,6 +5547,13 @@ body:has(.launchpad-industrial) .nav-link::after {
   background: rgba(231, 129, 33, 0.05);
 }
 
+.apply-form-field.is-invalid input,
+.apply-form-field.is-invalid textarea,
+.apply-form-field.is-invalid select {
+  border-color: #f97316;
+  box-shadow: 0 0 0 1px rgba(249, 115, 22, 0.35);
+}
+
 .apply-form-field textarea {
   resize: vertical;
   min-height: 120px;
@@ -5556,6 +5563,11 @@ body:has(.launchpad-industrial) .nav-link::after {
   font-size: 0.85rem;
   color: #666666;
   margin-top: 0.25rem;
+}
+
+.apply-field-error {
+  font-size: 0.8rem;
+  color: #f97316;
 }
 
 /* Navigation */
