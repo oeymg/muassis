@@ -170,7 +170,7 @@ export default function LaunchpadPage() {
             <span className="launchpad-kicker">{'//'} FOUNDERS WE BACK</span>
             <h2>BUILT FOR EVERY STAGE</h2>
             <p className="launchpad-section-intro">
-              From first validation to scale, Launchpad meets you where you are and moves you forward.
+              From first validation to scale, our Launchpad meets you where you are and moves you forward.
             </p>
           </div>
           <div className="launchpad-path-grid">
