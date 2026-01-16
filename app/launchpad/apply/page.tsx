@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwf_ozUa1p8q3ja1gi8DB4uC_4XaDM-70pGafSxbC1JDd8fZ1QMYkmsAA7IWGM3QFay8A/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzzU2pmbkuGN5Wf2hQQvA31Yod-A6-LZ1dOjPqiTZCPti9N8Uud28z_0Ocld9kdA37W/exec';
 
 const SECTIONS = [
   { id: 1, title: 'Foundation', subtitle: 'Who You Are' },
@@ -156,7 +156,6 @@ export default function LaunchpadApplyPage() {
             APPLICATION PORTAL // BATCH 2026
           </div>
           <h1 className="apply-title">
-            <span className="apply-title-small">MU&apos;ASSIS</span>
             <span className="apply-title-large">LAUNCHPAD APPLICATION</span>
           </h1>
           <p className="apply-subtitle">
@@ -369,7 +368,7 @@ export default function LaunchpadApplyPage() {
                     id="proof_of_work"
                     name="proof_of_work"
                     rows={5}
-                    placeholder="Share concrete evidence of progress: customer testimonials, revenue figures, partnerships, MVP demos, waitlist size, etc."
+                    placeholder="Share concrete evidence of progress: customer testimonials, revenue figures, partnerships, MVP demos, signups, etc."
                     value={formData.proof_of_work}
                     onChange={(e) => handleInputChange('proof_of_work', e.target.value)}
                     required
@@ -480,7 +479,7 @@ export default function LaunchpadApplyPage() {
                     id="commitment"
                     name="commitment"
                     rows={4}
-                    placeholder="The Launchpad is a 3-month intensive program. Can you commit to attending sessions, completing deliverables, and actively engaging with advisors and peers?"
+                    placeholder="The Launchpad is a 90-day hybrid program. Can you commit to attending sessions, completing deliverables, and actively engaging with advisors and peers?"
                     value={formData.commitment}
                     onChange={(e) => handleInputChange('commitment', e.target.value)}
                     required

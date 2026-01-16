@@ -11,10 +11,10 @@ type NavLink = {
 };
 
 const navLinks: readonly NavLink[] = [
-  { href: '/', label: 'Home' },
   { href: '/community', label: 'Community' },
-  { href: '/advisors', label: 'Team' },
-  { href: '/pathways', label: 'Pathways' }
+  { href: '/pathways', label: 'Pathways' },
+  { href: '/launchpad', label: 'Launchpad' },
+  { href: '/launchpad/apply', label: 'Apply', variant: 'cta' }
 ] as const;
 
 export function Navigation() {
@@ -46,7 +46,12 @@ export function Navigation() {
         {navLinks.map(({ href, label, variant }) => {
           const isActive =
             pathname === href ||
-            (href !== '/' && pathname?.startsWith(`${href}/`)) ||
+            (href !== '/' &&
+              href !== '/launchpad' &&
+              pathname?.startsWith(`${href}/`)) ||
+            (href === '/launchpad' &&
+              pathname?.startsWith('/launchpad') &&
+              !pathname?.startsWith('/launchpad/apply')) ||
             (href === '/community' && pathname?.startsWith('/Spotlight'));
 
           return (

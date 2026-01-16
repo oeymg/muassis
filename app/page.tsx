@@ -26,6 +26,12 @@ const scaleHighlights = [
   }
 ];
 
+const launchpadHighlights = [
+  '90-day hybrid program for founders',
+  'Advisor-led governance, growth, and capital',
+  'Investor-ready outcomes and introductions'
+];
+
 export default async function HomePage() {
   const spotlights = await getSpotlightSummaries();
   const featuredSpotlights = spotlights.slice(0, 4);
@@ -41,7 +47,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <AnnouncementBanner text="ANNOUNCEMENT. JAN 16." />
+      <AnnouncementBanner text="LAUNCHPAD APPLICATIONS OPEN - BATCH 2026. APPLY NOW." link="/launchpad/apply" />
       <Reveal as={HeroFocusSection} className="home-hero" variant="fade">
         <div className="hero-content">
           <HeroHeadline>
@@ -133,6 +139,33 @@ export default async function HomePage() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </Reveal>
+
+      <Reveal as="section" className="section launchpad-teaser" variant="rise">
+        <div className="launchpad-teaser-copy">
+          <span className="launchpad-teaser-kicker">Launchpad</span>
+          <h2>Applications open for Batch 2026</h2>
+          <p>
+            Launchpad is a 90-day hybrid program for founders building values-led ventures. Get governance,
+            growth, and capital support in one focused track.
+          </p>
+        </div>
+        <div className="launchpad-teaser-card">
+          <div className="launchpad-teaser-badge">BATCH 2026</div>
+          <ul className="launchpad-teaser-list">
+            {launchpadHighlights.map((highlight) => (
+              <li key={highlight}>{highlight}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="launchpad-teaser-actions">
+          <Link className="cta-button" href="/launchpad/apply">
+            Apply now
+          </Link>
+          <Link className="link-ghost" href="/launchpad">
+            View Launchpad
+          </Link>
         </div>
       </Reveal>
 

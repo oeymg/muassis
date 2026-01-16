@@ -25,11 +25,6 @@
     margin: 0;
     padding-inline: var(--layout-gutter);
     overflow-x: hidden;
-    background-image:
-      linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-    background-size: 32px 32px;
-    background-position: center;
   }
 
 
@@ -90,7 +85,8 @@
   }
 
   .apply-title-large {
-    font-size: clamp(1.8rem, 7vw, 2.6rem);
+    font-size: clamp(1.5rem, 6vw, 2.4rem);
+    letter-spacing: 0.03em;
   }
 
   .apply-subtitle {
@@ -348,6 +344,13 @@
     margin-inline: auto;
   }
 
+  .site-header {
+    width: 100vw;
+    max-width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+  }
+
   .section p,
   .section ul,
   .section ol,
@@ -374,6 +377,7 @@
 
   .launchpad-hero-center,
   .launchpad-section-title,
+  .launchpad-audience-layout,
   .launchpad-path-grid,
   .launchpad-problem-intro,
   .launchpad-problem-stack,
@@ -388,13 +392,22 @@
     margin-inline: auto;
   }
 
+  .launchpad-path-grid {
+    gap: clamp(0.9rem, 3.2vw, 1.4rem);
+  }
+
   .launchpad-hero-industrial {
-    min-height: clamp(420px, 70vh, 560px);
-    padding-block: clamp(2.4rem, 7vw, 3.2rem);
+    min-height: clamp(520px, 80vh, 700px);
+    padding-block: clamp(3rem, 9vw, 4.2rem);
     padding-inline: 0;
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
+  }
+
+  .launchpad-hero-industrial {
+    background-position: center, top left, center 10%;
+    background-size: 100% 100%, auto, auto 150%;
   }
 
   .launchpad-hero-industrial .launchpad-hero-center {
@@ -403,17 +416,35 @@
     padding-inline: var(--layout-gutter);
   }
 
+  .launchpad-audience-copy .launchpad-section-intro {
+    max-width: 100%;
+  }
+
+  .launchpad-cta-content {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  .launchpad-cta-copy {
+    padding-left: 0;
+    border-left: none;
+  }
+
   .launchpad-hero-title {
     max-width: 100%;
   }
 
   .launchpad-title-small {
-    font-size: clamp(1.6rem, 4.8vw, 2.4rem);
+    font-size: clamp(1.8rem, 5.2vw, 2.6rem);
   }
 
   .launchpad-title-large {
-    font-size: clamp(3.2rem, 11.5vw, 4.4rem);
+    font-size: clamp(4rem, 12.8vw, 5.6rem);
     letter-spacing: 0.04em;
+  }
+
+  .launchpad-hero-subtitle {
+    font-size: clamp(1.25rem, 3.2vw, 1.75rem);
   }
 
   .launchpad-audience-industrial,
@@ -433,7 +464,7 @@
   }
 
   .launchpad-path-card {
-    padding: clamp(2.2rem, 6vw, 3rem) clamp(1.4rem, 4vw, 1.8rem);
+    padding: clamp(1.6rem, 6vw, 2.1rem) clamp(1.3rem, 4vw, 1.7rem);
   }
 
   .launchpad-problem-row {
@@ -466,8 +497,8 @@
     border-right: none;
   }
 
-  .launchpad-cta-content p {
-    margin-bottom: clamp(1.6rem, 5vw, 2.2rem);
+  .launchpad-cta-actions-block p {
+    margin-bottom: 0;
   }
 
   .launchpad-cta-actions {
@@ -1033,6 +1064,11 @@
   .hero-actions .cta-button,
   .hero-actions .link-ghost {
     width: 100%;
+  }
+
+  .home-hero .hero-actions {
+    width: min(200px, 100%);
+    margin-inline: auto;
   }
 
   .cta-heading-row {

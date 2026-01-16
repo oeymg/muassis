@@ -1,15 +1,14 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { createPageMetadata } from '@/lib/seo';
-import { useState } from 'react';
-import { NewsletterModal } from '@/components/NewsletterModal';
 
 const advisors = [
   {
     name: 'Nazley Khan',
     role: 'Legal',
     icon: 'fa-solid fa-scale-balanced',
+    image: '/nazley.jpg',
     credentials: 'Corporate Law & Compliance',
     venture: 'Blackstone Legal'
   },
@@ -17,6 +16,7 @@ const advisors = [
     name: 'Salmin Khan',
     role: 'Strategy',
     icon: 'fa-solid fa-chess',
+    image: '/salmin.jpeg',
     credentials: 'Market Positioning & GTM',
     venture: 'TACT Advisory'
   },
@@ -24,6 +24,7 @@ const advisors = [
     name: 'Abdul Khan',
     role: 'Capital',
     icon: 'fa-solid fa-chart-line',
+    image: '/abdul.jpeg',
     credentials: 'Capital Raising & Investor Relations',
     venture: 'Vested'
   },
@@ -31,6 +32,7 @@ const advisors = [
     name: 'Mariam Rehman',
     role: 'Brand',
     icon: 'fa-solid fa-palette',
+    image: '/mariam.png',
     credentials: 'Identity & Communications',
     venture: 'Monale'
   }
@@ -102,10 +104,25 @@ const faqs = [
   }
 ];
 
-export default function LaunchpadPage() {
-  const [hoveredPath, setHoveredPath] = useState<'builder' | 'scaler' | null>(null);
-  const [isNewsletterOpen, setIsNewsletterOpen] = useState(false);
+const audiencePaths = [
+  {
+    key: 'visionary',
+    title: 'THE VISIONARY',
+    description: 'You have conviction and lived insight. You need customer discovery, a focused MVP, and a clear business model.'
+  },
+  {
+    key: 'builder',
+    title: 'THE BUILDER',
+    description: 'You are shaping the product, team, and early traction. You need legal structure, go-to-market clarity, and a launch plan investors respect.'
+  },
+  {
+    key: 'scaler',
+    title: 'THE SCALER',
+    description: 'You have traction and need repeatable growth, strategic hiring, and aligned capital to scale with integrity.'
+  }
+] as const;
 
+export default function LaunchpadPage() {
   return (
     <div className="launchpad-industrial">
       {/* Hero Section */}
@@ -113,19 +130,19 @@ export default function LaunchpadPage() {
         <div className="launchpad-hero-center">
           <div className="launchpad-status-badge">
             <span className="launchpad-status-dot"></span>
-            STATUS: PRE-LAUNCH // BATCH 2026
+            APPLICATIONS OPEN // BATCH 2026
           </div>
           <h1 className="launchpad-hero-title">
-            <span className="launchpad-title-small">MU’ASSIS</span>
+            <span className="launchpad-title-small">Mu’assis // Founder</span>
             <span className="launchpad-title-large">LAUNCHPAD</span>
           </h1>
           <p className="launchpad-hero-subtitle">
-            Incubating founders Building for Generations
+            Make something, that lasts.
           </p>
           <div className="launchpad-hero-cta-group">
-            <button onClick={() => setIsNewsletterOpen(true)} className="launchpad-hero-btn">
-              JOIN WAITLIST <i className="fa-solid fa-arrow-right"></i>
-            </button>
+            <Link href="/launchpad/apply" className="launchpad-hero-btn">
+              APPLY NOW <i className="fa-solid fa-arrow-right"></i>
+            </Link>
           </div>
 
           {/* Embedded Value Props */}
@@ -148,34 +165,29 @@ export default function LaunchpadPage() {
 
       {/* Audience Section - Choose Your Path */}
       <section className="launchpad-audience-industrial">
-        <div className="launchpad-section-title">
-          <span className="launchpad-kicker">{'//'} CHOOSE YOUR PATH</span>
-          <h2>WHO IS THIS FOR?</h2>
-        </div>
-        <div className="launchpad-path-grid">
-          <div
-            className={`launchpad-path-card ${hoveredPath === 'scaler' ? 'dimmed' : ''}`}
-            onMouseEnter={() => setHoveredPath('builder')}
-            onMouseLeave={() => setHoveredPath(null)}
-          >
-            <i className="fa-solid fa-drafting-compass launchpad-path-icon"></i>
-            <div className="launchpad-path-stage">0 → 1</div>
-            <h3>THE BUILDER</h3>
-            <p>
-              You have deep domain expertise and market validation, but need institutional-grade legal infrastructure, financial modeling, and strategic guidance to transform your concept into a fundable venture.
+        <div className="launchpad-audience-layout">
+          <div className="launchpad-audience-copy">
+            <span className="launchpad-kicker">{'//'} FOUNDERS WE BACK</span>
+            <h2>BUILT FOR EVERY STAGE</h2>
+            <p className="launchpad-section-intro">
+              From first validation to scale, Launchpad meets you where you are and moves you forward.
             </p>
           </div>
-          <div
-            className={`launchpad-path-card ${hoveredPath === 'builder' ? 'dimmed' : ''}`}
-            onMouseEnter={() => setHoveredPath('scaler')}
-            onMouseLeave={() => setHoveredPath(null)}
-          >
-            <i className="fa-solid fa-rocket launchpad-path-icon"></i>
-            <div className="launchpad-path-stage">1 → 10</div>
-            <h3>THE SCALER</h3>
-            <p>
-              You’ve achieved product-market fit and early traction, but need operational systems, investor-ready documentation, and access to institutional capital networks to reach sustainable scale without compromising values.
-            </p>
+          <div className="launchpad-path-grid">
+            {audiencePaths.map((path, index) => (
+              <div
+                key={path.key}
+                className="launchpad-path-card"
+              >
+                <span className="launchpad-path-index">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <div className="launchpad-path-body">
+                  <h3>{path.title}</h3>
+                  <p>{path.description}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -183,7 +195,7 @@ export default function LaunchpadPage() {
       {/* Curriculum Timeline */}
       <section className="launchpad-curriculum-industrial">
         <div className="launchpad-section-title">
-          <span className="launchpad-kicker">{'//'} THE PROGRAM</span>
+          <span className="launchpad-kicker">{'//'} SOLVE YOUR PROBLEM</span>
           <h2>OUR STRATEGY</h2>
           <p className="launchpad-section-intro">
             A deliberate 90-day sequence that takes you from formation to funded scale, closing the gaps that stall founders:
@@ -212,7 +224,14 @@ export default function LaunchpadPage() {
         <div className="launchpad-advisors-grid">
           {advisors.map((advisor, index) => (
             <div key={index} className="launchpad-advisor-card">
-              <i className={`${advisor.icon} launchpad-advisor-icon`}></i>
+              <Image
+                src={advisor.image}
+                alt={advisor.name}
+                width={96}
+                height={96}
+                className="launchpad-advisor-photo"
+                sizes="96px"
+              />
               <h3>{advisor.name}</h3>
               <div className="launchpad-advisor-role">{advisor.role}</div>
               <div className="launchpad-advisor-credentials">{advisor.credentials}</div>
@@ -223,25 +242,30 @@ export default function LaunchpadPage() {
       </section>
 
       {/* Final CTA */}
-      <section id="waitlist" className="launchpad-final-cta-industrial">
+      <section id="apply" className="launchpad-final-cta-industrial">
         <div className="launchpad-cta-content">
-          <div className="launchpad-cta-badge">WAITLIST NOW OPEN</div>
-          <h2>Build a venture<br/>worth generations</h2>
-          <p>
-            We’re looking for purpose-driven founders ready to scale their impact without compromising their values. If that’s you, we want to hear from you.
-          </p>
-          <div className="launchpad-cta-actions">
-            <button onClick={() => setIsNewsletterOpen(true)} className="launchpad-final-btn launchpad-final-btn--primary">
-              JOIN WAITLIST <i className="fa-solid fa-arrow-right"></i>
-            </button>
-            <Link href="mailto:contact@muassis.org?subject=Launchpad%20Inquiry" className="launchpad-final-btn launchpad-final-btn--secondary">
-              ASK A QUESTION
-            </Link>
+          <div className="launchpad-cta-copy">
+            <div className="launchpad-cta-badge">APPLICATIONS OPEN</div>
+            <h2 className="launchpad-cta-title">
+              Build a venture
+              <span>worth generations</span>
+            </h2>
+          </div>
+          <div className="launchpad-cta-actions-block">
+            <p>
+              Applications are now open for the 2026 cohort. Apply today to secure your spot and build with institutional support.
+            </p>
+            <div className="launchpad-cta-actions">
+              <Link href="/launchpad/apply" className="launchpad-final-btn launchpad-final-btn--primary">
+                APPLY NOW <i className="fa-solid fa-arrow-right"></i>
+              </Link>
+              <Link href="mailto:contact@muassis.org?subject=Launchpad%20Inquiry" className="launchpad-final-btn launchpad-final-btn--secondary">
+                ASK A QUESTION
+              </Link>
+            </div>
           </div>
         </div>
       </section>
-
-      <NewsletterModal isOpen={isNewsletterOpen} onClose={() => setIsNewsletterOpen(false)} />
     </div>
   );
 }
