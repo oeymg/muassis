@@ -21,20 +21,20 @@ const advisors = [
     venture: 'TACT Advisory'
   },
   {
-    name: 'Abdul Khan',
-    role: 'Capital',
-    icon: 'fa-solid fa-chart-line',
-    image: '/abdul.jpeg',
-    credentials: 'Capital Raising & Investor Relations',
-    venture: 'Vested'
-  },
-  {
     name: 'Mariam Rehman',
     role: 'Brand',
     icon: 'fa-solid fa-palette',
     image: '/mariam.png',
     credentials: 'Identity & Communications',
     venture: 'Monale'
+  },
+  {
+    name: 'Abdul Khan',
+    role: 'Capital',
+    icon: 'fa-solid fa-chart-line',
+    image: '/abdul.jpeg',
+    credentials: 'Capital Raising & Investor Relations',
+    venture: 'Vested'
   }
 ];
 
@@ -220,6 +220,9 @@ export default function LaunchpadPage() {
         <div className="launchpad-section-title">
           <span className="launchpad-kicker">{'//'} THE TEAM</span>
           <h2>EXPERT ADVISORS</h2>
+          <p className="launchpad-section-intro">
+            A focused advisory bench across legal, strategy, capital, and brand to guide founders through every stage.
+          </p>
         </div>
         <div className="launchpad-advisors-grid">
           {advisors.map((advisor, index) => (
