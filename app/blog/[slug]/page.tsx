@@ -143,7 +143,7 @@ export default async function BlogPostPage({ params }: BlogPageParams) {
         />
 
         <header className="blog-article-header">
-          <span className="blog-kicker">The Mu'assis Journal</span>
+          <span className="blog-kicker">The Mu&apos;assis Journal</span>
           <h1 className="blog-article-title">{post.title}</h1>
           <p className="blog-article-preview">{post.preview}</p>
           <div className="blog-article-meta">
