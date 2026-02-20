@@ -724,6 +724,21 @@
 }
 
 @media (max-width: 640px) {
+  /* ── Journal index — small mobile ── */
+  .jnl-roll-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .jnl-featured {
+    aspect-ratio: 3 / 2;
+  }
+
+  .jnl-featured-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
   :root {
     --layout-max-width: var(--max-page-width);
   }
@@ -1597,5 +1612,103 @@
   .spotlight-carousel-slide,
   .spotlight-body-image {
     box-shadow: none !important;
+  }
+
+  .blog-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-hero-chips {
+    justify-content: center;
+  }
+
+  .blog-hero-tiles {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .blog-hero-tile--primary {
+    min-height: 220px;
+  }
+
+  .blog-featured-card {
+    border-radius: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .blog-featured-media {
+    min-height: 200px;
+    order: -1;
+  }
+
+  .blog-list-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .blog-list-card {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-list-media {
+    aspect-ratio: 16 / 9;
+  }
+
+  .blog-article {
+    padding-inline: 0;
+  }
+
+  .blog-article-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .blog-article-preview {
+    font-size: 1rem;
+  }
+
+  .blog-article-hero {
+    border-radius: 0;
+  }
+
+  .blog-article-cta {
+    max-width: 100%;
+  }
+
+  .blog-article-cta-inner {
+    border-radius: 0;
+  }
+
+  .blog-article-cta-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .blog-article-cta-btn {
+    justify-content: center;
+    border-radius: 0 !important;
+  }
+
+  /* ── Journal index — tablet/mobile ── */
+  .jnl-featured {
+    aspect-ratio: 4 / 3;
+    border-radius: 0;
+  }
+
+  .jnl-featured-body {
+    max-width: 100%;
+    padding: clamp(1.2rem, 4vw, 1.8rem);
+  }
+
+  .jnl-featured-desc {
+    display: none;
+  }
+
+  .jnl-roll-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .jnl-hero-watermark {
+    opacity: 0.5;
+    font-size: clamp(8rem, 35vw, 12rem);
   }
 }

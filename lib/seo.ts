@@ -91,6 +91,25 @@ export const seoPages = {
       "Mu’assis spotlight series"
     ]
   },
+  blog: {
+    path: '/blog',
+    title: "Mu'assis Journal | You Have What It Takes — Founder Essays on Legacy and Innovation",
+    description:
+      "You have what it takes to become an innovator, an entrepreneur, a muassis. The Mu'assis Journal is your key to your legacy — motivational essays on Governance Debt, ethical ambition, and building institutional-grade ventures that outlast you.",
+    keywords: [
+      "You have what it takes",
+      "Muassis founder identity",
+      "Founder legacy building",
+      "Governance Debt",
+      "Scaling Ethical Ambition",
+      "Institutional Infrastructure",
+      "Generational Thinking",
+      "Venture Factory",
+      "Purpose-driven founders",
+      "Ethical entrepreneur essays",
+      "Muslim founder resources Australia"
+    ]
+  },
   join: {
     path: '/join',
     title: "Join the Mu'assis Ethical Founders Club",

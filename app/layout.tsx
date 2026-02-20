@@ -65,6 +65,11 @@ export default function RootLayout({
             <span>© 2025 Mu&apos;assis: Scaling for Generations</span>
             <span>the ethical ecosystem in Australia</span>
           </div>
+          <div className="site-footer-links">
+            <Link href="/blog" className="site-footer-link">
+              Blog
+            </Link>
+          </div>
           <div className="site-footer-social">
             <span className="site-footer-social-title">Connect with us</span>
             <div className="site-footer-social-links" role="list">
@@ -119,6 +124,16 @@ export default function RootLayout({
         </footer>
         <ScrollRevealManager />
         <Analytics />
+        <Script
+          src="https://motionmade-fastapi.onrender.com/widget.js"
+          data-tenant="muassis"
+          data-name="Muassis"
+          data-phone="0438744870"
+          data-color="#2563EB"
+          data-mode="float"
+          data-api="https://motionmade-fastapi.onrender.com"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
