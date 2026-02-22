@@ -11,6 +11,7 @@ import { ScrollRevealManager } from '@/components/ScrollRevealManager';
 import { createRootMetadata, organizationSchema, websiteSchema } from '@/lib/seo';
 
 export const metadata: Metadata = createRootMetadata();
+const GOOGLE_ANALYTICS_ID = 'G-8NRWVGL695';
 
 export default function RootLayout({
   children
@@ -26,6 +27,18 @@ export default function RootLayout({
         <link rel="preconnect" href="https://tally.so" crossOrigin="anonymous" />
       </head>
       <body>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GOOGLE_ANALYTICS_ID}');
+          `}
+        </Script>
         <Script
           id="organization-schema"
           type="application/ld+json"
